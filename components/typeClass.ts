@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // primitives
 const firstname: string = "John Doe";
@@ -347,3 +347,24 @@ function handleApiResponse<T>(response: ApiResponse<T>) {
 // Exporting the components
 export { ProfileCard };
 export { Button };
+
+
+useEffect(() => {
+    console.log("Component mounted");
+},[]);
+/*
+Next major concepts:
+
+useEffect typing
+useRef typing
+Context API typing
+Custom hooks typing
+Generic React components
+Utility types
+Partial / Pick / Omit
+Record type
+Discriminated unions
+Zod validation
+Form typing
+React Query typing
+*/ 
