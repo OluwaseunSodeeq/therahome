@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 // primitives
 const firstname: string = "John Doe";
@@ -240,11 +240,11 @@ if (
 }
 
 //   Typing Props
-type ComponentProps={
-    children: React.ReactNode;
-}
+type ComponentProps = {
+  children: React.ReactNode;
+};
 
-export function TopLevelDiv({children}:ComponentProps) {
+export function TopLevelDiv({ children }: ComponentProps) {
   // Typing State
   const [count, setCount] = useState<number>(0);
   const [users, setUsers] = useState<UserCardProps[]>([]);
@@ -254,117 +254,121 @@ export function TopLevelDiv({children}:ComponentProps) {
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     setCurrUser(user);
     setUsers((prevUsers) => [...prevUsers, user]);
-    setCount((prevCount) => e.target.value.length + 1);
+    setCount(() => e.target.value.length + 1);
   }
-  console.log(handleInputChange({ target: { value: "Hello" } } as React.ChangeEvent<HTMLInputElement>));
-  console.log(count, users, currUser);
+  console.log(count, users, currUser, handleInputChange);
 
-
-
-
-// Generic Type
-function wrapInArray<T>(arg:T):T[]{
+  // Generic Type
+  function wrapInArray<T>(arg: T): T[] {
     return [arg];
+  }
+  console.log(wrapInArray<string>("Hello"));
+  console.log(wrapInArray<number>(123));
+
+  return React.createElement(
+    "div",
+    null,
+    `Count: ${count}, User: ${currUser?.name || "No user selected"}`,
+    children,
+  );
+  // <div>
+  //   <h1>Count: {count}</h1>
+  //   <h1>User: {currUser?.name || "No user selected"}</h1>
+  //   <Button label="Add User" variant="primary" onClick={() => handleInputChange({ name: "Alice", age: 30, isAdmin: false })} />
+  // </div>
+  //   )
 }
-console.log(wrapInArray<string>("Hello")); 
-console.log(wrapInArray<number>(123));
 
-  return(
-    <div>
-      <h1>Count: {count}</h1>
-      <h1>User: {currUser?.name || "No user selected"}</h1>
-      <Button label="Add User" variant="primary" onClick={() => handleInputChange({ name: "Alice", age: 30, isAdmin: false })} />
-    </div>  
-  )
-}
+type Post = {
+  id: number;
+  title: string;
+  content: string;
+};
 
-type Post={
-    id: number;
-    title: string;
-    content: string;
-}
-
-
-async function fetchUserData():Promise<Post []>{
-    const response = await fetch("/api/products");
+async function fetchUserData(): Promise<Post[]> {
+  const response = await fetch("/api/products");
   const data: Post[] = await response.json();
   return data;
-//     return new Promise((resolve) => {
-//         setTimeout(() => {
-//             resolve({ name: "Alice", age: 30, isAdmin: false });
-//         }, 1000);           
-// }
+  //     return new Promise((resolve) => {
+  //         setTimeout(() => {
+  //             resolve({ name: "Alice", age: 30, isAdmin: false });
+  //         }, 1000);
+  // }
 }
+
+console.log(fetchUserData());
 type Post1 = {
-    id:number;
-    title:string;
-   content:string;
-}
+  id: number;
+  title: string;
+  content: string;
+};
 
-
-type ApiResponse <T> = {
-    data: T;
-    success: boolean;
-    error: string | null;
-}
+type ApiResponse<T> = {
+  data: T;
+  success: boolean;
+  error: string | null;
+};
 
 // type UserResponse = ApiResponse<UserCardProps>;
 
 // type PostResponse = ApiResponse<Post[]>;
 
-function apiResponseHandler<T>(response: ApiResponse<T>)  {
-    if (response.success) {
-        return response.data;
-    }
-    throw new Error(response.error || "An unknown error occurred");
+function apiResponseHandler<T>(response: ApiResponse<T>) {
+  if (response.success) {
+    return response.data;
+  }
+  throw new Error(response.error || "An unknown error occurred");
 }
+console.log(
+  apiResponseHandler<Post1[]>({
+    data: [{ id: 1, title: "Post 1", content: "Content of post 1" }],
+    success: true,
+    error: null,
+  }),
+);
 
-const fetchPosts = async(): Promise<Post1[]> => {
-    try {
-        const response = await fetch("/api/posts");
-        const data: Post1[] = await response.json();
-        return data;
-    } catch (error) {
-        console.error("Error fetching posts:", error);
-        throw error;
-    }
+const fetchPosts = async (): Promise<Post1[]> => {
+  try {
+    const response = await fetch("/api/posts");
+    const data: Post1[] = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    throw error;
+  }
 };
+console.log(fetchPosts());
 
 function handleApiResponse<T>(response: ApiResponse<T>) {
-    try{
-        if (!response.success) {
-            throw new Error(response.error || "An unknown error occurred");
-        }
-
-        const data = response.data;
-        console.log("Data received:", data);
-        return data;
-    }catch(error){
-        console.error("Error fetching data:", error);
+  try {
+    if (!response.success) {
+      throw new Error(response.error || "An unknown error occurred");
     }
 
+    const data = response.data;
+    console.log("Data received:", data);
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
 }
+console.log(
+  handleApiResponse<Post1[]>({
+    data: [{ id: 1, title: "Post 1", content: "Content of post 1" }],
+    success: true,
+    error: null,
+  }),
+  handleApiResponse<UserCardProps>({
+    data: { name: "Alice", age: 30, isAdmin: false },
+    success: true,
+    error: null,
+  }),
+  handleApiResponse<Post1[]>({
+    data: [],
+    success: false,
+    error: "Failed to fetch posts",
+  }),
+);
 // Exporting the components
 export { ProfileCard };
 export { Button };
-
-
-useEffect(() => {
-    console.log("Component mounted");
-},[]);
-/*
-Next major concepts:
-
-useEffect typing
-useRef typing
-Context API typing
-Custom hooks typing
-Generic React components
-Utility types
-Partial / Pick / Omit
-Record type
-Discriminated unions
-Zod validation
-Form typing
-React Query typing
-*/ 
