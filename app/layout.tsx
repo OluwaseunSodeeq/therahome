@@ -16,8 +16,8 @@ export default function Layout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body
-        suppressHydrationWarning
-        cz-shortcut-listen="true"
+        // suppressHydrationWarning
+        // cz-shortcut-listen="true"
         className="h-auto bg-main-bg relative"
       >
         <MenuContextProvider>

@@ -11,13 +11,17 @@
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1440px;
 
-  --color-primary-background: #ffffff;
+  --color-white: #ffffff;
   --color-black: #000000;
-  --color-greeny: #2d4a2d;
+  --color-neutral: #525252;
+  --color-primary-green: #2d4a2d;
+  --color-secondary-green: #1a2e1a;
 
   --font-geo: Georgia, serif;
   --font-sego: "Segoe UI", sans-serif;
 }
+
+/* ?==================================== */
 /* @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

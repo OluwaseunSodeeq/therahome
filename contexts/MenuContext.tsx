@@ -12,7 +12,7 @@ export function MenuContextProvider({ children }: MenuContextProviderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setMenuOpen((prev) => !prev);
   };
 
   return (
