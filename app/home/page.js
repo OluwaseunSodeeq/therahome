@@ -1,8 +1,14 @@
+import HomeHero from "../components/HomeHero";
+import HomeServiceSection from "../components/HomeServiceSection";
+import HowItWorks from "../components/HowItWorks";
+import HomePricing from "../components/HomePricing";
 export default function Page() {
   return (
-    <div className="pt-17.5 pb-3.5 bg-primary-background">
-      <h1>Welcome to the Home Page</h1>
-      <p>This is the main content of the home page.</p>
+    <div>
+      <HomeHero />
+      <HomeServiceSection />
+      <HowItWorks />
+      <HomePricing />
     </div>
   );
 }

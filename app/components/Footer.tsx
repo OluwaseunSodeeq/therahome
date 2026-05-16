@@ -7,11 +7,11 @@ export default function Footer() {
   const [email, setEmail] = useState<string>("");
 
   return (
-    <footer className="fixed border-2 bottom-0 font-sego bg-white  px-6 pt-16">
+    <footer className="relative border-2 bottom-0 font-ego bg-white  px-12 pt-16 ">
       {/* <div className="max-w-7xl mx-auto"> */}
       <div className="w-full mx-auto">
         {/* TOP GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-10 pb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 pb-12 border-2">
           {/* BRAND */}
           <div>
             <Logo />
@@ -97,7 +97,9 @@ export default function Footer() {
             <div className="space-y-4">
               {contactInfo.map((contact, index) => (
                 <div key={index} className="flex gap-3 items-start">
-                  <span className="text-sm shrink-0">{contact.icon}</span>
+                  <span className="text-sm shrink-0 text-primary-green">
+                    {contact.icon}
+                  </span>
 
                   <span className="text-sm text-secondary-green hover:text-primary-green leading-6">
                     {contact.text}
@@ -137,6 +139,7 @@ export default function Footer() {
                 className="
                   bg-[#6b8c3e]
                   px-4
+                  outline-primary-green
                   transition-colors duration-200
                   hover:bg-[#557332]
                 "

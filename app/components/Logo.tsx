@@ -5,12 +5,13 @@ export default function Logo() {
   return (
     <Link href="/" className="flex items-center gap-1">
       <Image
-        src="/logo.png"
+        src="/current-logo.svg"
         alt="TheraHome"
-        width={50}
-        height={120}
+        width={0}
+        height={0}
+        sizes="100vw"
         priority
-        className="w-20 md:w-24 h-auto object-cover border-2"
+        className="w-16 md:w-20 h-auto shrink-0"
       />
 
       <div className="font-geo leading-tight">
