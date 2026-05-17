@@ -1,5 +1,5 @@
 "use client";
-import { navLinks, services, contactInfo } from "../data";
+import { navLinks, hmservices, contactInfo } from "../data";
 import { useState } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
@@ -70,7 +70,7 @@ export default function Footer() {
             </h3>
 
             <div className="space-y-3">
-              {services.map((service) => (
+              {hmservices.map((service) => (
                 <Link
                   key={service}
                   href="#"

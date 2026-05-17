@@ -29,9 +29,19 @@ export type Product = {
   img: string;
 };
 
-export type testimonial = {
+export type Testimonial = {
   id: number;
   name: string;
   text: string;
   stars: number;
 };
+
+export interface Service {
+  id: number;
+  name: string;
+  desc: string;
+  img: string;
+  icon: string;
+  duration: string;
+  price: string;
+}

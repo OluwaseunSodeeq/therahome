@@ -1,6 +1,7 @@
 import {
   BookingPrice,
   Product,
+  Service,
   Step,
   Testimonial,
   TransportZone,
@@ -16,7 +17,7 @@ export const navLinks = [
   { name: "Contact", href: "/contact" },
 ];
 
-export const services = [
+export const hmservices = [
   "Deep Tissue Massage",
   "Swedish Massage",
   "Hot Stone Massage",
@@ -28,37 +29,42 @@ export const services = [
 
 export const serviceCards = [
   {
+    id: 1,
     img: "/service-img.png",
     icon: "🫧",
     name: "Deep Tissue Massage",
     desc: "Release deep-seated tension and restore balance to your body.",
   },
   {
+    id: 2,
     img: "/service-img.png",
     icon: "🌿",
     name: "Swedish Massage",
     desc: "Gentle, flowing strokes to calm your mind and ease stress.",
   },
   {
+    id: 3,
     img: "/service-img.png",
     icon: "🔥",
     name: "Hot Stone Massage",
     desc: "Warm stones melt away tension and bring deep relaxation.",
   },
   {
+    id: 4,
     img: "/service-img.png",
     icon: "🦶",
     name: "Reflexology",
     desc: "Stimulate pressure points to improve circulation and overall wellness.",
   },
   {
+    id: 5,
     img: "/service-img.png",
     icon: "💆",
     name: "Full Body Relaxation",
     desc: "A complete relaxation experience for body, mind and soul.",
   },
   // {
-  //   img: "/service-img.png",
+  //   id:1,img: "/service-img.png",
   //   icon: "🌱",
   //   name: "Herbal Therapy (with Poultice)",
   //   desc: "Natural herbs to detoxify, ease pain and restore energy flow.",
@@ -251,4 +257,67 @@ export const bannerFeatures: string[] = [
   "🔒 Secure Booking",
   "👩‍⚕️ Professional Therapists",
   "✅ Satisfaction Guaranteed",
+];
+
+// SERVICES PAGE
+export const services: readonly Service[] = [
+  {
+    id: 1,
+    name: "Deep Tissue Massage",
+    desc: "Relieve muscle tension and chronic stress with targeted pressure therapy.",
+    img: "/service-img.png",
+    icon: "💆",
+    duration: "60 mins",
+    price: "₦35,000",
+  },
+
+  {
+    id: 2,
+    name: "Swedish Massage",
+    desc: "A relaxing full-body massage designed to improve circulation and calm the mind.",
+    img: "/service-img.png",
+    icon: "🌿",
+    duration: "60 mins",
+    price: "₦30,000",
+  },
+
+  {
+    id: 3,
+    name: "Hot Stone Therapy",
+    desc: "Warm stones combined with massage techniques for deep relaxation.",
+    img: "/service-img.png",
+    icon: "🔥",
+    duration: "75 mins",
+    price: "₦40,000",
+  },
+
+  {
+    id: 4,
+    name: "Aromatherapy",
+    desc: "Essential oils blended with massage for stress relief and relaxation.",
+    img: "/service-img.png",
+    icon: "🌸",
+    duration: "60 mins",
+    price: "₦32,000",
+  },
+
+  {
+    id: 5,
+    name: "Couples Massage",
+    desc: "Enjoy a luxury wellness experience together with your partner.",
+    img: "/service-img.png",
+    icon: "❤️",
+    duration: "90 mins",
+    price: "₦65,000",
+  },
+
+  // {
+  //   id: 6,
+  //   name: "Reflexology",
+  //   desc: "Pressure-point foot therapy that promotes total body wellness.",
+  //   img: "/service-img.png",
+  //   icon: "🦶",
+  //   duration: "45 mins",
+  //   price: "₦25,000",
+  // },
 ];

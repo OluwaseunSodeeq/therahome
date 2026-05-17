@@ -1,7 +1,14 @@
+import HeroService from "../components/HeroService";
+import Services from "../components/Services";
+import PricingSection, { CTABanner } from "../components/Test";
+
 export default function Page() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <h1 className="text-4xl font-bold">Welcome to Services page!</h1>
+    <div className="">
+      <HeroService />
+      <Services />
+      <PricingSection />
+      <CTABanner />
     </div>
   );
 }
