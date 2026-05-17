@@ -49,7 +49,7 @@ export default function HomeHero() {
   }, []);
 
   return (
-    <section className="pt-17.5 bg-linear-to-r from-hero-img via-hero-img/85 to-transparent overflow-hidden relative">
+    <section className="pt-17.5 bg-linear-to-r from-hero-img via-hero-img/85 to-transparent overflow-hidden relative ">
       {/* HERO CONTENT */}
       <div
         className="
@@ -62,7 +62,7 @@ export default function HomeHero() {
         {/* LEFT SIDE */}
         <div
           className={`
-            px-6 md:px-10 py-10 md:py-16
+            pl-6 md:pl-10 py-10 md:py-16 
             transition-all duration-700
             ${
               loaded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
@@ -188,6 +188,7 @@ export default function HomeHero() {
           className={`
             relative
             min-h-80 md:min-h-130
+            pr-6 md:pr-12
             h-full
             transition-all duration-700 delay-200
             ${loaded ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}

@@ -4,7 +4,7 @@ import { steps } from "../data";
 
 export default function HowItWorks() {
   return (
-    <section className="bg-hero-bg py-20 px-12 font-geo">
+    <section className="bg-hero-bg py-20 px-6 md:px-12 font-geo">
       <div
         className="
           max-w-7xl

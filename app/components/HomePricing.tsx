@@ -5,7 +5,7 @@ import TransportZoneCard from "./TransportZoneCard";
 
 export default function Homepricing() {
   return (
-    <section className="bg-white py-20 px-12 font-geo">
+    <section className="bg-white py-20 px-6 md:px-12 font-geo">
       <div className="max-w-7xl mx-auto">
         {/* HEADER */}
         <Reveal>

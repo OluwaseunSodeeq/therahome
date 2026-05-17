@@ -7,11 +7,11 @@ export default function Footer() {
   const [email, setEmail] = useState<string>("");
 
   return (
-    <footer className="relative border-2 bottom-0 font-ego bg-white  px-12 pt-16 ">
+    <footer className="relative bottom-0 font-ego bg-white  px-6 md:px-12 pt-16 ">
       {/* <div className="max-w-7xl mx-auto"> */}
       <div className="w-full mx-auto">
         {/* TOP GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 pb-12 border-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 pb-12">
           {/* BRAND */}
           <div>
             <Logo />

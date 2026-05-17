@@ -1,4 +1,11 @@
-import { BookingPrice, Step, TransportZone } from "@/types/defaultType";
+import {
+  BookingPrice,
+  Product,
+  Step,
+  Testimonial,
+  TransportZone,
+  WhyChooseUsItem,
+} from "@/types/defaultType";
 import { Clock, Mail, MapPin, Phone, Smartphone } from "lucide-react";
 
 export const navLinks = [
@@ -121,4 +128,127 @@ export const transportZones: TransportZone[] = [
     area: "Lekki, Victoria Island, Ikoyi",
     fee: "+₦12K – ₦15K",
   },
+];
+
+export const whyChooseUsItems: WhyChooseUsItem[] = [
+  {
+    id: 1,
+    text: "Mobile spa convenience",
+  },
+
+  {
+    id: 2,
+    text: "Discreet & reliable service",
+  },
+
+  {
+    id: 3,
+    text: "High-quality oils & products",
+  },
+
+  {
+    id: 4,
+    text: "Tailored to your needs",
+  },
+
+  {
+    id: 5,
+    text: "Hygienic & professional setup",
+  },
+
+  {
+    id: 6,
+    text: "Your comfort is our priority",
+  },
+];
+
+export const products: Product[] = [
+  {
+    id: 1,
+    name: "Essential Massage Oil",
+    price: "₦15,000",
+    img: "/product1.png",
+  },
+
+  {
+    id: 2,
+    name: "Aromatherapy Candle",
+    price: "₦12,000",
+    img: "/product2.png",
+  },
+
+  {
+    id: 3,
+    name: "Relaxation Kit",
+    price: "₦25,000",
+    img: "/product4.png",
+  },
+
+  {
+    id: 4,
+    name: "Herbal Therapy Set",
+    price: "₦18,000",
+    img: "/product5.png",
+  },
+];
+export const testimonials: Testimonial[] = [
+  {
+    id: 1,
+    name: "Oluwatoyin Sarah",
+    text: "Absolutely amazing experience. I felt completely relaxed.",
+    stars: 5,
+  },
+
+  {
+    id: 2,
+    name: "David Smith",
+    text: "Professional therapists and exceptional service.",
+    stars: 5,
+  },
+
+  {
+    id: 3,
+    name: "Amaka Grace",
+    text: "The convenience of home wellness is unmatched.",
+    stars: 5,
+  },
+
+  {
+    id: 4,
+    name: "Ntingso Macaulay",
+    text: "Highly recommend TheraHome to anyone.",
+    stars: 5,
+  },
+  // {
+  //   id: 5,
+  //   name: "Malik Muhammed",
+  //   text: "Absolutely amazing experience. I felt completely relaxed.",
+  //   stars: 5,
+  // },
+
+  // {
+  //   id: 6,
+  //   name: "Bello Fadekemi",
+  //   text: "Professional therapists and exceptional service.",
+  //   stars: 5,
+  // },
+
+  // {
+  //   id: 7,
+  //   name: "Oluwaseun Soddeq",
+  //   text: "The convenience of home wellness is unmatched.",
+  //   stars: 5,
+  // },
+
+  // {
+  //   id: 8,
+  //   name: "David Adeleke",
+  //   text: "Highly recommend TheraHome to anyone.",
+  //   stars: 5,
+  // },
+];
+export const bannerFeatures: string[] = [
+  "🔒 Secure Booking",
+  "👩‍⚕️ Professional Therapists",
+  "✅ Satisfaction Guaranteed",
 ];
