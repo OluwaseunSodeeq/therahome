@@ -138,6 +138,7 @@ export function CTABanner() {
 // =========================
 import Reveal from "../Animations/Reveal";
 import { transportZones } from "../data";
+import PricingBoard from "./PricingBoard";
 
 const minimumBookings = [
   {
@@ -174,8 +175,43 @@ export default function PricingSection() {
         </Reveal>
 
         {/* MAIN PRICING CARD */}
-        <Reveal delay={0.1}>
+        <ServiceReveal delay={0.1}>
+          <PricingBoard text="Applies to all services and locations" />
+        </ServiceReveal>
+
+        {/* FOOTNOTE */}
+        <ServiceReveal delay={0.2}>
           <div
+            className="
+              mt-5
+              flex
+              items-center
+              justify-center
+              gap-2
+              rounded-xl
+              border
+              border-stone-200
+              bg-amber-50/40
+              px-6
+              py-3
+            "
+          >
+            <span className="text-sm text-amber-600">ℹ️</span>
+
+            <span className="text-sm text-stone-500">
+              Final pricing is confirmed after your booking based on your exact
+              location.
+            </span>
+          </div>
+        </ServiceReveal>
+      </div>
+    </section>
+  );
+}
+{
+  /* 
+
+       <div
             className="
               grid
               overflow-hidden
@@ -185,7 +221,7 @@ export default function PricingSection() {
               lg:grid-cols-[340px_1fr]
             "
           >
-            {/* LEFT PANEL */}
+            
             <div
               className="
                 border-b
@@ -239,7 +275,6 @@ export default function PricingSection() {
               </div>
             </div>
 
-            {/* RIGHT PANEL */}
             <div className="p-10">
               <div
                 className="
@@ -288,35 +323,6 @@ export default function PricingSection() {
                 ))}
               </div>
             </div>
-          </div>
-        </Reveal>
-
-        {/* FOOTNOTE */}
-        <Reveal delay={0.2}>
-          <div
-            className="
-              mt-5
-              flex
-              items-center
-              justify-center
-              gap-2
-              rounded-xl
-              border
-              border-stone-200
-              bg-amber-50/40
-              px-6
-              py-3
-            "
-          >
-            <span className="text-sm text-amber-600">ℹ️</span>
-
-            <span className="text-sm text-stone-500">
-              Final pricing is confirmed after your booking based on your exact
-              location.
-            </span>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
+          </div> 
+*/
 }
