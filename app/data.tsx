@@ -2,12 +2,23 @@ import {
   BookingPrice,
   Product,
   Service,
+  ShopProduct,
   Step,
   Testimonial,
   TransportZone,
+  TrustItem,
   WhyChooseUsItem,
 } from "@/types/defaultType";
 import { Clock, Mail, MapPin, Phone, Smartphone } from "lucide-react";
+import {
+  Leaf,
+  ShieldCheck,
+  BadgeCheck,
+  Gift,
+  Truck,
+  Headphones,
+} from "lucide-react";
+import {} from "lucide-react";
 
 export const navLinks = [
   { name: "Home", href: "/home" },
@@ -320,4 +331,110 @@ export const services: readonly Service[] = [
   //   duration: "45 mins",
   //   price: "₦25,000",
   // },
+];
+
+export const shopProducts: ShopProduct[] = [
+  {
+    id: 1,
+    name: "Relaxation Massage Oil",
+    desc: "A calming blend of essential oils designed to ease tension and promote deep relaxation.",
+    price: "₦18,000",
+    img: "/product1.png",
+  },
+  {
+    id: 2,
+    name: "Aromatherapy Candle",
+    desc: "Hand-poured wellness candle infused with lavender and eucalyptus for a soothing atmosphere.",
+    price: "₦12,500",
+    img: "/product2.png",
+  },
+  {
+    id: 3,
+    name: "Body Scrub Polish",
+    desc: "Gentle exfoliating scrub that leaves your skin soft, refreshed and glowing.",
+    price: "₦15,000",
+    img: "/product5.png",
+  },
+  {
+    id: 4,
+    name: "Herbal Bath Salts",
+    desc: "Mineral-rich bath salts crafted to relax muscles and restore your body after a long day.",
+    price: "₦10,000",
+    img: "/product4.png",
+  },
+  {
+    id: 5,
+    name: "Hydrating Body Butter",
+    desc: "Deeply nourishing body butter made with shea butter and natural plant extracts.",
+    price: "₦14,500",
+    img: "/product1.png",
+  },
+  {
+    id: 6,
+    name: "Facial Glow Serum",
+    desc: "Lightweight facial serum formulated to hydrate and brighten your skin naturally.",
+    price: "₦22,000",
+    img: "/product.png",
+  },
+];
+
+export const trustItems: TrustItem[] = [
+  {
+    icon: Leaf,
+    title: "Natural Ingredients",
+    description: "Made with high-quality natural ingredients",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Safe & Effective",
+    description: "Dermatologically tested and safe for all skin types",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Premium Quality",
+    description: "Professional-grade products for real results.",
+  },
+  {
+    icon: Gift,
+    title: "Perfect for Gifting",
+    description: "Beautifully packaged for your loved ones.",
+  },
+
+  // {
+  //   icon: "🚚",
+  //   title: "Fast Delivery",
+  //   desc: "Quick and reliable delivery straight to your doorstep.",
+  // },
+  // {
+  //   icon: "🌿",
+  //   title: "Premium Quality",
+  //   desc: "Only carefully selected wellness products and ingredients.",
+  // },
+  // {
+  //   icon: "🔒",
+  //   title: "Secure Payments",
+  //   desc: "Safe and protected payment experience for every order.",
+  // },
+  // {
+  //   icon: "💚",
+  //   title: "Trusted Wellness",
+  //   desc: "Loved by clients who value comfort, care and relaxation.",
+  // },
+];
+export const bannerShopItems: TrustItem[] = [
+  {
+    icon: Truck,
+    title: "Fast Delivery",
+    description: "Across Lagos",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Secure Payment",
+    description: "100% Safe Checkout",
+  },
+  {
+    icon: Headphones,
+    title: "Customer Support",
+    description: "We're here to help",
+  },
 ];

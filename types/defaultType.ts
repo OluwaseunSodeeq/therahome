@@ -1,3 +1,5 @@
+import { LucideIcon } from "lucide-react";
+
 export type Step = {
   num: number;
   icon: string;
@@ -44,4 +46,18 @@ export interface Service {
   icon: string;
   duration: string;
   price: string;
+}
+
+export interface ShopProduct {
+  id: number;
+  name: string;
+  desc: string;
+  price: string;
+  img: string;
+}
+
+export interface TrustItem {
+  icon: LucideIcon;
+  title: string;
+  description: string;
 }
