@@ -46,7 +46,7 @@ export default function AboutHero() {
   });
 
   return (
-    <section className="hero-section relative mt-17 overflow-hidden min-h-122">
+    <section className="hero-section relative mt-17 overflow-hidden min-h-122 font-geo">
       {/* Background image */}
       <div className="relative min-h-122 max-h-125 w-full">
         <Image
@@ -55,7 +55,7 @@ export default function AboutHero() {
           fill
           priority
           sizes="100vw"
-          className="hero-img object-cover object-[center_65%]"
+          className="hero-img object-cover object-[center_40%]"
         />
       </div>
 
@@ -101,7 +101,7 @@ export default function AboutHero() {
                 font-bold
                 uppercase
                 tracking-[0.13em]
-                             text-primary-light
+                text-primary-light
 
               "
           >

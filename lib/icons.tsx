@@ -1,4 +1,5 @@
 // app/components/icons.tsx
+import { Leaf } from "lucide-react";
 import { SVGProps } from "react";
 
 /* ─────────────────────────────────────────────
@@ -143,10 +144,11 @@ export const CalendarIcon = (props: IconProps) => (
    This recreates your old Icons object
    but now fully typed.
 ───────────────────────────────────────────── */
-
+export const myleaf = <Leaf />;
 export const Icons = {
   user: UserIcon,
   leaf: LeafIcon,
+  myleaf: myleaf,
   award: AwardIcon,
   home: HomeIcon,
   heart: HeartIcon,
