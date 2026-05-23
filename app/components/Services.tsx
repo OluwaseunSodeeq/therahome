@@ -1,5 +1,6 @@
 import ServiceReveal from "../Animations/ServiceReveal";
 import { services } from "../data";
+import HeadingLeave from "./HeadingLeave";
 import { ServiceCardDesktop } from "./ServiceCard";
 
 export default function Services() {
@@ -22,13 +23,7 @@ export default function Services() {
               Our Signature Services
             </h2>
 
-            <div className="flex items-center justify-center gap-2">
-              <div className="h-px w-7 bg-stone-300" />
-
-              <span className="text-lg text-primary-green">🌿</span>
-
-              <div className="h-px w-7 bg-stone-300" />
-            </div>
+            <HeadingLeave />
           </div>
         </ServiceReveal>
 

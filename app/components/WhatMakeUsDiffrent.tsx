@@ -1,10 +1,7 @@
 "use client";
-// import { Icons } from "@/lib/icons";
-// import { ComponentType, ReactNode, SVGProps } from "react";
-import { ReactNode } from "react";
+
 import Reveal from "../Animations/Reveal";
 import { Heart, Home, Leaf, LucideIcon, User } from "lucide-react";
-// type IconType = ComponentType<SVGProps<SVGSVGElement>>;
 
 export interface DiffItem {
   Icon: LucideIcon;

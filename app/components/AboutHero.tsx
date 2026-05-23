@@ -2,30 +2,24 @@
 
 import { CSSProperties, useEffect, useState } from "react";
 import Image from "next/image";
-// import DirectionReveal from "../Animations/DirectionReveal";
-import { ComponentType, SVGProps } from "react";
-import { Icons } from "@/lib/icons";
-
-// import { Icons, IconType } from "@/lib/icons";
-
-type IconType = ComponentType<SVGProps<SVGSVGElement>>;
+import { ShieldCheck, Leaf, LucideIcon, User } from "lucide-react";
 
 export interface HeroBullet {
-  Icon: IconType;
+  Icon: LucideIcon;
   text: string;
 }
 
 export const HERO_BULLETS: HeroBullet[] = [
   {
-    Icon: Icons.user,
+    Icon: User,
     text: "Professional Therapists",
   },
   {
-    Icon: Icons.leaf,
+    Icon: Leaf,
     text: "Premium & Natural Products",
   },
   {
-    Icon: Icons.award,
+    Icon: ShieldCheck,
     text: "Trusted by Clients Across Lagos",
   },
 ];
@@ -163,7 +157,7 @@ export default function AboutHero() {
                       bg-[#f3efe7]
                     "
                 >
-                  <Icon width={16} height={16} className="text-primary-green" />
+                  <Icon className="text-primary-green" />
                 </div>
 
                 <span
