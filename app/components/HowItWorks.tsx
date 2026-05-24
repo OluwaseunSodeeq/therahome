@@ -11,14 +11,14 @@ export default function HowItWorks() {
           mx-auto
           grid
           grid-cols-1
-          md:grid-cols-[1fr_2fr]
+          lg:grid-cols-[1fr_2fr]
           gap-14
           items-center
         "
       >
         {/* LEFT CONTENT */}
         <Reveal>
-          <div>
+          <div className="flex flex-col items-center lg:items-start">
             <p
               className="
                 text-xs
@@ -45,10 +45,11 @@ export default function HowItWorks() {
               Relaxation in
               <br />3 Simple Steps
             </h2>
-
-            <div className="w-12 h-0.5 bg-lime-700 mb-3" />
-
-            <div className="text-xl">🌿</div>
+            <div className="flex gap-4">
+              <div className="w-12 h-0.5 bg-lime-700 mb-3" />
+              <div className="text-xl -mt-4">🌿</div>
+              <div className="w-12 h-0.5 bg-lime-700 mb-3" />
+            </div>
           </div>
         </Reveal>
 

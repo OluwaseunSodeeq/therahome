@@ -17,30 +17,33 @@ export default function HeroService() {
   return (
     <section
       className="
-        relative
-        mt-17
-        min-h-85
-        overflow-hidden
+        // relative
+        // mt-17
+        // min-h-85
+        // overflow-hidden
+        // bg-hero-img
+        w-full mx-auto relative mt-17 overflow-hidden min-h-90 bg-hero-img font-geo
       "
     >
-      {/* Background Image */}
-      <div className="absolute inset-0">
-        <Image
-          src="/hero1.png"
-          alt="Premium Wellness"
-          fill
-          priority
-          className="
+      <div className=" relative max-w-[1440px] mx-auto z-20">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/hero1.png"
+            alt="Premium Wellness"
+            fill
+            priority
+            className="
             object-cover
             object-center
             md:object-[center_20%]
           "
-        />
-      </div>
+          />
+        </div>
 
-      {/* Gradient Overlay */}
-      <div
-        className="
+        {/* Gradient Overlay */}
+        <div
+          className="
           absolute
           inset-0
           bg-linear-to-r
@@ -48,11 +51,11 @@ export default function HeroService() {
           via-[#0f190a80]
           to-transparent
         "
-      />
+        />
 
-      {/* Content */}
-      <div
-        className="
+        {/* Content */}
+        <div
+          className="
           relative
           z-10
           flex
@@ -61,37 +64,37 @@ export default function HeroService() {
           flex-col
           justify-center
           px-6
-          py-10
-          sm:px-8
-          md:px-14
+          py-8 md:px-8
+          xl:px-12
+          xl:py-11
         "
-      >
-        {/* Badge */}
-        <div
-          className={`
+        >
+          {/* Badge */}
+          <div
+            className={`
             mb-4 flex items-center gap-2
             transition-all duration-700 delay-100
             ${loaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}
           `}
-        >
-          <span className="text-[13px] text-[#a8c47a]">🌿</span>
+          >
+            <span className="text-[13px] text-[#a8c47a]">🌿</span>
 
-          <span
-            className="
+            <span
+              className="
               text-[11px]
               font-bold
               uppercase
               tracking-[0.12em]
               text-[#a8c47a]
             "
-          >
-            Our Services
-          </span>
-        </div>
+            >
+              Our Services
+            </span>
+          </div>
 
-        {/* Heading */}
-        <h1
-          className={`
+          {/* Heading */}
+          <h1
+            className={`
             mb-5
             font-serif
             text-[clamp(32px,5vw,58px)]
@@ -103,15 +106,15 @@ export default function HeroService() {
             delay-200
             ${loaded ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}
           `}
-        >
-          Premium Wellness,
-          <br />
-          <span className="text-[#a8c47a]">Tailored for You</span>
-        </h1>
+          >
+            Premium Wellness,
+            <br />
+            <span className="text-[#a8c47a]">Tailored for You</span>
+          </h1>
 
-        {/* Description */}
-        <p
-          className={`
+          {/* Description */}
+          <p
+            className={`
             max-w-90
             text-[clamp(13px,1.8vw,16px)]
             leading-[1.75]
@@ -121,10 +124,11 @@ export default function HeroService() {
             delay-300
             ${loaded ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}
           `}
-        >
-          From deep tissue to full body relaxation, our professional therapists
-          bring the spa experience to you.
-        </p>
+          >
+            From deep tissue to full body relaxation, our professional
+            therapists bring the spa experience to you.
+          </p>
+        </div>
       </div>
     </section>
   );

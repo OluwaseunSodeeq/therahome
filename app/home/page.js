@@ -6,10 +6,12 @@ import HomeWhyChooseUs from "../components/HomeWhyChooseUs";
 import HomeProduct from "../components/HomeProduct";
 import HmTestimonials from "../components/HmTestimonials";
 import HmBanner from "../components/HmBanner";
+import HmTrustBar from "../components/HmTrustBar";
 export default function Page() {
   return (
-    <div>
+    <div className="relative z-10">
       <HomeHero />
+      <HmTrustBar />
       <HomeServiceSection />
       <HowItWorks />
       <HomePricing />

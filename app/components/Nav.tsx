@@ -28,11 +28,11 @@ export default function Nav() {
           : "bg-white border-b border-neutral-200"
       }`}
     >
-      <div className="w-full pr-3.5 md:max-w-7xl mx-auto md:px-6 h-17 flex items-center justify-between ">
+      <div className="w-full pl-3 pr-4 md:max-w-7xl mx-auto md:px-6 h-17 flex items-center justify-between ">
         <Logo />
 
         {/* DESKTOP NAV */}
-        <div className="hidden md:flex items-center gap-8 font-geo">
+        <div className="hidden lg:flex items-center gap-8 font-geo">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
 
@@ -60,7 +60,7 @@ export default function Nav() {
           {/* BOOK BUTTON */}
           <button
             className="
-              hidden md:flex
+              hidden lg:flex
               items-center gap-2
               bg-primary-green
               hover:bg-secondary-green
@@ -80,14 +80,14 @@ export default function Nav() {
           {menuOpen ? (
             <button
               onClick={toggleMenu}
-              className="md:hidden text-xl text-black  "
+              className="lg:hidden text-xl text-black  "
             >
               X
             </button>
           ) : (
             <button
               onClick={toggleMenu}
-              className="md:hidden text-xl text-black "
+              className="lg:hidden text-xl text-black "
             >
               ☰
             </button>
@@ -97,7 +97,7 @@ export default function Nav() {
 
       {/* MOBILE MENU */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t">
+        <div className="lg:hidden bg-white border-t">
           <div className="px-6 py-4 flex flex-col gap-4">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;

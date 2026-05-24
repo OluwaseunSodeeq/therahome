@@ -10,6 +10,7 @@ export default function HmBanner() {
         relative
         overflow-hidden
         px-6
+        xl:px-12
         py-16
       "
     >

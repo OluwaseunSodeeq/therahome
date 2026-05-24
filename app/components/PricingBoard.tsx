@@ -14,7 +14,7 @@ export default function PricingBoard({ text }: PricingProps) {
                       border-stone-200
                       grid
                       grid-cols-1
-                      md:grid-cols-[1fr_2fr]
+                      lg:grid-cols-[1fr_2fr]
                     "
     >
       {/* LEFT SIDE */}

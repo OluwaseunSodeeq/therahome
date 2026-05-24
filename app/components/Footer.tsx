@@ -21,8 +21,7 @@ export default function Footer() {
   });
 
   return (
-    <footer className="relative bottom-0 font-ego bg-white  px-6 md:px-12 pt-16 ">
-      {/* <div className="max-w-7xl mx-auto"> */}
+    <footer className="relative bottom-0 font-ego bg-white pt-16 max-w-7xl mx-auto px-6  ">
       <div className="w-full mx-auto" style={anim(0.06)}>
         {/* TOP GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 pb-12">

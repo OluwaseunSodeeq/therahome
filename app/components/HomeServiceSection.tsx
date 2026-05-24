@@ -96,7 +96,7 @@ function ServiceCard({ service }: ServiceCardProps) {
 
 export default function HomeServiceSection() {
   return (
-    <section className="bg-white py-24 px-6 font-geo relative z-10">
+    <section className="bg-white pt-32 pb-24 px-6 font-geo relative z-10">
       <div className="max-w-7xl mx-auto">
         {/* HEADER */}
         <Reveal>
