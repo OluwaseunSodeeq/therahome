@@ -28,7 +28,7 @@ export default function Nav() {
           : "bg-white border-b border-neutral-200"
       }`}
     >
-      <div className="w-full pl-3 pr-4 md:max-w-7xl mx-auto md:px-6 h-17 flex items-center justify-between ">
+      <div className="w-full pl-3 pr-4 md:max-w-[1440px] mx-auto md:px-8 lg:px-12 h-17 flex items-center justify-between ">
         <Logo />
 
         {/* DESKTOP NAV */}
@@ -97,7 +97,7 @@ export default function Nav() {
 
       {/* MOBILE MENU */}
       {menuOpen && (
-        <div className="lg:hidden bg-white border-t">
+        <div className="lg:hidden bg-white border-t border-white">
           <div className="px-6 py-4 flex flex-col gap-4">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
@@ -107,12 +107,12 @@ export default function Nav() {
                   key={link.href}
                   href={link.href}
                   onClick={toggleMenu}
-                  className={`
-          text-sm transition-colors duration-200 hover:text-primary-green
+                  className={`py-2
+          pl-4 text-sm transition-colors duration-200 hover:text-primary-green
           ${
             isActive
-              ? "font-semibold border-l-2 border-primary-green text-primary-green"
-              : "text-neutral-600"
+              ? "font-bold border-l-4 border-primary-green text-primary-green bg-stone-50"
+              : "text-neutral-600 semibold"
           }
         `}
                 >

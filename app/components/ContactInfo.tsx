@@ -2,6 +2,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 import { FaWhatsapp } from "react-icons/fa";
 import HeadingLeave from "./HeadingLeave";
+import ServiceReveal from "../Animations/ServiceReveal";
 
 // import { LucideIcon } from "lucide-react";
 
@@ -59,44 +60,45 @@ const iconMap: Record<IconType, React.ElementType> = {
 export default function ContactInfo() {
   return (
     <div className="bg-[#faf8f4] pt-6 md:pt-8 ">
-      {/* heading */}
+      <ServiceReveal from="right">
+        {/* heading */}
 
-      <div className="text-center mb-4">
-        <h3
-          className="
+        <div className="text-center mb-4">
+          <h3
+            className="
           text-2xl
           font-bold
           text-black
           "
-        >
-          Contact Information
-        </h3>
-      </div>
-      <div>
-        <div
-          className="
+          >
+            Contact Information
+          </h3>
+        </div>
+        <div>
+          <div
+            className="
                 flex
                 items-center
                 justify-center
                 gap-2
                 "
-        >
-          <div className="w-6 h-[1px] bg-parchment" />
+          >
+            <div className="w-6 h-[1px] bg-parchment" />
 
-          <HeadingLeave />
+            <HeadingLeave />
 
-          <div className="w-6 h-[1px] bg-parchment" />
+            <div className="w-6 h-[1px] bg-parchment" />
+          </div>
         </div>
-      </div>
 
-      <div className="flex flex-col gap-4 ">
-        {CONTACT_INFO.map((contact, index) => {
-          const IconComp = iconMap[contact.icon];
+        <div className="flex flex-col gap-4 ">
+          {CONTACT_INFO.map((contact, index) => {
+            const IconComp = iconMap[contact.icon];
 
-          return (
-            <div
-              key={index}
-              className={`
+            return (
+              <div
+                key={index}
+                className={`
                 flex
                 gap-4
                 py-5
@@ -106,11 +108,11 @@ export default function ContactInfo() {
 
                 ${index !== CONTACT_INFO.length - 1 ? "" : ""}
                 `}
-            >
-              {/* icon */}
+              >
+                {/* icon */}
 
-              <div
-                className="
+                <div
+                  className="
                   w-11
                   h-11
                   rounded-full
@@ -122,55 +124,56 @@ export default function ContactInfo() {
                   justify-center
                   shrink-0
                   "
-              >
-                <IconComp
-                  size={18}
-                  className="
+                >
+                  <IconComp
+                    size={18}
+                    className="
                     text-primary-green
                     "
-                />
-              </div>
+                  />
+                </div>
 
-              {/* content */}
+                {/* content */}
 
-              <div className="flex-1">
-                <h4
-                  className="
+                <div className="flex-1">
+                  <h4
+                    className="
                     text-sm
                     font-bold
                     text-ink
                     mb-1
                     "
-                >
-                  {contact.label}
-                </h4>
+                  >
+                    {contact.label}
+                  </h4>
 
-                <p
-                  className="
+                  <p
+                    className="
                     text-sm
                     font-semibold
                     text-primary-green
                     mb-1
                     "
-                >
-                  {contact.value}
-                </p>
+                  >
+                    {contact.value}
+                  </p>
 
-                {contact.sub && (
-                  <p
-                    className="
+                  {contact.sub && (
+                    <p
+                      className="
                       text-xs
                       text-ghost
                       "
-                  >
-                    {contact.sub}
-                  </p>
-                )}
+                    >
+                      {contact.sub}
+                    </p>
+                  )}
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      </ServiceReveal>
     </div>
   );
 }

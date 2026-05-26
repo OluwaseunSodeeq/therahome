@@ -1,3 +1,4 @@
+import ServiceReveal from "../Animations/ServiceReveal";
 import HeadingLeave from "./HeadingLeave";
 import { ShieldCheck, House, Gem, CalendarDays } from "lucide-react";
 
@@ -74,42 +75,42 @@ export default function WhyLoveUs() {
   return (
     <div className="bg-[#faf8f4] pt-6 md:pt-8 ">
       {/* heading */}
-
-      <div className="text-center mb-4">
-        <h3
-          className="
+      <ServiceReveal from="left">
+        <div className="text-center mb-4">
+          <h3
+            className="
           text-2xl
           font-bold
           text-black
           "
-        >
-          Why Clients Love Us
-        </h3>
-      </div>
-      <div>
-        <div
-          className="
+          >
+            Why Clients Love Us
+          </h3>
+        </div>
+        <div>
+          <div
+            className="
           flex
           items-center
           justify-center
           gap-2
           "
-        >
-          <div className="w-6 h-[1px] bg-parchment" />
+          >
+            <div className="w-6 h-[1px] bg-parchment" />
 
-          <HeadingLeave />
+            <HeadingLeave />
 
-          <div className="w-6 h-[1px] bg-parchment" />
+            <div className="w-6 h-[1px] bg-parchment" />
+          </div>
         </div>
-      </div>
 
-      <div className="flex flex-col gap-6">
-        {WHY_LOVE.map((item, index) => {
-          const IconComp = iconMap[item.icon];
-          return (
-            <div
-              key={index}
-              className={`
+        <div className="flex flex-col gap-6">
+          {WHY_LOVE.map((item, index) => {
+            const IconComp = iconMap[item.icon];
+            return (
+              <div
+                key={index}
+                className={`
               flex
               items-start
               px-4 md:px-6
@@ -117,10 +118,10 @@ export default function WhyLoveUs() {
               pt-4 shadow-sm
               ${index !== WHY_LOVE.length - 1 ? "" : ""}
               `}
-            >
-              {/* icon */}
-              <div
-                className="
+              >
+                {/* icon */}
+                <div
+                  className="
                   w-11
                   h-11
                   rounded-full
@@ -132,15 +133,15 @@ export default function WhyLoveUs() {
                   justify-center
                   shrink-0
                   "
-              >
-                <IconComp
-                  size={18}
-                  className="
+                >
+                  <IconComp
+                    size={18}
+                    className="
                     text-primary-green
                     "
-                />
-              </div>
-              {/* <div
+                  />
+                </div>
+                {/* <div
                 className="
                 w-10
                 h-10
@@ -156,34 +157,35 @@ export default function WhyLoveUs() {
                 {item.icon}
               </div> */}
 
-              {/* text */}
+                {/* text */}
 
-              <div>
-                <h4
-                  className="
+                <div>
+                  <h4
+                    className="
                   text-sm
                   font-bold
                   text-ink
                   mb-1
                   "
-                >
-                  {item.title}
-                </h4>
+                  >
+                    {item.title}
+                  </h4>
 
-                <p
-                  className="
+                  <p
+                    className="
                   text-[13px]
                   text-mist
                   leading-6
                   "
-                >
-                  {item.desc}
-                </p>
+                  >
+                    {item.desc}
+                  </p>
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      </ServiceReveal>
     </div>
   );
 }

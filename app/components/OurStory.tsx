@@ -26,23 +26,31 @@ const STORY_STATS: StoryStat[] = [
   },
 ];
 
-/* ─────────────────────────────────────────────
-   SINGLE RESPONSIVE COMPONENT
-
-   Instead of:
-   - OurStoryDesktop
-   - OurStoryMobile
-
-   We use ONE responsive component with:
-   - Tailwind breakpoints
-   - responsive grid/flex classes
-
-   This is the professional Next.js approach.
-───────────────────────────────────────────── */
-
 export default function OurStory() {
   return (
     <section className="font-geo border-t border-[#e8e4da] bg-white px-5 py-14 md:px-7 md:py-20">
+      {/* Heading */}
+      <div className="block xl:hidden  text-center">
+        <h2
+          className="
+                  mb-3
+                  text-[28px]
+                  font-bold
+                  text-[#1a1a1a]
+                  md:text-[38px]
+                "
+        >
+          Our Story
+        </h2>
+
+        <div className="flex items-center justify-center gap-2 mb-6">
+          <div className="h-px w-7 bg-[#c5b99a]" />
+
+          <span className="text-base text-[#6b8c3e]">🌿</span>
+
+          <div className="h-px w-7 bg-[#c5b99a]" />
+        </div>
+      </div>
       <div
         className="
           mx-auto
@@ -64,6 +72,8 @@ export default function OurStory() {
               aspect-[4/3]
               w-full
               max-w-[460px]
+              md:max-w-[570px]
+              lg:max-w-[460px]
               overflow-hidden
               rounded-2xl
               shadow-[0_12px_40px_rgba(0,0,0,0.10)]
@@ -89,7 +99,7 @@ export default function OurStory() {
         <DirectionReveal delay={0.12}>
           <div className="mx-auto max-w-[560px] ">
             {/* Heading */}
-            <div className="mb-7 text-center">
+            <div className="hidden xl:block mb-7 text-center">
               <h2
                 className="
                   mb-3

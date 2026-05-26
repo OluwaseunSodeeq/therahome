@@ -1,8 +1,48 @@
 "use client";
-import { navLinks, hmservices, contactInfo } from "../data";
+import { navLinks, hmservices } from "../data";
 import { CSSProperties, useEffect, useState } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
+
+import {
+  Camera,
+  Clock,
+  Globe,
+  LucideIcon,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Smartphone,
+} from "lucide-react";
+import { FaInstagram } from "react-icons/fa";
+export interface HeroBullet {
+  Icon: LucideIcon;
+  text: string;
+}
+const SOCIALS = [
+  {
+    Icon: FaInstagram,
+    label: "Instagram",
+  },
+  {
+    Icon: Globe,
+    label: "Website",
+  },
+  {
+    Icon: MessageCircle,
+    label: "Chat",
+  },
+];
+
+export const contactInfo = [
+  { Icon: MapPin, text: "Lagos, Nigeria" },
+  { Icon: Phone, text: "+234 901 234 5678" },
+  { Icon: Smartphone, text: "+234 901 234 5678" },
+  { Icon: Mail, text: "hello@therahome.com" },
+  { Icon: Clock, text: "9:00 AM – 8:00 PM (Daily)" },
+];
+
 export default function Footer() {
   const [email, setEmail] = useState<string>("");
   const [loaded, setLoaded] = useState<boolean>(false);
@@ -30,11 +70,14 @@ export default function Footer() {
             <Logo />
 
             <div className="flex gap-4">
-              {["📷", "🌐", "💬"].map((icon, index) => (
-                <Link
-                  key={index}
-                  href={"#"}
-                  className="
+              {SOCIALS.map((icon, index) => {
+                const { Icon } = icon;
+
+                return (
+                  <Link
+                    key={index}
+                    href={"#"}
+                    className="
                     w-9 h-9
                     rounded-full
                     border border-white/20
@@ -44,10 +87,13 @@ export default function Footer() {
                     hover:bg-[#6b8c3e]
                     hover:border-[#6b8c3e]
                   "
-                >
-                  {icon}
-                </Link>
-              ))}
+                  >
+                    <span className="text-primary-green">
+                      <Icon size={18} />
+                    </span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
@@ -108,17 +154,20 @@ export default function Footer() {
             </h3>
 
             <div className="space-y-4">
-              {contactInfo.map((contact, index) => (
-                <div key={index} className="flex gap-3 items-start">
-                  <span className="text-sm shrink-0 text-primary-green">
-                    {contact.icon}
-                  </span>
+              {contactInfo.map((contact, index) => {
+                const { text, Icon } = contact;
+                return (
+                  <div key={index} className="flex gap-3 items-center">
+                    <span className="text-[14px] text-primary-green">
+                      <Icon size={18} />
+                    </span>
 
-                  <span className="text-sm text-secondary-green hover:text-primary-green leading-6">
-                    {contact.text}
-                  </span>
-                </div>
-              ))}
+                    <span className="text-sm text-secondary-green hover:text-primary-green leading-6">
+                      {text}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
 

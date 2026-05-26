@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { User, Phone, Mail, Send, Lock } from "lucide-react";
 import HeadingLeave from "./HeadingLeave";
+import ServiceReveal from "../Animations/ServiceReveal";
 
 // FORM TYPE
 type FormData = {
@@ -102,47 +103,48 @@ export default function ContactForm() {
       shadow-sm2
       "
     >
-      {/* Heading */}
+      <ServiceReveal from="right">
+        {/* Heading */}
 
-      <div className="text-center mb-4 ">
-        <h3
-          className="
+        <div className="text-center mb-4 ">
+          <h3
+            className="
           text-2xl
           font-bold
           text-black
           "
-        >
-          Send Us a Message
-        </h3>
+          >
+            Send Us a Message
+          </h3>
 
-        <div
-          className="
+          <div
+            className="
           flex
           items-center
           justify-center
           gap-2
           mt-2
           "
-        >
-          <div className="w-6 h-[1px] bg-parchment" />
+          >
+            <div className="w-6 h-[1px] bg-parchment" />
 
-          <HeadingLeave />
+            <HeadingLeave />
 
-          <div className="w-6 h-[1px] bg-parchment" />
+            <div className="w-6 h-[1px] bg-parchment" />
+          </div>
         </div>
-      </div>
 
-      {sent ? (
-        <div
-          className="
+        {sent ? (
+          <div
+            className="
           text-center
           py-6
           animate-in
           zoom-in
           "
-        >
-          <div
-            className="
+          >
+            <div
+              className="
             w-16
             h-16
             rounded-full
@@ -154,35 +156,35 @@ export default function ContactForm() {
             mx-auto
             mb-5
             "
-          >
-            ✅
-          </div>
+            >
+              ✅
+            </div>
 
-          <h4
-            className="
+            <h4
+              className="
             text-2xl
             font-bold
             serif
             "
-          >
-            Message Sent!
-          </h4>
+            >
+              Message Sent!
+            </h4>
 
-          <p
-            className="
+            <p
+              className="
             text-sm
             text-primary-green
             mt-2
             leading-7
             "
-          >
-            Thank you <strong>{form.name.split(" ")[0]}</strong>! We&rsquo;ll
-            get back to you within 10 minutes.
-          </p>
+            >
+              Thank you <strong>{form.name.split(" ")[0]}</strong>! We&rsquo;ll
+              get back to you within 10 minutes.
+            </p>
 
-          <button
-            onClick={resetForm}
-            className="
+            <button
+              onClick={resetForm}
+              className="
             mt-6
             w-full
             py-3
@@ -192,32 +194,32 @@ export default function ContactForm() {
             hover:bg-primary-green
             transition-all
             "
-          >
-            Send Another
-          </button>
-        </div>
-      ) : (
-        <div className="flex flex-col gap-4">
-          {/* Name */}
+            >
+              Send Another
+            </button>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-4">
+            {/* Name */}
 
-          <div className="relative">
-            <User
-              size={16}
-              className="
+            <div className="relative">
+              <User
+                size={16}
+                className="
               absolute
               left-4
               top-1/2
               -translate-y-1/2
               text-secondary-green
               "
-            />
+              />
 
-            <input
-              type="text"
-              value={form.name}
-              placeholder="Full Name"
-              onChange={(e) => setField("name", e.target.value)}
-              className={`
+              <input
+                type="text"
+                value={form.name}
+                placeholder="Full Name"
+                onChange={(e) => setField("name", e.target.value)}
+                className={`
               w-full
               pl-11
               p-3
@@ -230,33 +232,33 @@ export default function ContactForm() {
 
               ${errors.name ? "border-red-500" : "border-secondary-green"}
               `}
-            />
+              />
 
-            {errors.name && (
-              <p className="text-red-600 text-xs mt-1">{errors.name}</p>
-            )}
-          </div>
+              {errors.name && (
+                <p className="text-red-600 text-xs mt-1">{errors.name}</p>
+              )}
+            </div>
 
-          {/* Phone */}
+            {/* Phone */}
 
-          <div className="relative">
-            <Phone
-              size={16}
-              className="
+            <div className="relative">
+              <Phone
+                size={16}
+                className="
               absolute
               left-4
               top-1/2
               -translate-y-1/2
               text-secondary-green
               "
-            />
+              />
 
-            <input
-              type="tel"
-              value={form.phone}
-              placeholder="Phone Number"
-              onChange={(e) => setField("phone", e.target.value)}
-              className={`
+              <input
+                type="tel"
+                value={form.phone}
+                placeholder="Phone Number"
+                onChange={(e) => setField("phone", e.target.value)}
+                className={`
               w-full
               pl-11
               p-3
@@ -265,33 +267,33 @@ export default function ContactForm() {
 
               ${errors.phone ? "border-red-500" : "border-secondary-green"}
               `}
-            />
+              />
 
-            {errors.phone && (
-              <p className="text-red-600 text-xs mt-1">{errors.phone}</p>
-            )}
-          </div>
+              {errors.phone && (
+                <p className="text-red-600 text-xs mt-1">{errors.phone}</p>
+              )}
+            </div>
 
-          {/* Email */}
+            {/* Email */}
 
-          <div className="relative">
-            <Mail
-              size={16}
-              className="
+            <div className="relative">
+              <Mail
+                size={16}
+                className="
               absolute
               left-4
               top-1/2
               -translate-y-1/2
               text-secondary-green
               "
-            />
+              />
 
-            <input
-              type="email"
-              value={form.email}
-              placeholder="Email Address"
-              onChange={(e) => setField("email", e.target.value)}
-              className={`
+              <input
+                type="email"
+                value={form.email}
+                placeholder="Email Address"
+                onChange={(e) => setField("email", e.target.value)}
+                className={`
               w-full
               pl-11
               p-3
@@ -300,21 +302,21 @@ export default function ContactForm() {
 
               ${errors.email ? "border-red-500" : "border-secondary-green"}
               `}
-            />
+              />
 
-            {errors.email && (
-              <p className="text-red-600 text-xs mt-1">{errors.email}</p>
-            )}
-          </div>
+              {errors.email && (
+                <p className="text-red-600 text-xs mt-1">{errors.email}</p>
+              )}
+            </div>
 
-          {/* Message */}
+            {/* Message */}
 
-          <div>
-            <textarea
-              value={form.message}
-              placeholder="How can we help you?"
-              onChange={(e) => setField("message", e.target.value)}
-              className={`
+            <div>
+              <textarea
+                value={form.message}
+                placeholder="How can we help you?"
+                onChange={(e) => setField("message", e.target.value)}
+                className={`
               min-h-[110px]
               resize-y
               p-4
@@ -324,17 +326,17 @@ export default function ContactForm() {
 
               ${errors.message ? "border-red-500" : "border-border"}
               `}
-            />
+              />
 
-            {errors.message && (
-              <p className="text-red-600 text-xs mt-1">{errors.message}</p>
-            )}
-          </div>
+              {errors.message && (
+                <p className="text-red-600 text-xs mt-1">{errors.message}</p>
+              )}
+            </div>
 
-          <button
-            onClick={handleSubmit}
-            disabled={loading}
-            className="
+            <button
+              onClick={handleSubmit}
+              disabled={loading}
+              className="
             text-white
             bg-secondary-green
             hover:bg-primary-green
@@ -347,19 +349,19 @@ export default function ContactForm() {
             transition-all
             disabled:opacity-70
             "
-          >
-            {loading ? (
-              "Sending..."
-            ) : (
-              <>
-                <Send size={16} />
-                Send Message
-              </>
-            )}
-          </button>
+            >
+              {loading ? (
+                "Sending..."
+              ) : (
+                <>
+                  <Send size={16} />
+                  Send Message
+                </>
+              )}
+            </button>
 
-          <div
-            className="
+            <div
+              className="
             flex
             items-center
             justify-center
@@ -369,17 +371,18 @@ export default function ContactForm() {
             text-xs
             text-ghost
             "
-          >
-            <Lock size={13} />
+            >
+              <Lock size={13} />
 
-            <span>
-              Your information is safe with us.
-              <br />
-              We respect your privacy.
-            </span>
+              <span>
+                Your information is safe with us.
+                <br />
+                We respect your privacy.
+              </span>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </ServiceReveal>
     </div>
   );
 }

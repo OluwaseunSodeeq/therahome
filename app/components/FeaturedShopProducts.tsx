@@ -1,7 +1,6 @@
 "use client";
 
 import DirectionReveal from "../Animations/DirectionReveal";
-import Reveal from "../Animations/Reveal";
 import { shopProducts } from "../data";
 import { ShopProductCard } from "./HeroShop";
 
@@ -49,8 +48,6 @@ export default function FeaturedProducts() {
         {/* Desktop Grid */}
         <div
           className="
-            products-mobile
-            md:products-desktop
             mt-11
             grid
             grid-cols-1
@@ -58,9 +55,8 @@ export default function FeaturedProducts() {
             xl:grid-cols-4
             gap-5.5
 
-            max-[1100px]:grid-cols-2
-            max-[900px]:hidden
-          "
+            "
+          // max-[1100px]:grid-cols-2
         >
           {shopProducts.slice(0, 4).map((product, index) => (
             <ShopProductCard
@@ -98,7 +94,6 @@ export default function FeaturedProducts() {
               view-all-mobile
               mt-5
               hidden
-
               max-[900px]:block
             "
           >

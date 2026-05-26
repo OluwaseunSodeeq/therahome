@@ -9,7 +9,6 @@ import {
   TrustItem,
   WhyChooseUsItem,
 } from "@/types/defaultType";
-import { Clock, Mail, MapPin, Phone, Smartphone } from "lucide-react";
 import {
   Leaf,
   ShieldCheck,
@@ -18,7 +17,6 @@ import {
   Truck,
   Headphones,
 } from "lucide-react";
-import {} from "lucide-react";
 
 export const navLinks = [
   { name: "Home", href: "/home" },
@@ -80,14 +78,6 @@ export const serviceCards = [
   //   name: "Herbal Therapy (with Poultice)",
   //   desc: "Natural herbs to detoxify, ease pain and restore energy flow.",
   // },
-];
-
-export const contactInfo = [
-  { icon: <MapPin />, text: "Lagos, Nigeria" },
-  { icon: <Phone />, text: "+234 901 234 5678" },
-  { icon: <Smartphone />, text: "+234 901 234 5678" },
-  { icon: <Mail />, text: "hello@therahome.com" },
-  { icon: <Clock />, text: "9:00 AM – 8:00 PM (Daily)" },
 ];
 
 export const steps: Step[] = [

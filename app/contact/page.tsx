@@ -7,12 +7,26 @@ import WhyLoveUs from "../components/WhyLoveUs";
 
 export default function page() {
   return (
-    <div className="px-6 xl:px-12">
+    <div>
       <ContactHero />
-      <div className="bg-white py-10 grid grid-cols-[500px_1fr_1fr] gap-8 ">
-        <ContactForm />
+      <div
+        className="relative max-w-[1440px] mx-auto 
+          bg-white
+          py-10
+          grid
+          grid-cols-1
+          gap-8
+          md:grid-cols-2
+          lg:grid-cols-[1fr_1fr_500px]
+          lg:px-12
+          2xl:px-0
+"
+      >
         <ContactInfo />
         <WhyLoveUs />
+        <div className="md:col-span-2 lg:col-span-1">
+          <ContactForm />
+        </div>
       </div>
       <ContactBanner />
       <TrustBars />
