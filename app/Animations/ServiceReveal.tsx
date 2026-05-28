@@ -13,7 +13,7 @@ type RevealProps = {
   style?: CSSProperties;
 };
 
-export default function Reveal({
+export default function ServiceReveal({
   children,
   delay = 0,
   from = "bottom",

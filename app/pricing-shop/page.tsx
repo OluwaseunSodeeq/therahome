@@ -1,8 +1,8 @@
 // import GlobalStyles from "../components/GlobalStyles";
-import FeaturedProducts from "../components/FeaturedShopProducts";
-import HeroShop from "../components/HeroShop";
-import ShopBanner from "../components/ShopBanner";
-import TrustBars from "../components/TrustBars";
+import FeaturedProducts from "../../components/Ui-components/FeaturedShopProducts";
+import HeroShop from "../../components/Ui-components/HeroShop";
+import ShopBanner from "../../components/Ui-components/ShopBanner";
+import TrustBars from "../../components/Ui-components/TrustBars";
 
 export default function page() {
   return (

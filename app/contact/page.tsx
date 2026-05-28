@@ -1,9 +1,9 @@
-import ContactBanner from "../components/ContactBanner";
-import ContactForm from "../components/ContactForm";
-import ContactHero from "../components/ContactHero";
-import ContactInfo from "../components/ContactInfo";
-import TrustBars from "../components/TrustBars";
-import WhyLoveUs from "../components/WhyLoveUs";
+import ContactBanner from "../../components/Ui-components/ContactBanner";
+import ContactForm from "../../components/Ui-components/ContactForm";
+import ContactHero from "../../components/Ui-components/ContactHero";
+import ContactInfo from "../../components/Ui-components/ContactInfo";
+import TrustBars from "../../components/Ui-components/TrustBars";
+import WhyLoveUs from "../../components/Ui-components/WhyLoveUs";
 
 export default function page() {
   return (
