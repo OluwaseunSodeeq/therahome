@@ -50,24 +50,22 @@ export default function ContactHero() {
 
   return (
     <section className="relative mt-17 overflow-hidden min-h-122 font-geo">
-      <div className=" relative max-w-[1440px] mx-auto z-20">
+      <div className=" relative max-w-360 mx-auto z-20">
         {/* Background image */}
         <div className="relative min-h-122 max-h-125 w-full">
           <Image
-            src="/hero3.png"
+            src="/contacthero1.png"
             alt="Premium wellness products"
             fill
             priority
             sizes="100vw"
-            className="bg-hero-img object-cover object-[center_40%]"
+            className="bg-hero-img object-cover object-[center_40%] hidden lg:block"
           />
-        </div>
-
-        {/* Gradient overlay */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `
+          {/* Gradient overlay */}
+          <div
+            className="absolute inset-0 "
+            style={{
+              background: `
              linear-gradient(
                to right,
                rgba(250,248,244,1) 0%,
@@ -76,6 +74,32 @@ export default function ContactHero() {
                rgba(250,248,244,0.0) 68%
              )
            `,
+            }}
+          />
+
+          {/* mobile */}
+          <Image
+            src="/mobilecontacthero.png"
+            alt="Premium wellness products"
+            fill
+            priority
+            sizes="100vw"
+            className="bg-hero-img object-cover object-[center_40%]  lg:hidden"
+          />
+        </div>
+        <div
+          className="absolute inset-0 z-10 hidden"
+          style={{
+            background: `
+      linear-gradient(
+        90deg,
+        rgba(12,12,12,0.88) 0%,
+        rgba(12,12,12,0.78) 30%,
+        rgba(12,12,12,0.45) 55%,
+        rgba(12,12,12,0.15) 75%,
+        rgba(12,12,12,0) 100%
+      )
+    `,
           }}
         />
 

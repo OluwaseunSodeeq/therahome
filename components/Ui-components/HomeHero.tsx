@@ -23,11 +23,11 @@ export default function HomeHero() {
 
   return (
     <section className="w-full mx-auto relative mt-17 overflow-hidden min-h-90 bg-hero-img font-geo">
-      <div className=" relative max-w-[1440px] mx-auto z-20">
+      <div className=" relative max-w-360 mx-auto z-20">
         {/* Background image */}
         <div className="relative h-[90vh] min-h-135 max-h-140 ">
           <Image
-            src="/hero2.png"
+            src="/homehero1.png"
             alt="Premium wellness products"
             fill
             priority

@@ -39,12 +39,12 @@ export default function AboutHero() {
   });
 
   return (
-    <section className=" relative mt-17 overflow-hidden min-h-122 font-geo">
-      <div className=" relative max-w-[1440px] mx-auto z-20">
+    <section className=" relative mt-17 overflow-hidden min-h-125 font-geo">
+      <div className=" relative max-w-360 mx-auto z-20">
         {/* Background image */}
         <div className="relative min-h-122 max-h-125 w-full">
           <Image
-            src="/hero3.png"
+            src="/abouthero.png"
             alt="Premium wellness products"
             fill
             priority
@@ -112,7 +112,7 @@ export default function AboutHero() {
           >
             Wellness, Delivered
             <br />
-            <span className="italic text-[#4a7c2a]">With Care</span>
+            <span className="italic text-secondary-green">With Care</span>
           </h1>
 
           {/* Paragraph */}

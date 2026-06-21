@@ -20,7 +20,7 @@ export async function POST(req: Request) {
         note: body.note || "",
       },
     });
-
+    console.log("Created booking:", booking);
     return NextResponse.json(
       {
         success: true,

@@ -10,7 +10,8 @@ export default function Logo() {
         width={80}
         height={80}
         priority
-        className="w-16 md:w-20 h-auto shrink-0"
+        className="w-16 md:w-20 shrink-0"
+        style={{ height: "auto" }}
       />
 
       <div className="font-geo leading-tight">
