@@ -63,7 +63,7 @@ export default function ContactHero() {
           />
           {/* Gradient overlay */}
           <div
-            className="absolute inset-0 "
+            className="absolute inset-0  hidden lg:block"
             style={{
               background: `
              linear-gradient(
@@ -88,7 +88,7 @@ export default function ContactHero() {
           />
         </div>
         <div
-          className="absolute inset-0 z-10 hidden"
+          className="absolute inset-0  lg:hidden"
           style={{
             background: `
       linear-gradient(
@@ -129,7 +129,9 @@ export default function ContactHero() {
             style={anim(0.18)}
             className="mb-5 text-[clamp(34px,4.5vw,56px)] font-bold leading-[1.1]"
           >
-            <span className="text-black">We&apos;re Here to</span>
+            <span className="text-hero-bg lg:text-black">
+              We&apos;re Here to
+            </span>
             <br />
             <span className="italic text-primary-green">Help You Relax</span>
           </h1>
@@ -137,13 +139,13 @@ export default function ContactHero() {
           {/* Description */}
           <p
             style={anim(0.3)}
-            className="mb-8 max-w-md text-[15px] leading-[1.8]"
+            className="text-hero-bg lg:text-black lg:mb-8 max-w-md text-[15px] leading-[1.8]"
           >
             Have questions or ready to book your session? Reach out to us and
             we&apos;ll take care of the rest.
           </p>
 
-          <div className="flex flex-wrap gap-4 mb-5">
+          <div className="flex flex-wrap gap-4 mb-5 mt-5 lg:mt-0">
             {/* PRIMARY BUTTON */}
             <Link
               href="https://wa.me/2348123456789"
@@ -195,7 +197,7 @@ export default function ContactHero() {
               <Clock size={18} />
             </span>
 
-            <span className="text-sm text-secondary-green">
+            <span className="text-sm text-hero-bg lg:text-secondary-green">
               We respond within 10 minutes
             </span>
           </div>
@@ -206,7 +208,7 @@ export default function ContactHero() {
               <ShieldCheck size={18} />
             </span>
 
-            <span className="text-sm  text-secondary-green">
+            <span className="text-sm  text-hero-bg lg:text-secondary-green">
               Trusted by Clients Across Lagos
             </span>
           </div>

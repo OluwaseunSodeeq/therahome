@@ -38,6 +38,36 @@ export default function HomeHero() {
 
         {/* Gradient overlay */}
         <div
+          className="absolute inset-0  lg:hidden"
+          style={{
+            background: `
+      linear-gradient(
+        90deg,
+        rgba(12,12,12,0.88) 0%,
+        rgba(12,12,12,0.78) 30%,
+        rgba(12,12,12,0.45) 55%,
+        rgba(12,12,12,0.15) 75%,
+        rgba(12,12,12,0) 100%
+      )
+    `,
+          }}
+        />
+        <div
+          className="absolute inset-0  lg:hidden"
+          style={{
+            background: `
+      linear-gradient(
+        90deg,
+        rgba(12,12,12,0.88) 0%,
+        rgba(12,12,12,0.78) 30%,
+        rgba(12,12,12,0.45) 55%,
+        rgba(12,12,12,0.15) 75%,
+        rgba(12,12,12,0) 100%
+      )
+    `,
+          }}
+        />
+        {/* <div
           className="hidden md:block absolute inset-0"
           style={{
             background: `
@@ -50,7 +80,7 @@ export default function HomeHero() {
             )
           `,
           }}
-        />
+        /> */}
 
         {/* Content */}
         <div
@@ -72,7 +102,6 @@ export default function HomeHero() {
             style={anim(0.08)}
             className="
             max-w-[320px]
-            bg-[#eef3eb]
             mb-3.5 
              py-2
              px-2
@@ -86,7 +115,7 @@ export default function HomeHero() {
                 font-semibold
                 tracking-wider
                 uppercase
-                text-primary-green
+                text-light-green lg:text-primary-green
                 ml-4
               "
             >
@@ -101,13 +130,15 @@ export default function HomeHero() {
               text-4xl md:text-6xl
               font-bold
               leading-tight
-              text-[#1a1a1a]
+              text-hero-bg lg:text-black
               mb-5
             "
           >
             Luxury Spa,
             <br />
-            <span className="text-[#6b8c3e]">Delivered to You</span>
+            <span className="text-light-green lg:text-primary-green">
+              Delivered to You
+            </span>
           </h1>
 
           {/* DESCRIPTION */}
@@ -115,7 +146,7 @@ export default function HomeHero() {
             style={anim(0.08)}
             className="
               text-base
-              text-[#666]
+              text-hero-bg lg:text-black
               leading-8
               max-w-md
               mb-9
@@ -131,7 +162,8 @@ export default function HomeHero() {
             <Link
               href="#"
               className="
-                bg-primary-green
+                bg-light-green
+                lg:bg-primary-green
                 text-white
                 rounded-lg
                 px-7 py-4
@@ -155,14 +187,17 @@ export default function HomeHero() {
             <Link
               href="#"
               className="
-                border-2 border-primary-green
-                text-primary-green
+                border-2 border-light-green
+                 lg:border-primary-green
+                text-light-green
+                lg:text-primary-green
                 rounded-lg
                 px-7 py-4
                 text-sm font-semibold
                 flex items-center gap-2
                 transition-all duration-200
                 hover:bg-[#f0f5eb]
+                hover:text-secondary-green
                 hover:-translate-y-1
               "
             >
@@ -176,9 +211,9 @@ export default function HomeHero() {
 
           {/* SMALL TEXT */}
           <div style={anim(0.2)} className="flex items-center gap-2">
-            <span className="text-[#6b8c3e] text-sm">✅</span>
+            <span className="text-light-green text-sm">✅</span>
 
-            <span className="text-sm text-[#888]">
+            <span className="text-sm text-hero-bg lg:text-black">
               Limited slots available weekly
             </span>
           </div>

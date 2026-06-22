@@ -39,22 +39,45 @@ export default function AboutHero() {
   });
 
   return (
-    <section className=" relative mt-17 overflow-hidden min-h-125 font-geo">
+    <section className=" relative mt-17 overflow-hidden min-h-122 font-geo">
       <div className=" relative max-w-360 mx-auto z-20">
         {/* Background image */}
         <div className="relative min-h-122 max-h-125 w-full">
           <Image
             src="/abouthero.png"
-            alt="Premium wellness products"
+            alt="About HeroSection"
             fill
             priority
             sizes="100vw"
             className="hero-img object-cover object-[center_40%]"
           />
+          <Image
+            src="/mobileabouthero.png"
+            alt="Premium wellness products"
+            fill
+            priority
+            sizes="100vw"
+            className="bg-hero-img object-cover object-[center_40%]  lg:hidden"
+          />
         </div>
+        <div
+          className="absolute inset-0  lg:hidden"
+          style={{
+            background: `
+      linear-gradient(
+        90deg,
+        rgba(12,12,12,0.88) 0%,
+        rgba(12,12,12,0.78) 30%,
+        rgba(12,12,12,0.45) 55%,
+        rgba(12,12,12,0.15) 75%,
+        rgba(12,12,12,0) 100%
+      )
+    `,
+          }}
+        />
 
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 hidden lg:block"
           style={{
             background: `
              linear-gradient(
@@ -90,7 +113,8 @@ export default function AboutHero() {
                 font-bold
                 uppercase
                 tracking-[0.13em]
-                text-primary-light
+                text-light-green
+                lg:text-primary-green
 
               "
             >
@@ -107,12 +131,14 @@ export default function AboutHero() {
               text-[clamp(34px,4.8vw,56px)]
               font-bold
               leading-tight
-              text-[#1a1a1a]
+              text-hero-bg lg:text-black
             "
           >
             Wellness, Delivered
             <br />
-            <span className="italic text-secondary-green">With Care</span>
+            <span className="italic text-light-green lg:text-primary-green">
+              With Care
+            </span>
           </h1>
 
           {/* Paragraph */}
@@ -123,7 +149,7 @@ export default function AboutHero() {
               max-w-90
               text-[15px]
               leading-8
-              text-[#777]
+              text-hero-bg lg:text-black
             "
           >
             TheraHome was born from a simple belief — that everyone deserves
@@ -138,28 +164,28 @@ export default function AboutHero() {
               return (
                 <div key={index} className="flex items-center gap-3">
                   {/* Icon box */}
-                  <div
+                  {/* <div
                     className="
                       flex
-                      h-7
-                      w-7
+                      // h-7
+                      // w-7
                      shrink-0
                       items-center
                       justify-center
                       rounded-lg
-                      border
-                      border-[#e7e2d9]
-                      bg-[#f3efe7]
+                      // border
+                      // border-[#e7e2d9]
+                      // bg-[#f3efe7]
                     "
-                  >
-                    <Icon className="text-primary-green" />
-                  </div>
+                  > */}
+                  <Icon className="text-primary-green" />
+                  {/* </div> */}
 
                   <span
                     className="
                       text-sm
                       font-medium
-                      text-[#1a1a1a]
+                      text-hero-bg lg:text-primary-green
                     "
                   >
                     {item.text}

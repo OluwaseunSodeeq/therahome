@@ -96,19 +96,26 @@ function ServiceCard({ service }: ServiceCardProps) {
 
 export default function HomeServiceSection() {
   return (
-    <section className="bg-white pt-32 pb-24 px-6 font-geo relative z-10">
+    <section className="bg-white pt-20 lg:pt-32 pb-24 px-6 font-geo relative z-10">
       <div className="max-w-7xl mx-auto">
         {/* HEADER */}
         <Reveal>
-          <div className="text-center mb-14">
+          <div className="text-center lg:mb-14">
+            <div className="flex gap-4 justify-center items-center">
+              <div className="w-12 h-0.5 bg-black mb-3" />
+              <div className="text-xl -mt-4">🌿</div>
+              <div className="w-12 h-0.5 bg-black mb-3" />
+            </div>
+
             <p
               className="
                 text-xs
                 font-bold
                 tracking-[0.15em]
                 uppercase
-                text-lime-700
-                mb-3
+                text-text-black
+                lg:mb-3
+                mt-5 lg:mt-0
               "
             >
               OUR SIGNATURE SERVICES
@@ -124,8 +131,6 @@ export default function HomeServiceSection() {
             >
               Wellness, Tailored for You
             </h2>
-
-            <div className="mt-4 text-xl">🌿</div>
           </div>
         </Reveal>
 

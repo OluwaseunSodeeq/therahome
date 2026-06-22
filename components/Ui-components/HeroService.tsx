@@ -21,7 +21,7 @@ export default function HeroService() {
         w-full mx-auto relative mt-17 overflow-hidden min-h-90 bg-hero-img font-geo
       "
     >
-      <div className=" relative max-w-[1440px] mx-auto z-20">
+      <div className=" relative max-w-360 mx-auto z-20">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
@@ -39,14 +39,49 @@ export default function HeroService() {
 
         {/* Gradient Overlay */}
         <div
-          className="
-          absolute
-          inset-0
-          bg-linear-to-r
-          from-[#0f190ab8]
-          via-[#0f190a80]
-          to-transparent
-        "
+          className="absolute inset-0  lg:hidden"
+          style={{
+            background: `
+      linear-gradient(
+        90deg,
+        rgba(12,12,12,0.88) 0%,
+        rgba(12,12,12,0.78) 30%,
+        rgba(12,12,12,0.45) 55%,
+        rgba(12,12,12,0.15) 75%,
+        rgba(12,12,12,0) 100%
+      )
+    `,
+          }}
+        />
+        <div
+          className="absolute inset-0  lg:hidden"
+          style={{
+            background: `
+                linear-gradient(
+                  90deg,
+                  rgba(12,12,12,0.88) 0%,
+                  rgba(12,12,12,0.78) 30%,
+                  rgba(12,12,12,0.45) 55%,
+                  rgba(12,12,12,0.15) 75%,
+                  rgba(12,12,12,0) 100%
+                )
+              `,
+          }}
+        />
+
+        <div
+          className="absolute inset-0 hidden lg:block"
+          style={{
+            background: `
+                       linear-gradient(
+                         to right,
+                         rgba(250,248,244,1) 0%,
+                         rgba(250,248,244,0.95) 28%,
+                         rgba(250,248,244,0.70) 46%,
+                         rgba(250,248,244,0.0) 68%
+                       )
+                     `,
+          }}
         />
 
         {/* Content */}
@@ -73,7 +108,7 @@ export default function HeroService() {
             ${loaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}
           `}
           >
-            <span className="text-[13px] text-[#a8c47a]">🌿</span>
+            <span className="text-[13px] text-light-green">🌿</span>
 
             <span
               className="
@@ -81,7 +116,8 @@ export default function HeroService() {
               font-bold
               uppercase
               tracking-[0.12em]
-              text-[#a8c47a]
+              text-light-green
+              lg:text-primary-green
             "
             >
               Our Services
@@ -96,7 +132,7 @@ export default function HeroService() {
             text-[clamp(32px,5vw,58px)]
             font-bold
             leading-[1.1]
-            text-white
+            text-hero-bg lg:text-black
             transition-all
             duration-700
             delay-200
@@ -105,7 +141,9 @@ export default function HeroService() {
           >
             Premium Wellness,
             <br />
-            <span className="text-[#a8c47a]">Tailored for You</span>
+            <span className="text-light-green lg:text-primary-green">
+              Tailored for You
+            </span>
           </h1>
 
           {/* Description */}
@@ -114,7 +152,7 @@ export default function HeroService() {
             max-w-90
             text-[clamp(13px,1.8vw,16px)]
             leading-[1.75]
-            text-white/80
+            text-hero-bg lg:text-black
             transition-all
             duration-700
             delay-300

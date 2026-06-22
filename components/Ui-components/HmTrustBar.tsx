@@ -40,10 +40,10 @@ export default function HmTrustBar() {
           xl:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4
           gap-6
           absolute
-          top-[560px]
+          top-140
           z-30
           left-1/2 -translate-x-1/2
-          ml-[-12px]
+          -ml-3
         "
     >
       {trustItems.map((item, index) => (
