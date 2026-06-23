@@ -69,7 +69,7 @@ export default function ShopBanner() {
                   text-white/75
                   leading-8
                   text-sm md:text-[15px]
-                  max-w-[380px]
+                  max-w-95
                   mb-8
                 "
               >

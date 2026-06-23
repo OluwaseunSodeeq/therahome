@@ -24,10 +24,10 @@ export default function HomeWhyChooseUs() {
           >
             {/* <Reveal delay={0.1}> */}
             <Image
-              src="/leave.png"
+              src="/hmherobg1.png"
               alt="Why Choose TheraHome"
               fill
-              className="object-cover"
+              className="object-contain object-center"
               sizes="(max-width: 768px) 100vw, 20vw"
             />
             {/* </Reveal> */}

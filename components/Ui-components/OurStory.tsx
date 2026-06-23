@@ -69,18 +69,18 @@ export default function OurStory() {
             className="
               relative
               mx-auto
-              aspect-[4/3]
+              aspect-4/3
               w-full
-              max-w-[460px]
-              md:max-w-[570px]
-              lg:max-w-[460px]
+              max-w-115
+              md:max-w-142.5
+              lg:max-w-115
               overflow-hidden
               rounded-2xl
               shadow-[0_12px_40px_rgba(0,0,0,0.10)]
             "
           >
             <Image
-              src="/hero4.png"
+              src="/abouthero1.png"
               alt="Our story"
               fill
               priority
@@ -97,7 +97,7 @@ export default function OurStory() {
 
         {/* ───────────────── CONTENT ───────────────── */}
         <DirectionReveal delay={0.12}>
-          <div className="mx-auto max-w-[560px] ">
+          <div className="mx-auto max-w-140 ">
             {/* Heading */}
             <div className="hidden xl:block mb-7 text-center">
               <h2
@@ -116,9 +116,7 @@ export default function OurStory() {
               {/* Divider */}
               <div className="flex items-center justify-center gap-2">
                 <div className="h-px w-7 bg-[#c5b99a]" />
-
                 <span className="text-base text-[#6b8c3e]">🌿</span>
-
                 <div className="h-px w-7 bg-[#c5b99a]" />
               </div>
             </div>
@@ -144,7 +142,7 @@ export default function OurStory() {
               <p className="hidden sm:block">
                 Founded by wellness enthusiasts who believe self-care should not
                 be a luxury, TheraHome has served hundreds of clients across
-                Lagos — each one leaving more relaxed, restored, and glowing.
+                Lagos each one leaving more relaxed, restored, and glowing.
               </p>
             </div>
 
@@ -168,7 +166,7 @@ export default function OurStory() {
                     rounded-xl
                     border
                     border-[#e8e4da]
-                    bg-[#faf8f4]
+                    bg-hero-bg
                     px-2
                     py-4
                     text-center
@@ -183,7 +181,7 @@ export default function OurStory() {
                       text-[22px]
                       font-bold
                       leading-none
-                      text-[#2d4a2d]
+                      text-primary-green
                       md:text-[28px]
                     "
                   >

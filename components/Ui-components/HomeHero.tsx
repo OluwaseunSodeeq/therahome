@@ -129,7 +129,7 @@ export default function HomeHero() {
             className="
               text-4xl md:text-6xl
               font-bold
-              leading-tight
+              leading-relaxed
               text-hero-bg lg:text-black
               mb-5
             "

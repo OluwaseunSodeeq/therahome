@@ -73,7 +73,7 @@ const iconMap: Record<IconType, React.ElementType> = {
 
 export default function WhyLoveUs() {
   return (
-    <div className="bg-[#faf8f4] pt-6 md:pt-8 ">
+    <div className="bg-hero-bg pt-6 md:pt-8 ">
       {/* heading */}
       <ServiceReveal from="left">
         <div className="text-center mb-4">
@@ -96,11 +96,9 @@ export default function WhyLoveUs() {
           gap-2
           "
           >
-            <div className="w-6 h-[1px] bg-parchment" />
-
+            <div className="w-6 h-px bg-parchment" />
             <HeadingLeave />
-
-            <div className="w-6 h-[1px] bg-parchment" />
+            <div className="w-6 h-px bg-parchment" />
           </div>
         </div>
 

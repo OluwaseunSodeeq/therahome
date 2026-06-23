@@ -131,7 +131,7 @@ export default function HeroService() {
             font-serif
             text-[clamp(32px,5vw,58px)]
             font-bold
-            leading-[1.1]
+            leading-relaxed
             text-hero-bg lg:text-black
             transition-all
             duration-700
@@ -151,7 +151,7 @@ export default function HeroService() {
             className={`
             max-w-90
             text-[clamp(13px,1.8vw,16px)]
-            leading-[1.75]
+            leading-relaxed
             text-hero-bg lg:text-black
             transition-all
             duration-700

@@ -25,7 +25,7 @@ export default function HowItWorks() {
                 font-bold
                 tracking-[0.15em]
                 uppercase
-                text-lime-700
+                text-text-black
                 mb-3
               "
             >
@@ -45,10 +45,18 @@ export default function HowItWorks() {
               Relaxation in
               <br />3 Simple Steps
             </h2>
-            <div className="flex gap-4">
-              <div className="w-12 h-0.5 bg-lime-700 mb-3" />
-              <div className="text-xl -mt-4">🌿</div>
-              <div className="w-12 h-0.5 bg-lime-700 mb-3" />
+            <div
+              className="
+                mb-3.5
+                flex
+                items-center
+                justify-center
+                gap-2
+              "
+            >
+              <div className="h-px w-7 bg-[#c5b99a]" />
+              <span className="text-[15px] text-primary-light">🌿</span>
+              <div className="h-px w-7 bg-[#c5b99a]" />
             </div>
           </div>
         </Reveal>

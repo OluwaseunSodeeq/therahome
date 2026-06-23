@@ -3,7 +3,7 @@ import { trustItems } from "../../app/data";
 
 export default function TrustBars() {
   return (
-    <section className="max-w-[1440px] mx-auto px-6 md:px-8 lg:px-12 py-6">
+    <section className="max-w-360 mx-auto px-6 md:px-8 lg:px-12 py-6">
       <div className="w-full rounded-2xl border border-[#e7e2d9] bg-[#f8f5ef] overflow-hidden">
         <DirectionReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 lg:divide-x divide-[#e5ded2]">
@@ -18,7 +18,7 @@ export default function TrustBars() {
                   <div className="mt-1">
                     <Icon
                       size={24}
-                      className="text-[#5c6b4f]"
+                      className="text-light-green lg:text-primary-green"
                       strokeWidth={1.8}
                     />
                   </div>

@@ -92,13 +92,16 @@ export default function HeroShop() {
             style={anim(0.08)}
             className="mb-9 lg:mb-3.5 flex items-center gap-1.75"
           >
+            <span className="text-xs">🌿</span>
             <span
               className="
               text-[11px]
-              font-bold
+              font-semibold
               uppercase
-              tracking-[0.13em]
-              text-primary-green
+              tracking-wider
+              text-light-green
+              lg:text-primary-green
+              ml-4
             "
             >
               ENHANCE YOUR WELLNESS AT HOME
@@ -113,13 +116,18 @@ export default function HeroShop() {
             font-serif
             text-[clamp(30px,4.5vw,54px)]
             font-bold
-            leading-[1.12]
+            leading-relaxed
             text-hero-bg lg:text-black
           "
           >
             Premium Care,
             <br />
-            <span className="text-primary-green">Beyond Your Session</span>
+            <span
+              className=" text-light-green
+              lg:text-primary-green"
+            >
+              Beyond Your Session
+            </span>
           </h1>
 
           {/* Subtext */}
@@ -129,7 +137,7 @@ export default function HeroShop() {
             mb-0 lg:mb-8
             max-w-90
             text-[clamp(13px,1.6vw,15px)]
-            leading-[1.75]
+            leading-relaxed
             text-hero-bg lg:text-black
           "
           >
@@ -146,7 +154,8 @@ export default function HeroShop() {
               items-center
               gap-2.25
               rounded-lg
-              bg-primary-green
+              bg-light-green
+              lg:bg-primary-green
               px-6.5
               py-3.5
               text-sm

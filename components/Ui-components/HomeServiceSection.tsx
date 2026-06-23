@@ -101,10 +101,20 @@ export default function HomeServiceSection() {
         {/* HEADER */}
         <Reveal>
           <div className="text-center lg:mb-14">
-            <div className="flex gap-4 justify-center items-center">
-              <div className="w-12 h-0.5 bg-black mb-3" />
-              <div className="text-xl -mt-4">🌿</div>
-              <div className="w-12 h-0.5 bg-black mb-3" />
+            <div
+              className="
+                mb-3.5
+                flex
+                items-center
+                justify-center
+                gap-2
+              "
+            >
+              <div className="h-px w-7 bg-[#c5b99a]" />
+
+              <span className="text-[15px] text-primary-light">🌿</span>
+
+              <div className="h-px w-7 bg-[#c5b99a]" />
             </div>
 
             <p
@@ -127,6 +137,9 @@ export default function HomeServiceSection() {
                 md:text-5xl
                 font-bold
                 text-neutral-900
+                mt-5 lg:mt-0
+                leading-relaxed
+
               "
             >
               Wellness, Tailored for You
@@ -143,7 +156,9 @@ export default function HomeServiceSection() {
             lg:grid-cols-3
             xl:grid-cols-5
             gap-5
-            px-5
+            lg:px-5
+            mt-5 lg:mt-0
+
           "
         >
           {serviceCards.map((service, index) => (

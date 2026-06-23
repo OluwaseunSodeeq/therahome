@@ -157,7 +157,7 @@ export default function Footer() {
                 const { text, Icon } = contact;
                 return (
                   <div key={index} className="flex gap-3 items-center">
-                    <span className="text-[14px] text-primary-green">
+                    <span className="text-[14px] text-secondary-green lg:text-primary-green">
                       <Icon size={18} />
                     </span>
 

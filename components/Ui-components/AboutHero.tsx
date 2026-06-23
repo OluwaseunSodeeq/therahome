@@ -148,7 +148,7 @@ export default function AboutHero() {
               mb-7
               max-w-90
               text-[15px]
-              leading-8
+              leading-relaxed
               text-hero-bg lg:text-black
             "
           >
@@ -163,29 +163,14 @@ export default function AboutHero() {
 
               return (
                 <div key={index} className="flex items-center gap-3">
-                  {/* Icon box */}
-                  {/* <div
-                    className="
-                      flex
-                      // h-7
-                      // w-7
-                     shrink-0
-                      items-center
-                      justify-center
-                      rounded-lg
-                      // border
-                      // border-[#e7e2d9]
-                      // bg-[#f3efe7]
-                    "
-                  > */}
-                  <Icon className="text-primary-green" />
+                  <Icon className="text-light-green lg:text-primary-green" />
                   {/* </div> */}
 
                   <span
                     className="
                       text-sm
                       font-medium
-                      text-hero-bg lg:text-primary-green
+                      text-hero-bg lg:text-black
                     "
                   >
                     {item.text}
