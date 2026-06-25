@@ -1,11 +1,20 @@
+"use client";
 import { Phone, Mail, MapPin } from "lucide-react";
+import Link from "next/link";
+// The Functionalities context exports the hook as the default export
+import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 
 import { FaWhatsapp } from "react-icons/fa";
 import HeadingLeave from "./HeadingLeave";
 import ServiceReveal from "../../app/Animations/ServiceReveal";
 
-// import { LucideIcon } from "lucide-react";
-
+// COnatct Info
+const emailAddress = "therahomeng@gmail.com";
+const phone = "+2347064347587";
+const message = "Hello, I would like to know more about your services.";
+const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(
+  message,
+)}`;
 // possible icon names
 type IconType = "whatsapp" | "phone" | "mail" | "pin";
 
@@ -15,30 +24,33 @@ type ContactItem = {
   label: string;
   value: string;
   sub: string | null;
+  link?: string;
 };
 
 const CONTACT_INFO: ContactItem[] = [
   {
     icon: "whatsapp",
     label: "WhatsApp",
-    value: "0812 345 6789",
+    value: phone,
     sub: "Chat with us on WhatsApp",
+    link: whatsappLink,
   },
 
   {
     icon: "phone",
     label: "Call Us",
-    value: "0812 345 6789",
+    value: phone,
     sub: "Mon – Sun: 7:00 AM – 9:00 PM",
+    link: `tel:${phone}`,
   },
 
   {
     icon: "mail",
     label: "Email Us",
-    value: "hello@therahome.com",
+    value: emailAddress,
     sub: "We'll reply as soon as possible",
+    link: `mailto:${emailAddress}`,
   },
-
   {
     icon: "pin",
     label: "Our Service Areas",
@@ -46,6 +58,7 @@ const CONTACT_INFO: ContactItem[] = [
       "Lagos Mainland, Ikoyi, Victoria Island, Lekki, Ajah, Surulere and more.",
 
     sub: null,
+    link: "#",
   },
 ];
 
@@ -58,8 +71,9 @@ const iconMap: Record<IconType, React.ElementType> = {
 };
 
 export default function ContactInfo() {
+  const { handleCall } = useFunctionalitiesContext();
   return (
-    <div className="bg-[#faf8f4] pt-6 md:pt-8 ">
+    <div className="bg-hero-bg pt-6 md:pt-8 ">
       <ServiceReveal from="right">
         {/* heading */}
 
@@ -83,11 +97,11 @@ export default function ContactInfo() {
                 gap-2
                 "
           >
-            <div className="w-6 h-[1px] bg-parchment" />
+            <div className="w-6 h-px bg-parchment" />
 
             <HeadingLeave />
 
-            <div className="w-6 h-[1px] bg-parchment" />
+            <div className="w-6 h-px bg-parchment" />
           </div>
         </div>
 
@@ -125,12 +139,29 @@ export default function ContactInfo() {
                   shrink-0
                   "
                 >
-                  <IconComp
-                    size={18}
-                    className="
+                  {contact.icon === "phone" ? (
+                    <button onClick={handleCall} className="cursor-pointer">
+                      <IconComp
+                        size={18}
+                        className="
                     text-primary-green
                     "
-                  />
+                      />
+                    </button>
+                  ) : (
+                    <Link
+                      href={contact.link || "#"}
+                      target="_blank"
+                      className="cursor-pointer"
+                    >
+                      <IconComp
+                        size={18}
+                        className="
+                    text-primary-green
+                    "
+                      />
+                    </Link>
+                  )}
                 </div>
 
                 {/* content */}

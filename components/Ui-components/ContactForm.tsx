@@ -96,7 +96,7 @@ export default function ContactForm() {
   return (
     <div
       className="
-      bg-[#faf8f4]
+      bg-hero-bg
       rounded-4
       py-6 md:py-8
       px-4 md:px-6
@@ -126,11 +126,11 @@ export default function ContactForm() {
           mt-2
           "
           >
-            <div className="w-6 h-[1px] bg-parchment" />
+            <div className="w-6 h-px bg-parchment" />
 
             <HeadingLeave />
 
-            <div className="w-6 h-[1px] bg-parchment" />
+            <div className="w-6 h-px bg-parchment" />
           </div>
         </div>
 
@@ -317,7 +317,7 @@ export default function ContactForm() {
                 placeholder="How can we help you?"
                 onChange={(e) => setField("message", e.target.value)}
                 className={`
-              min-h-[110px]
+              min-h-27.5
               resize-y
               p-4
               rounded-r8

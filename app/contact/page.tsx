@@ -10,7 +10,7 @@ export default function page() {
     <div>
       <ContactHero />
       <div
-        className="relative max-w-[1440px] mx-auto 
+        className="relative max-w-360 mx-auto 
           bg-white
           py-10
           grid

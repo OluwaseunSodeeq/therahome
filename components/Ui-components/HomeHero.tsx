@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { CalendarDays } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 
 export default function HomeHero() {
   const [loaded, setLoaded] = useState(false);
+  const { whatsappLink } = useFunctionalitiesContext();
 
   useEffect(() => {
     const timeout = setTimeout(() => setLoaded(true), 80);
@@ -147,7 +149,7 @@ export default function HomeHero() {
             className="
               text-base
               text-hero-bg lg:text-black
-              leading-8
+              leading-relaxed
               max-w-md
               mb-9
             "
@@ -185,7 +187,9 @@ export default function HomeHero() {
 
             {/* SECONDARY BUTTON */}
             <Link
-              href="#"
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="
                 border-2 border-light-green
                  lg:border-primary-green

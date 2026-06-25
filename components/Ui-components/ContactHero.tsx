@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
+import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 
 export interface HeroBullet {
   Icon: LucideIcon;
@@ -34,6 +35,7 @@ export const HERO_BULLETS: HeroBullet[] = [
 ];
 export default function ContactHero() {
   const [loaded, setLoaded] = useState<boolean>(false);
+  const { whatsappLink, handleCall } = useFunctionalitiesContext();
 
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 80);
@@ -150,7 +152,7 @@ export default function ContactHero() {
           <div className="flex flex-wrap gap-4 mb-5 mt-5 lg:mt-0">
             {/* PRIMARY BUTTON */}
             <Link
-              href="https://wa.me/2348123456789"
+              href={whatsappLink}
               className="
                 bg-light-green
                 lg:bg-primary-green
@@ -173,8 +175,8 @@ export default function ContactHero() {
             </Link>
 
             {/* SECONDARY BUTTON */}
-            <Link
-              href="#"
+            <button
+              onClick={handleCall}
               className="
                 border-2 lg:border-primary-green border-light-green
                 text-light-green
@@ -192,7 +194,7 @@ export default function ContactHero() {
                 <Phone />
               </span>
               Call Us Now
-            </Link>
+            </button>
           </div>
 
           {/* Response Time */}
