@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
 type FunctionalitiesContextProviderProps = {
   children: React.ReactNode;
@@ -12,7 +12,9 @@ const FunctionalitiesContext = createContext<
 function FunctionalitiesContextProvider({
   children,
 }: FunctionalitiesContextProviderProps) {
-  //   const [isLoading, setIsLoading] = useState(false);
+  const [showBooking, setShowBooking] = useState(false);
+  const toggleBookingForm = () => setShowBooking((prev) => !prev);
+
   //===================WHasapp Button Link========================
   // Whatsapp Button Link
   // const phoneNumber = "+2347064347587";
@@ -38,7 +40,14 @@ function FunctionalitiesContextProvider({
 
   return (
     <FunctionalitiesContext.Provider
-      value={{ whatsappLink, handleCall, phone }}
+      value={{
+        whatsappLink,
+        handleCall,
+        phone,
+        showBooking,
+        setShowBooking,
+        toggleBookingForm,
+      }}
     >
       {children}
     </FunctionalitiesContext.Provider>
@@ -49,6 +58,9 @@ type FunctionalitiesContextType = {
   whatsappLink: string;
   handleCall: () => Promise<void>;
   phone: string;
+  showBooking: boolean;
+  setShowBooking: React.Dispatch<React.SetStateAction<boolean>>;
+  toggleBookingForm: () => void;
 };
 
 function useFunctionalitiesContext(): FunctionalitiesContextType {

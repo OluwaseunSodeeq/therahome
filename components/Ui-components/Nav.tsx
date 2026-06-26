@@ -5,9 +5,11 @@ import { navLinks } from "../../app/data";
 import { useMenuContext } from "../../contexts/MenuContext";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
+import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 
 export default function Nav() {
   const { menuOpen, toggleMenu } = useMenuContext();
+  const { toggleBookingForm } = useFunctionalitiesContext();
   const [scrolled, setScrolled] = useState<boolean>(false);
   const pathname = usePathname();
 
@@ -58,9 +60,10 @@ export default function Nav() {
         {/* RIGHT SIDE */}
         <div className="flex items-center md:gap-4">
           {/* BOOK BUTTON */}
-          <Link href="/booking">
-            <button
-              className="
+          {/* <Link href="/booking"> */}
+          <button
+            onClick={toggleBookingForm}
+            className="
               hidden lg:flex
               items-center gap-2
               bg-primary-green
@@ -73,10 +76,10 @@ export default function Nav() {
               transition-colors
               duration-200
             "
-            >
-              📅 Book Now
-            </button>
-          </Link>
+          >
+            📅 Book Now
+          </button>
+          {/* </Link> */}
 
           {/* MOBILE MENU BUTTON */}
           {menuOpen ? (
