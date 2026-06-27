@@ -3,7 +3,7 @@ import BookingForm from "@/components/forms/BookingForm";
 export default function BookingPage() {
   return (
     <main className="mx-auto max-w-2xl px-4 py-20">
-      <BookingForm />
+      <BookingForm onSuccess={() => {}} />
     </main>
   );
 }
