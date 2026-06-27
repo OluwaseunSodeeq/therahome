@@ -12,7 +12,11 @@ import {
 } from "@/lib/validations/bookingSchema";
 import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 
-export default function BookingForm({ onSuccess }: { onSuccess: () => void }) {
+type BookingFormProps = {
+  onSuccess: () => void;
+};
+
+export default function BookingForm({ onSuccess }: BookingFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toggleBookingForm } = useFunctionalitiesContext();
 
