@@ -67,27 +67,6 @@ export default function FeaturedProducts() {
           ))}
         </div>
 
-        {/* Mobile List */}
-        {/* <div
-          className="
-            products-mobile
-            mt-9
-            hidden
-            flex-col
-            gap-[14px]
-
-            max-[900px]:flex
-          "
-        >
-          {shopProducts.slice(0, 4).map((product, index) => (
-            <ProductRowMobile
-              key={product.id}
-              p={product}
-              delay={index * 0.07}
-            />
-          ))}
-        </div> */}
-        {/* Mobile View All */}
         <DirectionReveal delay={0.1}>
           <div
             className="
