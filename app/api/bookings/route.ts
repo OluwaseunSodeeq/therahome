@@ -1,12 +1,10 @@
 import { prisma } from "@/lib/prisma";
+import { sendTelegramNotification } from "@/lib/sendBookingNotification";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-
-    console.log("Incoming booking:", body);
-
     const booking = await prisma.booking.create({
       data: {
         name: body.name,
@@ -20,7 +18,14 @@ export async function POST(req: Request) {
         note: body.note || "",
       },
     });
+
     console.log("Created booking:", booking);
+    try {
+      await sendTelegramNotification(booking);
+    } catch (error) {
+      console.error("Error sending Telegram notification:", error);
+    }
+
     return NextResponse.json(
       {
         success: true,
