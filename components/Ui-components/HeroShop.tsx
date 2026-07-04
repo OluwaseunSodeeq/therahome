@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import DirectionReveal from "../../app/Animations/DirectionReveal";
-import { ShopProduct } from "@/types/defaultType";
+// import { ShopProduct } from "@/types/defaultType";
+import { useCart } from "@/hooks/useCart";
+import { Product } from "@/types/product";
 
 export default function HeroShop() {
   const [loaded, setLoaded] = useState(false);
@@ -185,18 +187,24 @@ export default function HeroShop() {
    PRODUCT CARD — DESKTOP
 ───────────────────────────────────────────── */
 
-interface ProductCardDesktopProps {
-  product: ShopProduct;
+interface ProductCardProps {
+  product: Product;
   delay?: number;
 }
 
-export function ShopProductCard({
-  product,
-  delay = 0,
-}: ProductCardDesktopProps) {
+export function ShopProductCard({ product, delay = 0 }: ProductCardProps) {
+  const { addToCart } = useCart();
   const [added, setAdded] = useState(false);
 
   const handleAdd = () => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      image: product.image,
+      price: String(product.price),
+      desc: product.desc,
+    });
+
     setAdded(true);
 
     setTimeout(() => {
@@ -210,7 +218,7 @@ export function ShopProductCard({
         {/* Image */}
         <div className="relative aspect-square overflow-hidden rounded-md">
           <Image
-            src={product.img}
+            src={product.image}
             alt={product.name}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
@@ -259,15 +267,19 @@ export function ShopProductCard({
                 text-hero-bg lg:text-black
               "
             >
-              {product.price}
+              ₦{product.price}
             </span>
 
             <button
               onClick={handleAdd}
+              className="
+                font-serif
+                text-[15px]
+                font-bold
+                text-black"
               title="Add to cart"
-              className={`add-btn ${added ? "added" : ""}`}
             >
-              {added ? "✓" : "+"}
+              {added ? "✓ Added" : "🛒  "}
             </button>
           </div>
         </div>

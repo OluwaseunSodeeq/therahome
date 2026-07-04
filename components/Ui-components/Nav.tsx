@@ -6,10 +6,12 @@ import { useMenuContext } from "../../contexts/MenuContext";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import { useFunctionalitiesContext } from "@/contexts/Functionalities";
+import { useCart } from "@/hooks/useCart";
 
 export default function Nav() {
   const { menuOpen, toggleMenu } = useMenuContext();
   const { toggleBookingForm } = useFunctionalitiesContext();
+  const { totalItems } = useCart();
   const [scrolled, setScrolled] = useState<boolean>(false);
   const pathname = usePathname();
 
@@ -61,10 +63,21 @@ export default function Nav() {
         <div className="flex items-center md:gap-4">
           {/* BOOK BUTTON */}
           {/* <Link href="/booking"> */}
-          <button
-            onClick={toggleBookingForm}
-            className="
-              hidden lg:flex
+
+          <div className="flex items-center gap-4">
+            {totalItems > 0 && (
+              <div className="relative">
+                🛒{" "}
+                <span className="absolute -top-2 -right-2 bg-primary-green text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {totalItems}
+                </span>
+              </div>
+            )}
+            {/* </Link> */}
+            <button
+              onClick={toggleBookingForm}
+              className="
+              flex
               items-center gap-2
               bg-primary-green
               hover:bg-secondary-green
@@ -76,10 +89,10 @@ export default function Nav() {
               transition-colors
               duration-200
             "
-          >
-            📅 Book Now
-          </button>
-          {/* </Link> */}
+            >
+              📅 Book Now
+            </button>
+          </div>
 
           {/* MOBILE MENU BUTTON */}
           {menuOpen ? (

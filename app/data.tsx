@@ -2,13 +2,13 @@ import {
   BookingPrice,
   Product,
   Service,
-  ShopProduct,
   Step,
   Testimonial,
   TransportZone,
   TrustItem,
   WhyChooseUsItem,
 } from "@/types/defaultType";
+import { Product as ProductType } from "@/types/product";
 import {
   Leaf,
   ShieldCheck,
@@ -323,48 +323,48 @@ export const services: readonly Service[] = [
   // },
 ];
 
-export const shopProducts: ShopProduct[] = [
+export const shopProducts: ProductType[] = [
   {
-    id: 1,
+    id: "1",
     name: "Relaxation Massage Oil",
     desc: "A calming blend of essential oils designed to ease tension and promote deep relaxation.",
-    price: "₦18,000",
-    img: "/product1.png",
+    price: "18,000",
+    image: "/product1.png",
   },
   {
-    id: 2,
+    id: "2",
     name: "Aromatherapy Candle",
     desc: "Hand-poured wellness candle infused with lavender and eucalyptus for a soothing atmosphere.",
-    price: "₦12,500",
-    img: "/product2.png",
+    price: "12,500",
+    image: "/product2.png",
   },
   {
-    id: 3,
+    id: "3",
     name: "Body Scrub Polish",
     desc: "Gentle exfoliating scrub that leaves your skin soft, refreshed and glowing.",
-    price: "₦15,000",
-    img: "/product5.png",
+    price: "15,000",
+    image: "/product5.png",
   },
   {
-    id: 4,
+    id: "4",
     name: "Herbal Bath Salts",
     desc: "Mineral-rich bath salts crafted to relax muscles and restore your body after a long day.",
-    price: "₦10,000",
-    img: "/product4.png",
+    price: "10,000",
+    image: "/product4.png",
   },
   {
-    id: 5,
+    id: "5",
     name: "Hydrating Body Butter",
     desc: "Deeply nourishing body butter made with shea butter and natural plant extracts.",
-    price: "₦14,500",
-    img: "/product1.png",
+    price: "14,500",
+    image: "/product1.png",
   },
   {
-    id: 6,
+    id: "6",
     name: "Facial Glow Serum",
     desc: "Lightweight facial serum formulated to hydrate and brighten your skin naturally.",
-    price: "₦22,000",
-    img: "/product.png",
+    price: "22,000",
+    image: "/product.png",
   },
 ];
 
