@@ -276,7 +276,12 @@ export function ShopProductCard({ product, delay = 0 }: ProductCardProps) {
                 font-serif
                 text-[15px]
                 font-bold
-                text-black"
+                cursor-pointer
+                text-primary-green
+                transition-all
+                duration-300
+                hover:text-secondary-green
+              "
               title="Add to cart"
             >
               {added ? "✓ Added" : "🛒  "}

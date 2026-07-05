@@ -11,7 +11,7 @@ interface CartContextProviderProps {
 }
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
-  //   const [isLoaded, setIsLoaded] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const [cart, setCart] = useState<CartItem[]>(() => {
     if (typeof window === "undefined") {
@@ -78,10 +78,16 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
   const subtotal = useMemo(() => {
     return cart.reduce(
-      (total, item) => total + Number(item.price) * item.quantity,
+      (total, item) =>
+        total + Number(item.price.replace(",", "")) * item.quantity,
       0,
     );
   }, [cart]);
+
+  //   CART VISUAL
+  const openCart = () => setIsCartOpen(true);
+  const closeCart = () => setIsCartOpen(false);
+  const toggleCart = () => setIsCartOpen((prev) => !prev);
 
   return (
     <CartContext.Provider
@@ -94,6 +100,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         clearCart,
         totalItems,
         subtotal,
+        isCartOpen,
+        openCart,
+        closeCart,
+        toggleCart,
       }}
     >
       {children}

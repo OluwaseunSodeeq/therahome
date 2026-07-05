@@ -77,7 +77,6 @@ export default function ContactForm() {
 
     setTimeout(() => {
       setLoading(false);
-
       setSent(true);
     }, 1800);
   };
