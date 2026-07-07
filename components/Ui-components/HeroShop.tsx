@@ -26,7 +26,7 @@ export default function HeroShop() {
     <section className="w-full mx-auto relative mt-17 overflow-hidden min-h-90 bg-hero-img font-geo">
       <div className="relative max-w-360 mx-auto z-20">
         {/* Background image */}
-        <div className="relative min-h-105 max-h-125 w-full">
+        <div className="relative min-h-115 max-h-125 w-full">
           <Image
             src="/hero6.png"
             alt="Premium wellness products"
@@ -87,12 +87,18 @@ export default function HeroShop() {
           py-8 px-6 md:px-8
           xl:px-12
           xl:py-11
+          border-4
+
         "
         >
           {/* Badge */}
           <div
             style={anim(0.08)}
-            className="mb-9 lg:mb-3.5 flex items-center gap-1.75"
+            className="
+            max-w-[320px]
+             py-2
+             px-2
+            "
           >
             <span className="text-xs">🌿</span>
             <span
@@ -101,8 +107,7 @@ export default function HeroShop() {
               font-semibold
               uppercase
               tracking-wider
-              text-light-green
-              lg:text-primary-green
+              text-primary-green
               ml-4
             "
             >
@@ -118,18 +123,13 @@ export default function HeroShop() {
             font-serif
             text-[clamp(30px,4.5vw,54px)]
             font-bold
-            leading-relaxed
+            leading-tight
             text-hero-bg lg:text-black
           "
           >
             Premium Care,
             <br />
-            <span
-              className=" text-light-green
-              lg:text-primary-green"
-            >
-              Beyond Your Session
-            </span>
+            <span className="text-primary-green">Beyond Your Session</span>
           </h1>
 
           {/* Subtext */}
@@ -138,7 +138,7 @@ export default function HeroShop() {
             className="
             mb-0 lg:mb-8
             max-w-90
-            text-[clamp(13px,1.6vw,15px)]
+            text-base
             leading-relaxed
             text-hero-bg lg:text-black
           "
@@ -156,8 +156,7 @@ export default function HeroShop() {
               items-center
               gap-2.25
               rounded-lg
-              bg-light-green
-              lg:bg-primary-green
+              bg-primary-green
               px-6.5
               py-3.5
               text-sm

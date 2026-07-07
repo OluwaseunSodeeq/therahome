@@ -108,7 +108,7 @@ export default function HeroService() {
             ${loaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}
           `}
           >
-            <span className="text-[13px] text-light-green">🌿</span>
+            <span className="text-[13px] text-primary-green">🌿</span>
 
             <span
               className="
@@ -116,8 +116,7 @@ export default function HeroService() {
               font-bold
               uppercase
               tracking-[0.12em]
-              text-light-green
-              lg:text-primary-green
+              text-primary-green
             "
             >
               Our Services
@@ -141,16 +140,14 @@ export default function HeroService() {
           >
             Premium Wellness,
             <br />
-            <span className="text-light-green lg:text-primary-green">
-              Tailored for You
-            </span>
+            <span className="text-primary-green">Tailored for You</span>
           </h1>
 
           {/* Description */}
           <p
             className={`
             max-w-90
-            text-[clamp(13px,1.8vw,16px)]
+            text-base
             leading-relaxed
             text-hero-bg lg:text-black
             transition-all

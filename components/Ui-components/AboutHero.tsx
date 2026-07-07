@@ -113,8 +113,7 @@ export default function AboutHero() {
                 font-bold
                 uppercase
                 tracking-[0.13em]
-                text-light-green
-                lg:text-primary-green
+                text-primary-green
 
               "
             >
@@ -136,9 +135,7 @@ export default function AboutHero() {
           >
             Wellness, Delivered
             <br />
-            <span className="italic text-light-green lg:text-primary-green">
-              With Care
-            </span>
+            <span className="italic text-primary-green">With Care</span>
           </h1>
 
           {/* Paragraph */}
@@ -147,7 +144,7 @@ export default function AboutHero() {
             className="
               mb-7
               max-w-90
-              text-[15px]
+              text-base
               leading-relaxed
               text-hero-bg lg:text-black
             "
@@ -163,7 +160,7 @@ export default function AboutHero() {
 
               return (
                 <div key={index} className="flex items-center gap-3">
-                  <Icon className="text-light-green lg:text-primary-green" />
+                  <Icon className="text-primary-green" />
                   {/* </div> */}
 
                   <span

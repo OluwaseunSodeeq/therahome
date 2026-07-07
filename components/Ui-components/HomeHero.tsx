@@ -96,6 +96,7 @@ export default function HomeHero() {
           py-8 px-6 md:px-8
           xl:px-12
           xl:py-11
+          border-4
           
           `}
         >
@@ -117,7 +118,7 @@ export default function HomeHero() {
                 font-semibold
                 tracking-wider
                 uppercase
-                text-light-green lg:text-primary-green
+                text-primary-green
                 ml-4
               "
             >
@@ -131,16 +132,14 @@ export default function HomeHero() {
             className="
               text-4xl md:text-6xl
               font-bold
-              leading-relaxed
+              leading-tight
               text-hero-bg lg:text-black
               mb-5
             "
           >
             Luxury Spa,
             <br />
-            <span className="text-light-green lg:text-primary-green">
-              Delivered to You
-            </span>
+            <span className="text-primary-green">Delivered to You</span>
           </h1>
 
           {/* DESCRIPTION */}
@@ -191,10 +190,8 @@ export default function HomeHero() {
               target="_blank"
               rel="noopener noreferrer"
               className="
-                border-2 border-light-green
-                 lg:border-primary-green
-                text-light-green
-                lg:text-primary-green
+                border-2 border-primary-green
+                text-primary-green
                 rounded-lg
                 px-7 py-4
                 text-sm font-semibold
@@ -215,7 +212,7 @@ export default function HomeHero() {
 
           {/* SMALL TEXT */}
           <div style={anim(0.2)} className="flex items-center gap-2">
-            <span className="text-light-green text-sm">✅</span>
+            <span className="text-primary-green text-sm">✅</span>
 
             <span className="text-sm text-hero-bg lg:text-black">
               Limited slots available weekly

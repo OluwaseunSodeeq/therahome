@@ -55,7 +55,7 @@ type TelegramCustomer = {
 type TelegramOrderItem = {
   name: string;
   quantity: number;
-  price: number;
+  price: string;
 };
 
 type TelegramOrder = {
@@ -72,12 +72,11 @@ export async function sendOrderNotification(
   const items = order.items
     .map(
       (item: TelegramOrderItem) =>
-        `• ${item.name} x${item.quantity} — ${formatPrice(
-          item.price * item.quantity,
-        )}`,
+        `• ${item.name} x ${item.quantity} — ${formatPrice(Number(item.price.replace(/,/g, "")) * item.quantity)}`,
     )
     .join("\n");
 
+  console.log(items);
   const message = `
 🛍️ <b>NEW PRODUCT ORDER</b>
 ━━━━━━━━━━━━━━━━━━
@@ -117,7 +116,7 @@ ${formatPrice(order.subtotal)}
 
 ━━━━━━━━━━━━━━━━━━
 
-💬 <b>Open WhatsApp</b>
+💬 <b>Chat with Customer</b>
 
 ${whatsappLink}
 `;

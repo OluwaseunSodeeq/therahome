@@ -121,7 +121,7 @@ export default function ContactHero() {
         >
           {/* Badge */}
           <div style={anim(0.06)} className="mb-4 flex items-center gap-2">
-            <span className="text-[11px] font-bold uppercase tracking-[0.13em] text-light-green lg:text-primary-green">
+            <span className="text-[11px] font-bold uppercase tracking-[0.13em] text-primary-green">
               Get In Touch
             </span>
           </div>
@@ -129,21 +129,19 @@ export default function ContactHero() {
           {/* Heading */}
           <h1
             style={anim(0.18)}
-            className="mb-5 text-[clamp(34px,4.5vw,56px)] font-bold leading-relaxed"
+            className="mb-5 text-[clamp(34px,4.5vw,56px)] font-bold leading-tight"
           >
             <span className="text-hero-bg lg:text-black">
               We&apos;re Here to
             </span>
             <br />
-            <span className="italic text-light-green lg:text-primary-green">
-              Help You Relax
-            </span>
+            <span className="italic text-primary-green">Help You Relax</span>
           </h1>
 
           {/* Description */}
           <p
             style={anim(0.3)}
-            className="text-hero-bg lg:text-black lg:mb-8 max-w-md text-[15px] leading-relaxed"
+            className="text-hero-bg lg:text-black lg:mb-8 max-w-md text-base leading-relaxed"
           >
             Have questions or ready to book your session? Reach out to us and
             we&apos;ll take care of the rest.
@@ -154,8 +152,7 @@ export default function ContactHero() {
             <Link
               href={whatsappLink}
               className="
-                bg-light-green
-                lg:bg-primary-green
+                bg-primary-green
                 text-white
                 rounded-lg
                 px-7 py-4
@@ -179,7 +176,7 @@ export default function ContactHero() {
               onClick={handleCall}
               className="
                 border-2 lg:border-primary-green border-light-green
-                text-light-green
+                text-primary-green
                 lg:text-primary-green
                 rounded-lg
                 px-7 py-4
@@ -190,7 +187,7 @@ export default function ContactHero() {
                 hover:-translate-y-1
               "
             >
-              <span className="text-light-green lg:text-primary-green text-[18px]">
+              <span className="text-primary-green text-[18px]">
                 <Phone />
               </span>
               Call Us Now
@@ -199,7 +196,7 @@ export default function ContactHero() {
 
           {/* Response Time */}
           <div style={anim(0.5)} className="flex items-center gap-2">
-            <span className="text-light-green lg:text-primary-green">
+            <span className="text-primary-green">
               <Clock size={18} />
             </span>
 
@@ -210,7 +207,7 @@ export default function ContactHero() {
 
           {/* Trust */}
           <div style={anim(0.58)} className="mt-4 flex items-center gap-2">
-            <span className="text-light-green lg:text-primary-green">
+            <span className="text-primary-green">
               <ShieldCheck size={18} />
             </span>
 

@@ -172,7 +172,7 @@ export default function CheckoutForm({ onSuccess }: CheckoutFormProps) {
           </div>
         </div>
         {/* Order Notes */}
-        <div className="border-t pt-7">
+        <div className="hidden border-t pt-7">
           <div className="mb-5">
             <h3 className="text-lg font-bold">📝 Order Notes</h3>
 

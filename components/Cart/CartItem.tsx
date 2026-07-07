@@ -11,7 +11,6 @@ interface Props {
 }
 
 export default function CartItem({ item }: Props) {
-  console.log("CartItem item:", item); // Debugging line
   const { increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
 
   return (
