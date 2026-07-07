@@ -87,7 +87,6 @@ export default function HeroShop() {
           py-8 px-6 md:px-8
           xl:px-12
           xl:py-11
-          border-4
 
         "
         >
