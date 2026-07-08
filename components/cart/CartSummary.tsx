@@ -27,7 +27,7 @@ export default function CartSummary({ onCheckout }: CartSummaryProps) {
         <span className="text-neutral-600">Subtotal</span>
 
         {/* <span className="font-semibold">{formatPrice(subtotal)}</span> */}
-        <span className="font-semibold">{subtotal}</span>
+        <span className="font-semibold">{formatPrice(subtotal)}</span>
       </div>
 
       {/* Delivery */}

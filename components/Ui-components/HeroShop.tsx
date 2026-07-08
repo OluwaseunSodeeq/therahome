@@ -6,6 +6,7 @@ import DirectionReveal from "../../app/Animations/DirectionReveal";
 // import { ShopProduct } from "@/types/defaultType";
 import { useCart } from "@/hooks/useCart";
 import { Product } from "@/types/product";
+import { formatPrice } from "@/lib/formatPrice";
 
 export default function HeroShop() {
   const [loaded, setLoaded] = useState(false);
@@ -86,7 +87,7 @@ export default function HeroShop() {
           justify-center
           py-8 px-6 md:px-8
           xl:px-12
-          xl:py-11
+          xl:py-12
 
         "
         >
@@ -118,17 +119,21 @@ export default function HeroShop() {
           <h1
             style={anim(0.2)}
             className="
-            mb-5
-            font-serif
+            // mb-5
+            mt-3
             text-[clamp(30px,4.5vw,54px)]
             font-bold
             leading-tight
             text-hero-bg lg:text-black
+            italic 
+            font-geo
           "
           >
             Premium Care,
             <br />
-            <span className="text-primary-green">Beyond Your Session</span>
+            <span className="text-primary-green italic">
+              Beyond Your Session
+            </span>
           </h1>
 
           {/* Subtext */}
@@ -140,6 +145,7 @@ export default function HeroShop() {
             text-base
             leading-relaxed
             text-hero-bg lg:text-black
+            mt-5
           "
           >
             Our carefully selected wellness essentials help you relax, restore
@@ -199,7 +205,7 @@ export function ShopProductCard({ product, delay = 0 }: ProductCardProps) {
       id: product.id,
       name: product.name,
       image: product.image,
-      price: String(product.price),
+      price: product.price,
       desc: product.desc,
     });
 
@@ -265,7 +271,7 @@ export function ShopProductCard({ product, delay = 0 }: ProductCardProps) {
                 text-hero-bg lg:text-black
               "
             >
-              ₦{product.price}
+              {formatPrice(product.price)}
             </span>
 
             <button

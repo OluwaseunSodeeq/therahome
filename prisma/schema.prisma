@@ -7,6 +7,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum OrderStatus {
+  Pending
+  Confirmed
+  Processing
+  Shipped
+  Delivered
+  Cancelled
+}
+
 model Booking {
   id        String   @id @default(cuid())
   name      String
@@ -21,4 +30,30 @@ model Booking {
   createdAt DateTime @default(now())
 
   @@map("bookings")
+}
+
+model Order {
+  id        String   @id @default(cuid())
+  customer  String
+  phone     String
+  email     String?
+  address   String
+  note      String?
+  total     Float
+  status    OrderStatus @default(Pending)
+  createdAt DateTime @default(now())
+  items      OrderItem[]
+  @@index([createdAt])
+
+}
+
+model OrderItem {
+  id        String @id @default(cuid())
+  orderId   String
+  name      String
+  price     Float
+  quantity  Int
+  image      String?
+  order Order @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
 }

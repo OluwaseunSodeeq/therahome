@@ -55,7 +55,7 @@ type TelegramCustomer = {
 type TelegramOrderItem = {
   name: string;
   quantity: number;
-  price: string;
+  price: number;
 };
 
 type TelegramOrder = {
@@ -72,7 +72,7 @@ export async function sendOrderNotification(
   const items = order.items
     .map(
       (item: TelegramOrderItem) =>
-        `• ${item.name} x ${item.quantity} — ${formatPrice(Number(item.price.replace(/,/g, "")) * item.quantity)}`,
+        `• ${item.name} x ${item.quantity} — ${formatPrice(item.price * item.quantity)}`,
     )
     .join("\n");
 

@@ -23,7 +23,7 @@ export default function CartItem({ item }: Props) {
       className="flex gap-4 border-b border-gray-100 py-5"
     >
       {/* Product Image */}
-      <div className="relative h-24 w-24 overflow-hidden rounded-xl bg-gray-100 flex-shrink-0">
+      <div className="relative h-24 w-24 overflow-hidden rounded-xl bg-gray-100 shrink-0">
         <Image src={item.image} alt={item.name} fill className="object-cover" />
       </div>
 
@@ -48,7 +48,7 @@ export default function CartItem({ item }: Props) {
               <Minus size={16} />
             </button>
 
-            <span className="min-w-[20px] text-center font-semibold">
+            <span className="min-w-5 text-center font-semibold">
               {item.quantity}
             </span>
 

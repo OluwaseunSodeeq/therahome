@@ -120,8 +120,25 @@ export default function ContactHero() {
           "
         >
           {/* Badge */}
-          <div style={anim(0.06)} className="mb-4 flex items-center gap-2">
-            <span className="text-[11px] font-bold uppercase tracking-[0.13em] text-primary-green">
+          <div
+            style={anim(0.08)}
+            className="
+            max-w-[320px]
+             py-2
+             px-2
+            "
+          >
+            <span className="text-xs">🌿</span>
+            <span
+              className="
+              text-[11px]
+              font-semibold
+              uppercase
+              tracking-wider
+              text-primary-green
+              ml-4
+            "
+            >
               Get In Touch
             </span>
           </div>
@@ -206,7 +223,7 @@ export default function ContactHero() {
           </div>
 
           {/* Trust */}
-          <div style={anim(0.58)} className="mt-4 flex items-center gap-2">
+          <div style={anim(0.58)} className="mt-7 flex items-center gap-1">
             <span className="text-primary-green">
               <ShieldCheck size={18} />
             </span>

@@ -69,20 +69,6 @@ export default function HomeHero() {
     `,
           }}
         />
-        {/* <div
-          className="hidden md:block absolute inset-0"
-          style={{
-            background: `
-            linear-gradient(
-              to right,
-              rgba(250,248,244,1) 0%,
-              rgba(250,248,244,0.95) 28%,
-              rgba(250,248,244,0.70) 46%,
-              rgba(250,248,244,0.0) 68%
-            )
-          `,
-          }}
-        /> */}
 
         {/* Content */}
         <div
@@ -93,9 +79,9 @@ export default function HomeHero() {
           max-w-180
           flex-col
           justify-center
-          py-8 px-6 md:px-8
+          px-6 md:px-8
           xl:px-12
-          xl:py-11
+        
           
           `}
         >
@@ -134,11 +120,12 @@ export default function HomeHero() {
               leading-tight
               text-hero-bg lg:text-black
               mb-5
+              font-geo
             "
           >
             Luxury Spa,
             <br />
-            <span className="text-primary-green">Delivered to You</span>
+            <span className="text-primary-green italic">Delivered to You</span>
           </h1>
 
           {/* DESCRIPTION */}

@@ -79,7 +79,7 @@ export default function ContactInfo() {
 
         <div className="text-center mb-4">
           <h3
-            className="
+          className="
           text-2xl
           font-bold
           text-black

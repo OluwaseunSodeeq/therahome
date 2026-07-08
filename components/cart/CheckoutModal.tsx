@@ -3,6 +3,9 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import CheckoutForm from "./CheckoutForm";
+import { useState } from "react";
+import ReviewOrder from "./Revieworder";
+// import CheckoutProgress from "./CheckoutProgress";
 
 interface CheckoutModalProps {
   open: boolean;
@@ -10,13 +13,15 @@ interface CheckoutModalProps {
 }
 
 export default function CheckoutModal({ open, onClose }: CheckoutModalProps) {
+  const [step, setStep] = useState<1 | 2>(1);
+
   return (
     <AnimatePresence>
       {open && (
         <>
           {/* Overlay */}
           <motion.div
-            className="fixed inset-0 z-[120] bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-120 bg-black/60 backdrop-blur-sm"
             onClick={onClose}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -35,7 +40,7 @@ export default function CheckoutModal({ open, onClose }: CheckoutModalProps) {
                  fixed
     left-1/2
     top-5
-    z-[130]
+    z-130
     h-[90vh]
     w-[95%] lg:w-[45%]
     max-w-2xl
@@ -51,10 +56,14 @@ export default function CheckoutModal({ open, onClose }: CheckoutModalProps) {
 
             <div className="flex items-center justify-between border-b px-7 py-5">
               <div>
-                <h2 className="text-2xl font-bold">Checkout</h2>
+                <h2 className="text-2xl font-bold">
+                  {step === 1 ? "Review Your Order" : "Customer Details"}
+                </h2>
 
                 <p className="mt-1 text-sm text-neutral-500">
-                  Complete your details and we&apos;ll contact you shortly.
+                  {step === 1
+                    ? "Please confirm your order before continuing."
+                    : "Tell us where to deliver your wellness products."}
                 </p>
               </div>
 
@@ -66,7 +75,58 @@ export default function CheckoutModal({ open, onClose }: CheckoutModalProps) {
               </button>
             </div>
 
-            <CheckoutForm onSuccess={onClose} />
+            {/* <div className="border-b">
+              <CheckoutProgress step={step} />
+            </div> */}
+
+            <AnimatePresence mode="wait">
+              {step === 1 ? (
+                <motion.div
+                  key="review"
+                  initial={{
+                    opacity: 0,
+                    x: 30,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    x: -30,
+                  }}
+                >
+                  <ReviewOrder
+                    onContinue={() => {
+                      setStep(2);
+                    }}
+                  />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="details"
+                  initial={{
+                    opacity: 0,
+                    x: 30,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    x: 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    x: -30,
+                  }}
+                >
+                  <CheckoutForm
+                    onSuccess={() => {
+                      setStep(1);
+                      onClose();
+                    }}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         </>
       )}

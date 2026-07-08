@@ -90,7 +90,7 @@ export default function HmProductCard({ product }: ProductCardProps) {
           hover:text-white
         "
       >
-        🛒
+        🛒 Add to Cart
       </button>
     </div>
   );

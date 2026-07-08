@@ -16,7 +16,6 @@ export default function CartDrawer() {
   // Prevent page scrolling while drawer is open
   useEffect(() => {
     document.body.style.overflow = isCartOpen ? "hidden" : "auto";
-
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -43,7 +42,7 @@ export default function CartDrawer() {
             {/* Backdrop */}
             <motion.div
               onClick={closeCart}
-              className="fixed inset-0 z-[90] bg-black/40 backdrop-blur-sm"
+              className="fixed inset-0 z-90 bg-black/40 backdrop-blur-sm"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -55,7 +54,7 @@ export default function CartDrawer() {
               fixed
               top-0
               right-0
-              z-[100]
+              z-100
               h-screen
               w-full
               max-w-md

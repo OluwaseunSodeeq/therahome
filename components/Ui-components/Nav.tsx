@@ -16,6 +16,16 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState<boolean>(false);
   const pathname = usePathname();
 
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      setMounted(true);
+    });
+
+    return () => cancelAnimationFrame(id);
+  }, []);
+
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -63,16 +73,16 @@ export default function Nav() {
 
           {/* RIGHT SIDE */}
           <div className="flex items-center md:gap-4">
-            <div className="flex items-center gap-4">
-              {totalItems > 0 && (
+            <div className="flex items-center md:gap-4">
+              {mounted && totalItems > 0 && (
                 <button
                   onClick={toggleCart}
                   className="
-    relative
-    transition-transform
-    duration-200
-    hover:scale-110
-    active:scale-95
+                    relative
+                    transition-transform
+                    duration-200
+                    hover:scale-110
+                    active:scale-95
   "
                 >
                   🛒{" "}
@@ -85,17 +95,17 @@ export default function Nav() {
               <button
                 onClick={toggleBookingForm}
                 className="
-              hidden lg:flex
-              items-center gap-2
-              bg-primary-green
-              hover:bg-secondary-green
-              text-white
-              px-5 py-2.5
-              rounded-lg
-              text-sm
-              font-semibold
-              transition-colors
-              duration-200
+                hidden lg:flex
+                items-center gap-2
+                bg-primary-green
+                hover:bg-secondary-green
+                text-white
+                px-5 py-2.5
+                rounded-lg
+                text-sm
+                font-semibold
+                transition-colors
+                duration-200
             "
               >
                 📅 Book Now

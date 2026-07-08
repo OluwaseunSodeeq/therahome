@@ -12,9 +12,9 @@ import {
   MapPin,
   MessageCircle,
   Phone,
-  Smartphone,
+  // Smartphone,
 } from "lucide-react";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 export interface HeroBullet {
   Icon: LucideIcon;
   text: string;
@@ -36,9 +36,9 @@ const SOCIALS = [
 
 export const contactInfo = [
   { Icon: MapPin, text: "Lagos, Nigeria" },
-  { Icon: Phone, text: "+234 901 234 5678" },
-  { Icon: Smartphone, text: "+234 901 234 5678" },
-  { Icon: Mail, text: "hello@therahome.com" },
+  { Icon: Phone, text: "+234 706 434 7587" },
+  { Icon: FaWhatsapp, text: "+234 706 434 7587" },
+  { Icon: Mail, text: "therahomeng@gmail.com" },
   { Icon: Clock, text: "9:00 AM – 8:00 PM (Daily)" },
 ];
 
@@ -60,10 +60,10 @@ export default function Footer() {
   });
 
   return (
-    <footer className="relative bottom-0 font-ego bg-white pt-16 max-w-7xl mx-auto px-6  ">
+    <footer className="relative bottom-0 font-ego pt-16 max-w-7xl mx-auto px-6 lg:px-0 bg-white">
       <div className="w-full mx-auto" style={anim(0.06)}>
         {/* TOP GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 pb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 pb-6">
           {/* BRAND */}
           <div>
             <Logo />
@@ -222,7 +222,7 @@ export default function Footer() {
           "
         >
           <p className="text-xs text-white/40">
-            © 2024 TheraHome. All rights reserved.
+            © 2026 TheraHome. All rights reserved.
           </p>
 
           <div className="flex gap-6">

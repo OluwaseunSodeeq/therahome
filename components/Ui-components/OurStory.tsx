@@ -134,15 +134,15 @@ export default function OurStory() {
             >
               <p>
                 We understand that life in Lagos can be fast, stressful and
-                demanding. TheraHome brings the spa to you — combining expert
+                demanding. TheraHome brings the spa to you combining expert
                 care, natural products and convenience to help you relax,
                 restore and feel your best.
               </p>
 
               <p className="hidden sm:block">
                 Founded by wellness enthusiasts who believe self-care should not
-                be a luxury, TheraHome has served hundreds of clients across
-                Lagos each one leaving more relaxed, restored, and glowing.
+                be a luxury, TheraHome serves clients across Lagos each one
+                leaving more relaxed, restored, and glowing.
               </p>
             </div>
 

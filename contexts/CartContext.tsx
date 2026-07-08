@@ -71,17 +71,22 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   const clearCart = () => {
     setCart([]);
   };
-
+  console.log("CART:", cart);
   const totalItems = useMemo(() => {
     return cart.reduce((total, item) => total + item.quantity, 0);
   }, [cart]);
 
   const subtotal = useMemo(() => {
-    return cart.reduce(
-      (total, item) =>
-        total + Number(item.price.replace(",", "")) * item.quantity,
-      0,
-    );
+    return cart.reduce((total, item) => {
+      console.log({
+        name: item.name,
+        price: item.price,
+        priceType: typeof item.price,
+        quantity: item.quantity,
+      });
+
+      return total + item.price * item.quantity;
+    }, 0);
   }, [cart]);
 
   //   CART VISUAL

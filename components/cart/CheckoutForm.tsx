@@ -2,11 +2,16 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { orderSchema, OrderFormData } from "@/lib/validations/orderSchema";
+import {
+  OrderFormData,
+  customerOrderSchema,
+} from "@/lib/validations/orderSchema";
 
 import { useCart } from "@/hooks/useCart";
 import { toast } from "sonner";
 import { formatPrice } from "@/lib/formatPrice";
+import { useState } from "react";
+// import CheckoutProgress from "./CheckoutProgress";
 
 interface CheckoutFormProps {
   onSuccess: () => void;
@@ -37,7 +42,9 @@ text-neutral-700
 `;
 
 export default function CheckoutForm({ onSuccess }: CheckoutFormProps) {
-  const { cart, subtotal, clearCart } = useCart();
+  const [loading, setLoading] = useState(false);
+
+  const { cart, subtotal, clearCart, totalItems, closeCart } = useCart();
 
   const {
     register,
@@ -45,38 +52,69 @@ export default function CheckoutForm({ onSuccess }: CheckoutFormProps) {
     formState: { errors, isSubmitting },
     reset,
   } = useForm<OrderFormData>({
-    resolver: zodResolver(orderSchema),
+    resolver: zodResolver(customerOrderSchema),
   });
 
   const onSubmit = async (data: OrderFormData) => {
+    if (!cart.length) {
+      toast.error("Your cart is empty.");
+      return;
+    }
+    setLoading(true);
     try {
+      const payload = {
+        customer: data,
+        order: {
+          items: cart,
+          subtotal,
+          totalItems: cart.reduce((sum, item) => sum + item.quantity, 0),
+          createdAt: new Date().toISOString(),
+        },
+      };
+
+      console.log("ORDER ITEMS");
+      console.table(
+        cart.map((item) => ({
+          name: item.name,
+          price: item.price,
+          type: typeof item.price,
+          quantity: item.quantity,
+        })),
+      );
+
+      console.log("FULL PAYLOAD", {
+        customer: data,
+        order: {
+          items: cart,
+          subtotal,
+          totalItems: cart.reduce((sum, item) => sum + item.quantity, 0),
+          createdAt: new Date().toISOString(),
+        },
+      });
+
       const response = await fetch("/api/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          customer: data,
-          order: {
-            items: cart,
-            subtotal,
-            totalItems: cart.reduce((sum, item) => sum + item.quantity, 0),
-            createdAt: new Date().toISOString(),
-          },
-        }),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
         throw new Error("Failed to submit order.");
       }
 
-      toast.success("Order submitted successfully!");
+      toast.success("Your order has been received! We'll contact you shortly.");
       clearCart();
       reset();
       onSuccess();
+      closeCart();
+      // close the shopping cart modal if it's open
     } catch (error) {
       console.error(error);
       toast.error("Unable to submit order.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -86,12 +124,15 @@ export default function CheckoutForm({ onSuccess }: CheckoutFormProps) {
         {/* Customer Details */}
 
         <div className="space-y-5">
-          <div>
-            <h3 className="text-lg font-bold">👤 Customer Details</h3>
+          <div className="flex justify-between">
+            <div>
+              <h3 className="text-lg font-bold">👤 Customer Details</h3>
 
-            <p className="text-sm text-neutral-500">
-              Tell us how to reach you.
-            </p>
+              <p className="text-sm text-neutral-500">
+                Tell us how to reach you.
+              </p>
+            </div>
+            {/* <CheckoutProgress step={2} /> */}
           </div>
 
           <div className="grid gap-5 md:grid-cols-2">
@@ -193,7 +234,7 @@ export default function CheckoutForm({ onSuccess }: CheckoutFormProps) {
           <div className="mb-3 flex justify-between">
             <span>Items</span>
 
-            <span>{cart.length}</span>
+            <span>{totalItems}</span>
           </div>
 
           <div className="mb-3 flex justify-between">
@@ -213,7 +254,7 @@ export default function CheckoutForm({ onSuccess }: CheckoutFormProps) {
       <div className="px-7 pb-5">
         <button
           type="submit"
-          disabled={isSubmitting}
+          disabled={loading || isSubmitting}
           className="
             w-full
             rounded-xl
@@ -229,7 +270,14 @@ export default function CheckoutForm({ onSuccess }: CheckoutFormProps) {
 
   "
         >
-          {isSubmitting ? "Placing Order..." : "Place Order"}
+          {loading ? (
+            <div className="flex items-center justify-center gap-2">
+              <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
+              Placing Order...
+            </div>
+          ) : (
+            "Place Order"
+          )}
         </button>
       </div>
     </form>

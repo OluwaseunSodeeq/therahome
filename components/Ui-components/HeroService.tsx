@@ -95,9 +95,11 @@ export default function HeroService() {
           flex-col
           justify-center
           px-6
-          py-8 md:px-8
+          md:px-8
+          py-8
           xl:px-12
-          xl:py-11
+          xl:py-16
+        
         "
         >
           {/* Badge */}
@@ -126,11 +128,11 @@ export default function HeroService() {
           {/* Heading */}
           <h1
             className={`
-            mb-5
-            font-serif
+            font-geo
             text-[clamp(32px,5vw,58px)]
             font-bold
-            leading-relaxed
+            mt-3
+            leading-tight
             text-hero-bg lg:text-black
             transition-all
             duration-700
@@ -140,7 +142,7 @@ export default function HeroService() {
           >
             Premium Wellness,
             <br />
-            <span className="text-primary-green">Tailored for You</span>
+            <span className="text-primary-green italic ">Tailored for You</span>
           </h1>
 
           {/* Description */}
@@ -153,6 +155,7 @@ export default function HeroService() {
             transition-all
             duration-700
             delay-300
+            mt-5
             ${loaded ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"}
           `}
           >

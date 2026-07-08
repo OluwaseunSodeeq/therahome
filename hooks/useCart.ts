@@ -8,10 +8,3 @@ export function useCart() {
   }
   return context;
 }
-
-// const context = useContext(CartContext)
-// if (!context) {
-//   throw new Error("useCart must be used within a CartProvider")
-// }
-
-// const {cart, addToCart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart, totalItems, subtotal} = context;

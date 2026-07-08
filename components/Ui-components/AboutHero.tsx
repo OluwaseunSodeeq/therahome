@@ -106,16 +106,24 @@ export default function AboutHero() {
           "
         >
           {/* Badge */}
-          <div style={anim(0.06)} className="mb-4">
+          <div
+            style={anim(0.08)}
+            className="
+            max-w-[320px]
+             py-2
+             px-2
+            "
+          >
+            <span className="text-xs">🌿</span>
             <span
               className="
-                text-[11px]
-                font-bold
-                uppercase
-                tracking-[0.13em]
-                text-primary-green
-
-              "
+              text-[11px]
+              font-semibold
+              uppercase
+              tracking-wider
+              text-primary-green
+              ml-4
+            "
             >
               ABOUT THERAHOME
             </span>
@@ -125,7 +133,7 @@ export default function AboutHero() {
           <h1
             style={anim(0.18)}
             className="
-              mb-5
+              mt-3
               font-serif
               text-[clamp(34px,4.8vw,56px)]
               font-bold
@@ -142,7 +150,7 @@ export default function AboutHero() {
           <p
             style={anim(0.3)}
             className="
-              mb-7
+              mt-4
               max-w-90
               text-base
               leading-relaxed
@@ -154,7 +162,7 @@ export default function AboutHero() {
           </p>
 
           {/* Bullet Points */}
-          <div style={anim(0.42)} className="space-y-4">
+          <div style={anim(0.42)} className="mt-4 space-y-4">
             {HERO_BULLETS.map((item, index) => {
               const Icon = item.Icon;
 
