@@ -11,8 +11,8 @@ import {
   Clock,
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import Link from "next/link";
-import { useFunctionalitiesContext } from "@/contexts/Functionalities";
+import { CallButton, ChatButton } from "./Buttons";
+import { Overlay, WhiteOverlay } from "./Overlays";
 
 export interface HeroBullet {
   Icon: LucideIcon;
@@ -35,7 +35,6 @@ export const HERO_BULLETS: HeroBullet[] = [
 ];
 export default function ContactHero() {
   const [loaded, setLoaded] = useState<boolean>(false);
-  const { whatsappLink, handleCall } = useFunctionalitiesContext();
 
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 80);
@@ -64,20 +63,7 @@ export default function ContactHero() {
             className="bg-hero-img object-cover object-[center_40%] hidden lg:block"
           />
           {/* Gradient overlay */}
-          <div
-            className="absolute inset-0  hidden lg:block"
-            style={{
-              background: `
-             linear-gradient(
-               to right,
-               rgba(250,248,244,1) 0%,
-               rgba(250,248,244,0.95) 28%,
-               rgba(250,248,244,0.70) 46%,
-               rgba(250,248,244,0.0) 68%
-             )
-           `,
-            }}
-          />
+          <WhiteOverlay />
 
           {/* mobile */}
           <Image
@@ -89,21 +75,7 @@ export default function ContactHero() {
             className="bg-hero-img object-cover object-[center_40%]  lg:hidden"
           />
         </div>
-        <div
-          className="absolute inset-0  lg:hidden"
-          style={{
-            background: `
-      linear-gradient(
-        90deg,
-        rgba(12,12,12,0.88) 0%,
-        rgba(12,12,12,0.78) 30%,
-        rgba(12,12,12,0.45) 55%,
-        rgba(12,12,12,0.15) 75%,
-        rgba(12,12,12,0) 100%
-      )
-    `,
-          }}
-        />
+        <Overlay />
 
         {/* Content */}
         <div
@@ -166,49 +138,20 @@ export default function ContactHero() {
 
           <div className="flex flex-wrap gap-4 mb-5 mt-5 lg:mt-0">
             {/* PRIMARY BUTTON */}
-            <Link
-              href={whatsappLink}
-              className="
-                bg-primary-green
-                text-white
-                rounded-lg
-                px-7 py-4
-                text-sm font-semibold
-                flex items-center gap-2
-                shadow-lg
-                shadow-primary-green/20
-                transition-all duration-200
-                hover:bg-secondary-green
-                hover:-translate-y-1
-              "
-            >
+            <ChatButton>
               <span className="text-light-green lg:text-primary-green text-[18px]">
                 <FaWhatsapp />
               </span>
               Chat on WhatsApp
-            </Link>
+            </ChatButton>
 
             {/* SECONDARY BUTTON */}
-            <button
-              onClick={handleCall}
-              className="
-                border-2 lg:border-primary-green border-light-green
-                text-primary-green
-                lg:text-primary-green
-                rounded-lg
-                px-7 py-4
-                text-sm font-semibold
-                flex items-center gap-2
-                transition-all duration-200
-                hover:bg-[#f0f5eb]
-                hover:-translate-y-1
-              "
-            >
+            <CallButton>
               <span className="text-primary-green text-[18px]">
                 <Phone />
               </span>
               Call Us Now
-            </button>
+            </CallButton>
           </div>
 
           {/* Response Time */}

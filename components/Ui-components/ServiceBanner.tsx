@@ -1,7 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import ServiceReveal from "../../app/Animations/ServiceReveal";
+import Link from "next/link";
+import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 
 export default function ServiceBanner() {
+  const { toggleBookingForm, whatsappLink } = useFunctionalitiesContext();
+
   return (
     <section className="relative overflow-hidden">
       {/* BACKGROUND IMAGE */}
@@ -79,8 +85,8 @@ export default function ServiceBanner() {
         <ServiceReveal from="right" delay={0.12}>
           <div className="flex flex-wrap gap-4">
             {/* PRIMARY BUTTON */}
-            <a
-              href="#"
+            <button
+              onClick={toggleBookingForm}
               className="
                 flex
                 items-center
@@ -100,11 +106,13 @@ export default function ServiceBanner() {
             >
               Book Your Session
               <span>📅</span>
-            </a>
+            </button>
 
             {/* SECONDARY BUTTON */}
-            <a
-              href="#"
+            <Link
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="
                 flex
                 items-center
@@ -126,7 +134,7 @@ export default function ServiceBanner() {
             >
               Chat on WhatsApp
               <span>💬</span>
-            </a>
+            </Link>
           </div>
         </ServiceReveal>
       </div>

@@ -72,26 +72,6 @@ export default function CheckoutForm({ onSuccess }: CheckoutFormProps) {
         },
       };
 
-      console.log("ORDER ITEMS");
-      console.table(
-        cart.map((item) => ({
-          name: item.name,
-          price: item.price,
-          type: typeof item.price,
-          quantity: item.quantity,
-        })),
-      );
-
-      console.log("FULL PAYLOAD", {
-        customer: data,
-        order: {
-          items: cart,
-          subtotal,
-          totalItems: cart.reduce((sum, item) => sum + item.quantity, 0),
-          createdAt: new Date().toISOString(),
-        },
-      });
-
       const response = await fetch("/api/orders", {
         method: "POST",
         headers: {
@@ -109,10 +89,11 @@ export default function CheckoutForm({ onSuccess }: CheckoutFormProps) {
       reset();
       onSuccess();
       closeCart();
-      // close the shopping cart modal if it's open
     } catch (error) {
       console.error(error);
-      toast.error("Unable to submit order.");
+      toast.error(
+        error instanceof Error ? error.message : "Unable to submit order.",
+      );
     } finally {
       setLoading(false);
     }

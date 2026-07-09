@@ -34,8 +34,6 @@ export async function POST(req: Request) {
       { status: 201 },
     );
   } catch (error) {
-    console.error("BOOKING API ERROR:", error);
-
     return NextResponse.json(
       {
         success: false,

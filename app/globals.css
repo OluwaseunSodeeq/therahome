@@ -24,7 +24,9 @@
   --font-geo: Georgia, serif;
   --font-sego: "Segoe UI", sans-serif;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 /* ?==================================== */
 /* @theme inline {
   --color-background: var(--background);

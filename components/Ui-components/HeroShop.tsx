@@ -7,6 +7,11 @@ import DirectionReveal from "../../app/Animations/DirectionReveal";
 import { useCart } from "@/hooks/useCart";
 import { Product } from "@/types/product";
 import { formatPrice } from "@/lib/formatPrice";
+import { Overlay, WhiteOverlay } from "./Overlays";
+
+// interface HeroShopProps {
+//   scrollToProducts: () => void;
+// }
 
 export default function HeroShop() {
   const [loaded, setLoaded] = useState(false);
@@ -22,6 +27,13 @@ export default function HeroShop() {
     transform: loaded ? "translateY(0)" : "translateY(22px)",
     transition: `opacity 0.8s ease ${delay}s, transform 0.8s ease ${delay}s`,
   });
+
+  const scrollToProducts = () => {
+    document.getElementById("products")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   return (
     <section className="w-full mx-auto relative mt-17 overflow-hidden min-h-90 bg-hero-img font-geo">
@@ -45,36 +57,8 @@ export default function HeroShop() {
             className="bg-hero-img object-cover object-[center_40%]  lg:hidden"
           />
         </div>
-        <div
-          className="absolute inset-0  lg:hidden"
-          style={{
-            background: `
-                linear-gradient(
-                  90deg,
-                  rgba(12,12,12,0.88) 0%,
-                  rgba(12,12,12,0.78) 30%,
-                  rgba(12,12,12,0.45) 55%,
-                  rgba(12,12,12,0.15) 75%,
-                  rgba(12,12,12,0) 100%
-                )
-              `,
-          }}
-        />
-
-        <div
-          className="absolute inset-0 hidden lg:block"
-          style={{
-            background: `
-                       linear-gradient(
-                         to right,
-                         rgba(250,248,244,1) 0%,
-                         rgba(250,248,244,0.95) 28%,
-                         rgba(250,248,244,0.70) 46%,
-                         rgba(250,248,244,0.0) 68%
-                       )
-                     `,
-          }}
-        />
+        <WhiteOverlay />
+        <Overlay />
 
         {/* Content */}
         <div
@@ -154,14 +138,16 @@ export default function HeroShop() {
 
           {/* CTA */}
           <div style={anim(0.44)}>
-            <a
-              href="#"
+            <button
+              onClick={scrollToProducts}
               className="
+              cursor-pointer
               inline-flex
               items-center
               gap-2.25
               rounded-lg
               bg-primary-green
+              hover:bg-secondary-green
               px-6.5
               py-3.5
               text-sm
@@ -171,25 +157,19 @@ export default function HeroShop() {
               transition-all
               duration-200
               mt-5 lg:mt-0
-
               hover:-translate-y-0.5
-              hover:bg-primary-green
               hover:shadow-[0_8px_24px_rgba(45,74,45,0.35)]
             "
             >
               Shop Wellness Essentials
               <span className="text-base ">🛒</span>
-            </a>
+            </button>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-/* ─────────────────────────────────────────────
-   PRODUCT CARD — DESKTOP
-───────────────────────────────────────────── */
 
 interface ProductCardProps {
   product: Product;

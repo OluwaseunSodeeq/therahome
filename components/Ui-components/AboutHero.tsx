@@ -3,6 +3,7 @@
 import { CSSProperties, useEffect, useState } from "react";
 import Image from "next/image";
 import { ShieldCheck, Leaf, LucideIcon, User } from "lucide-react";
+import { Overlay, WhiteOverlay } from "./Overlays";
 
 export interface HeroBullet {
   Icon: LucideIcon;
@@ -60,36 +61,8 @@ export default function AboutHero() {
             className="bg-hero-img object-cover object-[center_40%]  lg:hidden"
           />
         </div>
-        <div
-          className="absolute inset-0  lg:hidden"
-          style={{
-            background: `
-      linear-gradient(
-        90deg,
-        rgba(12,12,12,0.88) 0%,
-        rgba(12,12,12,0.78) 30%,
-        rgba(12,12,12,0.45) 55%,
-        rgba(12,12,12,0.15) 75%,
-        rgba(12,12,12,0) 100%
-      )
-    `,
-          }}
-        />
-
-        <div
-          className="absolute inset-0 hidden lg:block"
-          style={{
-            background: `
-             linear-gradient(
-               to right,
-               rgba(250,248,244,1) 0%,
-               rgba(250,248,244,0.95) 28%,
-               rgba(250,248,244,0.70) 46%,
-               rgba(250,248,244,0.0) 68%
-             )
-           `,
-          }}
-        />
+        <WhiteOverlay />
+        <Overlay />
 
         {/* Content */}
         <div

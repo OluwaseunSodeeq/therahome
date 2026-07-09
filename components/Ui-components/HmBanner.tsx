@@ -1,9 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import Reveal from "../../app/Animations/Reveal";
 import { bannerFeatures } from "../../app/data";
 import { FaWhatsapp } from "react-icons/fa";
+import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 
 export default function HmBanner() {
+  const { whatsappLink, toggleBookingForm } = useFunctionalitiesContext();
+
   return (
     <section
       className="
@@ -91,8 +96,8 @@ export default function HmBanner() {
               "
             >
               {/* PRIMARY BUTTON */}
-              <Link
-                href="#"
+              <button
+                onClick={toggleBookingForm}
                 className="
                   rounded-lg
                   bg-white
@@ -105,16 +110,18 @@ export default function HmBanner() {
                   transition-all
                   duration-300
                   hover:-translate-y-1
-                  hover:bg-stone-100
+                  hover:bg-[#f0f5eb]
                   
                 "
               >
                 Book Your Session 📅
-              </Link>
+              </button>
 
               {/* SECONDARY BUTTON */}
               <Link
-                href="#"
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="
                 border-2 border-white/40
                 rounded-lg
@@ -124,7 +131,9 @@ export default function HmBanner() {
                 transition-all 
                  text-white
                   duration-300
-                  hover:bg-white/10
+                  hover:bg-[#f0f5eb]
+                  hover:text-primary-green
+                  hover:border-primary-green
                 hover:-translate-y-1
 
               "

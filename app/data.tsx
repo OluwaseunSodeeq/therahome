@@ -1,6 +1,6 @@
 import {
   BookingPrice,
-  Product,
+  // Product,
   Service,
   Step,
   Testimonial,
@@ -169,35 +169,35 @@ export const whyChooseUsItems: WhyChooseUsItem[] = [
   },
 ];
 
-export const products: Product[] = [
-  {
-    id: 1,
-    name: "Essential Massage Oil",
-    price: "₦15,000",
-    img: "/product1.png",
-  },
+// export const products: Product[] = [
+//   {
+//     id: 1,
+//     name: "Essential Massage Oil",
+//     price: "₦15,000",
+//     img: "/product1.png",
+//   },
 
-  {
-    id: 2,
-    name: "Aromatherapy Candle",
-    price: "₦12,000",
-    img: "/product2.png",
-  },
+//   {
+//     id: 2,
+//     name: "Aromatherapy Candle",
+//     price: "₦12,000",
+//     img: "/product2.png",
+//   },
 
-  {
-    id: 3,
-    name: "Relaxation Kit",
-    price: "₦25,000",
-    img: "/product4.png",
-  },
+//   {
+//     id: 3,
+//     name: "Relaxation Kit",
+//     price: "₦25,000",
+//     img: "/product4.png",
+//   },
 
-  {
-    id: 4,
-    name: "Herbal Therapy Set",
-    price: "₦18,000",
-    img: "/product5.png",
-  },
-];
+//   {
+//     id: 4,
+//     name: "Herbal Therapy Set",
+//     price: "₦18,000",
+//     img: "/product5.png",
+//   },
+// ];
 export const testimonials: Testimonial[] = [
   {
     id: 1,

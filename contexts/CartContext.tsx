@@ -44,6 +44,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
       return [...prevCart, { ...product, quantity: 1 }];
     });
   };
+
   const increaseQuantity = (id: string) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
@@ -71,7 +72,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   const clearCart = () => {
     setCart([]);
   };
-  console.log("CART:", cart);
+
   const totalItems = useMemo(() => {
     return cart.reduce((total, item) => total + item.quantity, 0);
   }, [cart]);

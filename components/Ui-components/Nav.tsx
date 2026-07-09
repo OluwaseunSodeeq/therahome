@@ -171,6 +171,7 @@ export default function Nav() {
               font-semibold
               transition-colors
               duration-200
+              font-geo
             "
             >
               📅 Book Now

@@ -8,6 +8,7 @@ export const orderItemSchema = z.object({
   image: z.string(),
 });
 export type OrderItem = z.infer<typeof orderItemSchema>;
+
 export const orderPayloadSchema = z.object({
   items: z.array(orderItemSchema).min(1),
   subtotal: z.number().nonnegative(),

@@ -7,6 +7,7 @@ import {
   orderPayloadSchema,
 } from "@/lib/validations/orderPayloadSchema";
 import { ZodError } from "zod";
+import { Prisma } from "@prisma/client";
 
 export async function POST(req: Request) {
   try {
@@ -118,6 +119,7 @@ export async function POST(req: Request) {
   } catch (error) {
     console.error("ORDER API ERROR:", error);
 
+    // Zod validation error
     if (error instanceof ZodError) {
       return NextResponse.json(
         {
@@ -131,6 +133,46 @@ export async function POST(req: Request) {
       );
     }
 
+    // Prisma errors
+    if (error instanceof Prisma.PrismaClientKnownRequestError) {
+      switch (error.code) {
+        case "P1001":
+          return NextResponse.json(
+            {
+              success: false,
+              error:
+                "We're having trouble connecting to our server. Please try again in a few seconds.",
+            },
+            {
+              status: 503,
+            },
+          );
+
+        case "P2002":
+          return NextResponse.json(
+            {
+              success: false,
+              error: "A duplicate record was detected.",
+            },
+            {
+              status: 409,
+            },
+          );
+
+        default:
+          return NextResponse.json(
+            {
+              success: false,
+              error: `Database error (${error.code}).`,
+            },
+            {
+              status: 500,
+            },
+          );
+      }
+    }
+
+    // Any other unexpected error
     return NextResponse.json(
       {
         success: false,
@@ -144,6 +186,36 @@ export async function POST(req: Request) {
       },
     );
   }
+
+  // } catch (error) {
+  //   console.error("ORDER API ERROR:", error);
+
+  //   if (error instanceof ZodError) {
+  //     return NextResponse.json(
+  //       {
+  //         success: false,
+  //         error: "Invalid order details.",
+  //         issues: error.flatten(),
+  //       },
+  //       {
+  //         status: 400,
+  //       },
+  //     );
+  //   }
+
+  //   return NextResponse.json(
+  //     {
+  //       success: false,
+  //       error:
+  //         error instanceof Error
+  //           ? error.message
+  //           : "Something went wrong while creating the order.",
+  //     },
+  //     {
+  //       status: 500,
+  //     },
+  //   );
+  // }
 }
 
 // import { NextResponse } from "next/server";

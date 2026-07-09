@@ -1,11 +1,34 @@
-import { Product } from "@/types/defaultType";
+"use client";
+
+import { useCart } from "@/hooks/useCart";
+import { formatPrice } from "@/lib/formatPrice";
+import { Product } from "@/types/product";
 import Image from "next/image";
+import { useState } from "react";
 
 type ProductCardProps = {
   product: Product;
 };
 
 export default function HmProductCard({ product }: ProductCardProps) {
+  const { addToCart } = useCart();
+  const [added, setAdded] = useState(false);
+
+  const handleCart = () => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      image: product.image,
+      price: product.price,
+      desc: product.desc,
+    });
+
+    setAdded(true);
+
+    setTimeout(() => {
+      setAdded(false);
+    }, 1400);
+  };
   return (
     <div
       className="
@@ -36,7 +59,7 @@ export default function HmProductCard({ product }: ProductCardProps) {
         "
       >
         <Image
-          src={product.img}
+          src={product.image}
           alt={product.name}
           fill
           className="
@@ -66,12 +89,13 @@ export default function HmProductCard({ product }: ProductCardProps) {
             text-neutral-900
           "
         >
-          {product.price}
+          {formatPrice(product.price)}
         </p>
       </div>
 
       {/* ACTION BUTTON */}
       <button
+        onClick={handleCart}
         className="
           flex
           h-9
@@ -90,7 +114,7 @@ export default function HmProductCard({ product }: ProductCardProps) {
           hover:text-white
         "
       >
-        🛒 Add to Cart
+        {added ? "✓ Added" : "🛒"}
       </button>
     </div>
   );

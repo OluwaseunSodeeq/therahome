@@ -6,7 +6,7 @@ import { ShopProductCard } from "./HeroShop";
 
 export default function FeaturedProducts() {
   return (
-    <section className="bg-hero-bg px-7 pb-0 pt-18">
+    <section className="bg-hero-bg px-7 pb-0 pt-18" id="products">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <DirectionReveal>

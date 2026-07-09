@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Overlay, WhiteOverlay } from "./Overlays";
 
 export default function HeroService() {
   const [loaded, setLoaded] = useState<boolean>(false);
@@ -38,36 +39,9 @@ export default function HeroService() {
         </div>
 
         {/* Gradient Overlay */}
-        <div
-          className="absolute inset-0  lg:hidden"
-          style={{
-            background: `
-      linear-gradient(
-        90deg,
-        rgba(12,12,12,0.88) 0%,
-        rgba(12,12,12,0.78) 30%,
-        rgba(12,12,12,0.45) 55%,
-        rgba(12,12,12,0.15) 75%,
-        rgba(12,12,12,0) 100%
-      )
-    `,
-          }}
-        />
-        <div
-          className="absolute inset-0  lg:hidden"
-          style={{
-            background: `
-                linear-gradient(
-                  90deg,
-                  rgba(12,12,12,0.88) 0%,
-                  rgba(12,12,12,0.78) 30%,
-                  rgba(12,12,12,0.45) 55%,
-                  rgba(12,12,12,0.15) 75%,
-                  rgba(12,12,12,0) 100%
-                )
-              `,
-          }}
-        />
+        <WhiteOverlay />
+        <Overlay />
+        {/* <LightWhiteOverlay /> */}
 
         <div
           className="absolute inset-0 hidden lg:block"

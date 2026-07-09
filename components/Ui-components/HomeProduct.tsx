@@ -1,5 +1,5 @@
 import Reveal from "../../app/Animations/Reveal";
-import { products } from "../../app/data";
+import { shopProducts } from "../../app/data";
 import HmProductCard from "./HmProductCard";
 
 export default function Products() {
@@ -87,7 +87,7 @@ export default function Products() {
             xl:grid-cols-4
           "
         >
-          {products.slice(0, 4).map((product, index) => (
+          {shopProducts.slice(0, 4).map((product, index) => (
             <Reveal key={product.id} delay={index * 0.08}>
               <HmProductCard product={product} />
             </Reveal>

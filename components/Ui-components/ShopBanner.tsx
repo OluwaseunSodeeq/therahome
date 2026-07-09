@@ -2,10 +2,25 @@
 
 import { ShoppingBag } from "lucide-react";
 // import Image from "next/image";
-import { bannerShopItems } from "../../app/data";
+import { bannerShopItems, shopProducts } from "../../app/data";
 import ServiceReveal from "../../app/Animations/ServiceReveal";
+import { useCart } from "@/hooks/useCart";
 
 export default function ShopBanner() {
+  const { addToCart } = useCart();
+
+  const addAllToCart = () => {
+    shopProducts.forEach((product) => {
+      addToCart({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        desc: product.desc,
+      });
+    });
+  };
+
   return (
     <section
       className="
@@ -60,6 +75,7 @@ export default function ShopBanner() {
             </h2>
 
             <button
+              onClick={addAllToCart}
               className="mt-6 inline-flex items-center gap-2 bg-white text-primary-green px-5 py-3 rounded-lg text-sm font-medium  transition-all duration-300
                     hover:-translate-y-0.5
                     hover:bg-[#f5f3ee] w-fit"

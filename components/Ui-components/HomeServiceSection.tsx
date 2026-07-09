@@ -176,9 +176,10 @@ export default function HomeServiceSection() {
               className="
                 inline-block
                 rounded-lg
-                bg-green-900
-                hover:bg-green-950
+                bg-primary-green
+                hover:bg-secondary-green
                 text-white
+                font-geo
                 px-8
                 py-4
                 font-semibold
