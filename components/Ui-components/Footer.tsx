@@ -18,19 +18,29 @@ import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 export interface HeroBullet {
   Icon: LucideIcon;
   text: string;
+  link: string;
 }
+const message = "Hello, I would like to know more about your services.";
+// Phone number used for WhatsApp link (digits only, with country code)
+const phone = "+2347064347587";
+const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(
+  message,
+)}`;
 const SOCIALS = [
   {
     Icon: FaInstagram,
     label: "Instagram",
+    link: "https://www.instagram.com/thera_home1/",
   },
   {
     Icon: Globe,
     label: "Website",
+    link: "/home",
   },
   {
     Icon: MessageCircle,
     label: "Chat",
+    link: whatsappLink,
   },
 ];
 
@@ -70,12 +80,12 @@ export default function Footer() {
 
             <div className="flex gap-4">
               {SOCIALS.map((icon, index) => {
-                const { Icon } = icon;
+                const { Icon, link } = icon;
 
                 return (
                   <Link
                     key={index}
-                    href={"#"}
+                    href={link}
                     className="
                     w-9 h-9
                     rounded-full
@@ -83,11 +93,13 @@ export default function Footer() {
                     flex items-center justify-center
                     text-sm
                     transition-all duration-200
-                    hover:bg-[#6b8c3e]
-                    hover:border-[#6b8c3e]
+                    text-primary-green
+                    hover:bg-primary-green
+                    hover:text-white
+                    hover:border-white
                   "
                   >
-                    <span className="text-primary-green">
+                    <span className="">
                       <Icon size={18} />
                     </span>
                   </Link>

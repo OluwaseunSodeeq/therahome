@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { useForm, useWatch } from "react-hook-form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -18,22 +18,23 @@ type BookingFormProps = {
 
 export default function BookingForm({ onSuccess }: BookingFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toggleBookingForm } = useFunctionalitiesContext();
+  const { toggleBookingForm, selectedService } = useFunctionalitiesContext();
 
   const {
     register,
     handleSubmit,
+    setValue,
     reset,
     formState: { errors },
   } = useForm<BookingFormData>({
     resolver: zodResolver(bookingsSchema),
   });
 
-  // useWatch is preferred for subscribing to form values without causing memoization issues
-  // const "Spa" = useWatch({
-  //   control,
-  //   name: "location",
-  // });
+  useEffect(() => {
+    if (selectedService) {
+      setValue("service", selectedService);
+    }
+  }, [selectedService, setValue]);
 
   const services = [
     "Swedish Massage",

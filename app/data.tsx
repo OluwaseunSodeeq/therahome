@@ -121,19 +121,19 @@ export const transportZones: TransportZone[] = [
   {
     zone: "Zone 1 (Close)",
     area: "Ikeja, Magodo",
-    fee: "+₦5,000",
+    fee: "₦5,000",
   },
 
   {
     zone: "Zone 2 (Mid)",
     area: "Yaba, Surulere, Gbagada",
-    fee: "+₦8,000",
+    fee: "₦8,000",
   },
 
   {
     zone: "Zone 3 (Far / Island)",
     area: "Lekki, Victoria Island, Ikoyi",
-    fee: "+₦12K – ₦15K",
+    fee: "₦12K – ₦15K",
   },
 ];
 

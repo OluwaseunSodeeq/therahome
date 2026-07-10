@@ -13,11 +13,11 @@ function FunctionalitiesContextProvider({
   children,
 }: FunctionalitiesContextProviderProps) {
   const [showBooking, setShowBooking] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
   const toggleBookingForm = () => setShowBooking((prev) => !prev);
 
   //===================WHasapp Button Link========================
-  // Whatsapp Button Link
-  // const phoneNumber = "+2347064347587";
+
   const phone = "+2347064347587";
   const message = "Hello, I would like to know more about your services.";
   const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(
@@ -47,6 +47,8 @@ function FunctionalitiesContextProvider({
         showBooking,
         setShowBooking,
         toggleBookingForm,
+        selectedService,
+        setSelectedService,
       }}
     >
       {children}
@@ -61,6 +63,8 @@ type FunctionalitiesContextType = {
   showBooking: boolean;
   setShowBooking: React.Dispatch<React.SetStateAction<boolean>>;
   toggleBookingForm: () => void;
+  selectedService: string;
+  setSelectedService: (service: string) => void;
 };
 
 function useFunctionalitiesContext(): FunctionalitiesContextType {

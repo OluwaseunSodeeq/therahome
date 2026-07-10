@@ -20,12 +20,12 @@ export default function PricingBoard({ text }: PricingProps) {
       {/* LEFT SIDE */}
       <div
         className="
-                        bg-stone-50
-                        p-8
-                        border-b
-                        md:border-b-0
-                        md:border-r
-                        border-stone-200
+        bg-stone-50
+        p-8
+        border-b
+        md:border-b-0
+        md:border-r
+        border-stone-200
                       "
       >
         <p

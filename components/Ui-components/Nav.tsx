@@ -72,7 +72,7 @@ export default function Nav() {
           </div>
 
           {/* RIGHT SIDE */}
-          <div className="flex items-center md:gap-4">
+          <div className="flex items-center gap-4">
             <div className="flex items-center md:gap-4">
               {mounted && totalItems > 0 && (
                 <button
@@ -157,25 +157,27 @@ export default function Nav() {
                 );
               })}
             </div>
-            <button
+            <div
               onClick={toggleBookingForm}
               className="
               block lg:hidden
               items-center gap-2
-              bg-primary-green
               hover:bg-secondary-green
-              text-white
+              hover:text-white
+              text-primary-green
+              font-bold
               px-5 py-2.5
               rounded-lg
               text-sm
-              font-semibold
               transition-colors
               duration-200
-              font-geo
+              ml-4
+              w-40
+              cursor-pointer
             "
             >
-              📅 Book Now
-            </button>
+              Book A Session
+            </div>
           </div>
         )}
       </nav>

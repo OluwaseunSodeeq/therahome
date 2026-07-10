@@ -102,6 +102,7 @@ export default function ServiceBanner() {
                 duration-300
                 hover:-translate-y-1
                 hover:bg-stone-100
+                cursor-pointer
               "
             >
               Book Your Session

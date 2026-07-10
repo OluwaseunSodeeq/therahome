@@ -1,7 +1,7 @@
 import ServiceReveal from "../../app/Animations/ServiceReveal";
 import { services } from "../../app/data";
 import HeadingLeave from "./HeadingLeave";
-import { ServiceCardDesktop } from "./ServiceCard";
+import { ServiceCardDesktop, ServiceRowMobile } from "./ServiceCard";
 
 export default function Services() {
   return (
@@ -32,7 +32,8 @@ export default function Services() {
           className="
             gap-4
             md:gap-5
-            grid
+            hidden
+            lg:grid
             grid-cols-1
             md:grid-cols-3
             xl:grid-cols-5
@@ -48,7 +49,7 @@ export default function Services() {
         </div>
 
         {/* MOBILE LIST */}
-        {/* <div className="flex flex-col gap-4 md:hidden">
+        <div className="flex flex-col gap-4 md:hidden">
           {services.map((service, index) => (
             <ServiceRowMobile
               key={service.id}
@@ -56,7 +57,7 @@ export default function Services() {
               delay={index * 0.06}
             />
           ))}
-        </div> */}
+        </div>
 
         {/* MOBILE BUTTON */}
         <div className="mt-6 md:hidden">

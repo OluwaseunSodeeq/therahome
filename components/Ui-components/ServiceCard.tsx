@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Service } from "@/types/defaultType";
 import ServiceReveal from "../../app/Animations/ServiceReveal";
+import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 
 type ServiceCardDesktopProps = {
   service: Service;
@@ -15,12 +16,19 @@ export function ServiceCardDesktop({
   delay = 0,
 }: ServiceCardDesktopProps) {
   const [hovered, setHovered] = useState<boolean>(false);
+  const { toggleBookingForm, setSelectedService } = useFunctionalitiesContext();
+
+  function bookThisMassage(service: string) {
+    toggleBookingForm();
+    setSelectedService(service);
+  }
 
   return (
     <ServiceReveal delay={delay}>
       <article
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        onClick={() => bookThisMassage(service.name)}
         className="
           flex
           h-full
@@ -33,6 +41,8 @@ export function ServiceCardDesktop({
           shadow-sm
           transition-all
           duration-300
+          cursor-pointer
+
         "
         style={{
           transform: hovered ? "translateY(-7px)" : "translateY(0)",
@@ -149,12 +159,18 @@ export function ServiceRowMobile({
   delay = 0,
 }: ServiceRowMobileProps) {
   const [hovered, setHovered] = useState<boolean>(false);
+  const { toggleBookingForm, setSelectedService } = useFunctionalitiesContext();
 
+  function bookThisMassage(service: string) {
+    toggleBookingForm();
+    setSelectedService(service);
+  }
   return (
     <ServiceReveal delay={delay}>
       <article
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
+        onClick={() => bookThisMassage(service.name)}
         className="
           flex
           gap-4
@@ -165,6 +181,7 @@ export function ServiceRowMobile({
           p-4
           transition-all
           duration-300
+          cursor-pointer
         "
         style={{
           transform: hovered ? "translateY(-3px)" : "translateY(0)",
