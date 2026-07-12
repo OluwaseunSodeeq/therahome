@@ -107,7 +107,8 @@ export default function ContactHero() {
               font-semibold
               uppercase
               tracking-wider
-              text-primary-green
+              text-hero-bg
+              lg:text-primary-green
               ml-4
             "
             >
@@ -118,28 +119,30 @@ export default function ContactHero() {
           {/* Heading */}
           <h1
             style={anim(0.18)}
-            className="mb-5 text-[clamp(34px,4.5vw,56px)] font-bold leading-tight"
+            className="mt-5 text-[clamp(34px,4.5vw,56px)] font-bold leading-tight"
           >
-            <span className="text-hero-bg lg:text-black">
+            <span className="text-primary-green lg:text-black">
               We&apos;re Here to
             </span>
             <br />
-            <span className="italic text-primary-green">Help You Relax</span>
+            <span className="italic text-hero-bg lg:text-primary-green">
+              Help You Relax
+            </span>
           </h1>
 
           {/* Description */}
           <p
             style={anim(0.3)}
-            className="text-hero-bg lg:text-black lg:mb-8 max-w-md text-base leading-relaxed"
+            className="text-hero-img lg:text-black mt-3 lg:mb-8 max-w-md text-base leading-relaxed"
           >
-            Have questions or ready to book your session? Reach out to us and
-            we&apos;ll take care of the rest.
+            Have questions or ready to book your session? <br />
+            Reach out to us and we&apos;ll take care of the rest.
           </p>
 
-          <div className="flex flex-wrap gap-4 mb-5 mt-5 lg:mt-0">
+          <div className="flex flex-wrap gap-4 lg:mb-5 mt-5 lg:mt-0">
             {/* PRIMARY BUTTON */}
             <ChatButton>
-              <span className="text-light-green lg:text-primary-green text-[18px]">
+              <span className=" text-[18px]">
                 <FaWhatsapp />
               </span>
               Chat on WhatsApp
@@ -147,7 +150,7 @@ export default function ContactHero() {
 
             {/* SECONDARY BUTTON */}
             <CallButton>
-              <span className="text-primary-green text-[18px]">
+              <span className=" text-[18px]">
                 <Phone />
               </span>
               Call Us Now
@@ -155,7 +158,10 @@ export default function ContactHero() {
           </div>
 
           {/* Response Time */}
-          <div style={anim(0.5)} className="flex items-center gap-2">
+          <div
+            style={anim(0.5)}
+            className="flex items-center gap-2 mt-7 lg:mt-0"
+          >
             <span className="text-primary-green">
               <Clock size={18} />
             </span>

@@ -94,7 +94,8 @@ export default function AboutHero() {
               font-semibold
               uppercase
               tracking-wider
-              text-primary-green
+              text-hero-bg
+              lg:text-primary-green
               ml-4
             "
             >
@@ -111,12 +112,14 @@ export default function AboutHero() {
               text-[clamp(34px,4.8vw,56px)]
               font-bold
               leading-tight
-              text-hero-bg lg:text-black
+              text-primary-green lg:text-black
             "
           >
             Wellness, Delivered
             <br />
-            <span className="italic text-primary-green">With Care</span>
+            <span className="italic text-hero-bg lg:text-primary-green">
+              With Care
+            </span>
           </h1>
 
           {/* Paragraph */}
@@ -127,10 +130,10 @@ export default function AboutHero() {
               max-w-90
               text-base
               leading-relaxed
-              text-hero-bg lg:text-black
+              text-hero-img lg:text-black
             "
           >
-            TheraHome was born from a simple belief — that everyone deserves
+            TheraHome was born from a simple belief that everyone deserves
             premium wellness, without leaving the comfort of home.
           </p>
 

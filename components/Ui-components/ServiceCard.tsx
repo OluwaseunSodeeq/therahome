@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Service } from "@/types/defaultType";
 import ServiceReveal from "../../app/Animations/ServiceReveal";
 import { useFunctionalitiesContext } from "@/contexts/Functionalities";
+import { toast } from "sonner";
 
 type ServiceCardDesktopProps = {
   service: Service;
@@ -21,6 +22,7 @@ export function ServiceCardDesktop({
   function bookThisMassage(service: string) {
     toggleBookingForm();
     setSelectedService(service);
+    toast.success(`${service} selected!`);
   }
 
   return (

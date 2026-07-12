@@ -89,7 +89,7 @@ export default function CartDrawer() {
                 </button>
               </div>
               {/* Temporary Body */}
-              <div className="flex-1 overflow-y-auto px-6">
+              <div className="flex-1 overflow-y-auto px-6 scrollbar-hide">
                 {cart.length === 0 ? (
                   <EmptyCart />
                 ) : (

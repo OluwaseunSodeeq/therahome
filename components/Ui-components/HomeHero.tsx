@@ -82,7 +82,8 @@ export default function HomeHero() {
                 font-semibold
                 tracking-wider
                 uppercase
-                text-primary-green
+                text-hero-bg
+                lg:text-primary-green
                 ml-4
               "
             >
@@ -97,14 +98,16 @@ export default function HomeHero() {
               text-4xl md:text-6xl
               font-bold
               leading-tight
-              text-hero-bg lg:text-black
+              text-primary-green lg:text-black
               mb-5
               font-geo
             "
           >
             Luxury Spa,
             <br />
-            <span className=" text-primary-green italic">Delivered to You</span>
+            <span className=" text-hero-bg lg:text-primary-green italic">
+              Delivered to You
+            </span>
           </h1>
 
           {/* DESCRIPTION */}
@@ -112,7 +115,7 @@ export default function HomeHero() {
             style={anim(0.08)}
             className="
               text-base
-              text-hero-bg lg:text-black
+              text-hero-img lg:text-black
               leading-relaxed
               max-w-md
               mb-9

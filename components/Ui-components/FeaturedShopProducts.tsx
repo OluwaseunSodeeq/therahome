@@ -76,8 +76,7 @@ export default function FeaturedProducts() {
               max-[900px]:block
             "
           >
-            <a
-              href="#"
+            <button
               className="
                 text-primary-green
                 flex
@@ -91,12 +90,12 @@ export default function FeaturedProducts() {
                 font-bold
                 transition-opacity
                 duration-200
-
+                cursor-pointer
                 hover:opacity-70
               "
             >
               View All Products →
-            </a>
+            </button>
           </div>
         </DirectionReveal>
       </div>

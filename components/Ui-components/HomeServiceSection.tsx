@@ -1,20 +1,32 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "../../app/Animations/Reveal";
-import { serviceCards } from "../../app/data";
+// import { serviceCards } from "../../app/data";
+import { services } from "../../app/data";
+import { Service } from "@/types/defaultType";
+import { useFunctionalitiesContext } from "@/contexts/Functionalities";
+import { toast } from "sonner";
 
-type Service = {
-  name: string;
-  desc: string;
-  img: string;
-  icon: string;
-};
+// type Service = {
+//   name: string;
+//   desc: string;
+//   img: string;
+//   icon: string;
+// };
 
 type ServiceCardProps = {
   service: Service;
 };
 
 function ServiceCard({ service }: ServiceCardProps) {
+  const { toggleBookingForm, setSelectedService } = useFunctionalitiesContext();
+
+  function bookThisMassage(service: string) {
+    toggleBookingForm();
+    setSelectedService(service);
+    toast.success(`${service} selected!`);
+  }
   return (
     <div
       className="
@@ -74,8 +86,8 @@ function ServiceCard({ service }: ServiceCardProps) {
           {service.desc}
         </p>
 
-        <Link
-          href="/"
+        <button
+          onClick={() => bookThisMassage(service.name)}
           className="
             inline-flex
             items-center
@@ -85,10 +97,12 @@ function ServiceCard({ service }: ServiceCardProps) {
             text-green-900
             hover:gap-2
             transition-all
+            cursor-pointer
+
           "
         >
           Book Now →
-        </Link>
+        </button>
       </div>
     </div>
   );
@@ -161,7 +175,7 @@ export default function HomeServiceSection() {
 
           "
         >
-          {serviceCards.map((service, index) => (
+          {services.map((service, index) => (
             <Reveal key={index} delay={index * 0.07}>
               <ServiceCard service={service} />
             </Reveal>

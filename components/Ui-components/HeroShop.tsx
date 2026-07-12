@@ -91,7 +91,8 @@ export default function HeroShop() {
               font-semibold
               uppercase
               tracking-wider
-              text-primary-green
+              text-hero-bg
+              lg:text-primary-green
               ml-4
             "
             >
@@ -108,14 +109,14 @@ export default function HeroShop() {
             text-[clamp(30px,4.5vw,54px)]
             font-bold
             leading-tight
-            text-hero-bg lg:text-black
+            text-primary-green lg:text-black
             italic 
             font-geo
           "
           >
             Premium Care,
             <br />
-            <span className="text-primary-green italic">
+            <span className="text-hero-bg lg:text-primary-green italic">
               Beyond Your Session
             </span>
           </h1>
@@ -128,7 +129,7 @@ export default function HeroShop() {
             max-w-90
             text-base
             leading-relaxed
-            text-hero-bg lg:text-black
+            text-hero-img lg:text-black
             mt-5
           "
           >

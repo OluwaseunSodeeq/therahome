@@ -2,9 +2,10 @@
 
 import { CalendarIcon } from "lucide-react";
 import ServiceReveal from "../../app/Animations/ServiceReveal";
-import Link from "next/link";
+import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 
 export default function ContactBanner() {
+  const { toggleBookingForm } = useFunctionalitiesContext();
   return (
     <section
       className="
@@ -75,8 +76,8 @@ export default function ContactBanner() {
               </p>
 
               <div>
-                <Link
-                  href="/booking"
+                <button
+                  onClick={toggleBookingForm}
                   className="
                     inline-flex items-center gap-2
                     rounded-xl
@@ -88,11 +89,13 @@ export default function ContactBanner() {
                     transition-all duration-300
                     hover:-translate-y-0.5
                     hover:bg-[#f5f3ee]
+                    cursor-pointer
+
                   "
                 >
                   Book Your Session
                   <CalendarIcon className="h-4 w-4" />
-                </Link>
+                </button>
               </div>
             </div>
             <div></div>

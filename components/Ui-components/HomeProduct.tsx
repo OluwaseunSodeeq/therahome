@@ -1,8 +1,25 @@
+"use client";
+
+import { useCart } from "@/hooks/useCart";
 import Reveal from "../../app/Animations/Reveal";
 import { shopProducts } from "../../app/data";
 import HmProductCard from "./HmProductCard";
 
 export default function Products() {
+  const { addToCart } = useCart();
+
+  const addAllToCart = () => {
+    shopProducts.forEach((product) => {
+      addToCart({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        desc: product.desc,
+      });
+    });
+  };
+
   return (
     <section
       className="
@@ -57,8 +74,8 @@ export default function Products() {
               </h2>
             </div>
 
-            <a
-              href="#"
+            <button
+              onClick={addAllToCart}
               className="
                 flex
                 items-center
@@ -70,10 +87,11 @@ export default function Products() {
                 transition-all
                 duration-300
                 hover:gap-3
+                cursor-pointer
               "
             >
               Shop All Products →
-            </a>
+            </button>
           </div>
         </Reveal>
 

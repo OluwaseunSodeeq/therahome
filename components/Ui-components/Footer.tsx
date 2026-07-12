@@ -1,5 +1,6 @@
 "use client";
-import { navLinks, hmservices } from "../../app/data";
+import { navLinks } from "../../app/data";
+import { services } from "../../app/data";
 import { CSSProperties, useEffect, useState } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
@@ -14,6 +15,8 @@ import {
   Phone,
 } from "lucide-react";
 import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { toast } from "sonner";
+import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 export interface HeroBullet {
   Icon: LucideIcon;
   text: string;
@@ -59,14 +62,19 @@ export const contactInfo = [
 export default function Footer() {
   // const [email, setEmail] = useState<string>("");
   const [loaded, setLoaded] = useState<boolean>(false);
+  const { toggleBookingForm, setSelectedService } = useFunctionalitiesContext();
 
+  function bookThisMassage(service: string) {
+    toggleBookingForm();
+    setSelectedService(service);
+    toast.success(`${service} selected!`);
+  }
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 80);
 
     return () => clearTimeout(timer);
   }, []);
 
-  // TypeScript typing for style object
   const anim = (delay: number): CSSProperties => ({
     opacity: loaded ? 1 : 0,
     transform: loaded ? "translateY(0)" : "translateY(50px)",
@@ -74,42 +82,13 @@ export default function Footer() {
   });
 
   return (
-    <footer className="relative bottom-0 font-ego pt-16 max-w-7xl mx-auto px-6 lg:px-0 bg-white">
+    <footer className="relative  font-ego pt-16 max-w-7xl mx-auto px-6 lg:px-0 bg-white ">
       <div className="w-full mx-auto" style={anim(0.06)}>
         {/* TOP GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 pb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 lg:pb-6">
           {/* BRAND */}
           <div>
             <Logo />
-
-            {/* <div className="flex gap-4">
-              {SOCIALS.map((icon, index) => {
-                const { Icon, link } = icon;
-
-                return (
-                  <Link
-                    key={index}
-                    href={link}
-                    className="
-                    w-9 h-9
-                    rounded-full
-                    border border-white/20
-                    flex items-center justify-center
-                    text-sm
-                    transition-all duration-200
-                    text-primary-green
-                    hover:bg-primary-green
-                    hover:text-white
-                    hover:border-white
-                  "
-                  >
-                    <span className="">
-                      <Icon size={18} />
-                    </span>
-                  </Link>
-                );
-              })}
-            </div> */}
           </div>
 
           {/* QUICK LINKS */}
@@ -144,20 +123,21 @@ export default function Footer() {
             </h3>
 
             <div className="space-y-3">
-              {hmservices.map((service) => (
-                <Link
-                  key={service}
-                  href="#"
+              {services.map((service) => (
+                <button
+                  key={service.name}
+                  onClick={() => bookThisMassage(service.name)}
                   className="
                     block
                     text-sm
                     text-secondary-green
                     transition-colors duration-200
                     hover:text-primary-green
+                    cursor-pointer
                   "
                 >
-                  {service}
-                </Link>
+                  {service.name}
+                </button>
               ))}
             </div>
           </div>
@@ -257,27 +237,25 @@ export default function Footer() {
         {/* BOTTOM BAR */}
         <div
           className="
-            border-t border-white/10
-            py-5
-            flex flex-col sm:flex-row
-            items-center justify-between
-            gap-4
+            border-t
+            py-4
+            w-full mx-auto
+            text-primary-green
+            text-center
           "
         >
-          <p className="text-xs text-white/40">
-            © 2026 TheraHome. All rights reserved.
-          </p>
+          <p className="text-xs ">© 2026 TheraHome. All rights reserved.</p>
 
-          <div className="flex gap-6">
+          <div className="gap-6 hidden">
             {["Privacy Policy", "Terms & Conditions"].map((item) => (
               <Link
                 key={item}
                 href="#"
                 className="
                   text-xs
-                  text-white/40
+                  
                   transition-colors duration-200
-                  hover:text-white
+                  hover:text-secondary-green
                 "
               >
                 {item}

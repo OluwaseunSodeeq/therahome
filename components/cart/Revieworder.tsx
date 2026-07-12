@@ -17,7 +17,7 @@ export default function ReviewOrder({ onContinue }: ReviewOrderProps) {
     <div className="flex max-h-[70vh] flex-col">
       {/* Products */}
 
-      <div className="flex-1 overflow-y-auto px-7 py-6">
+      <div className="flex-1 overflow-y-auto px-7 py-6 scrollbar-hide">
         <div className="space-y-5">
           {cart.map((item) => (
             <div key={item.id} className="flex gap-4">

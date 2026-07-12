@@ -106,7 +106,8 @@ export default function HeroService() {
               font-bold
               uppercase
               tracking-[0.12em]
-              text-primary-green
+              text-hero-bg
+              lg:text-primary-green
             "
             >
               Our Services
@@ -121,7 +122,7 @@ export default function HeroService() {
             font-bold
             mt-3
             leading-tight
-            text-hero-bg lg:text-black
+            text-primary-green lg:text-black
             transition-all
             duration-700
             delay-200
@@ -130,7 +131,9 @@ export default function HeroService() {
           >
             Premium Wellness,
             <br />
-            <span className="text-primary-green italic ">Tailored for You</span>
+            <span className="text-hero-bg lg:text-primary-green italic ">
+              Tailored for You
+            </span>
           </h1>
 
           {/* Description */}
@@ -139,7 +142,7 @@ export default function HeroService() {
             max-w-90
             text-base
             leading-relaxed
-            text-hero-bg lg:text-black
+            text-hero-img lg:text-black
             transition-all
             duration-700
             delay-300

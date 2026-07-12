@@ -114,7 +114,7 @@ export default function HmProductCard({ product }: ProductCardProps) {
           hover:text-white
         "
       >
-        {added ? "✓ Added" : "🛒"}
+        {added ? "✓" : "🛒"}
       </button>
     </div>
   );

@@ -1,10 +1,11 @@
 "use client";
-
+import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 import { CalendarIcon } from "lucide-react";
 import ServiceReveal from "../../app/Animations/ServiceReveal";
-import Link from "next/link";
 
 export default function ShopBanner() {
+  const { toggleBookingForm } = useFunctionalitiesContext();
+
   return (
     <section
       className="
@@ -77,8 +78,8 @@ export default function ShopBanner() {
               </p>
 
               <div>
-                <Link
-                  href="/booking"
+                <button
+                  onClick={toggleBookingForm}
                   className="
                     inline-flex items-center gap-2
                     rounded-xl
@@ -94,7 +95,7 @@ export default function ShopBanner() {
                 >
                   Book Your Session
                   <CalendarIcon className="h-4 w-4" />
-                </Link>
+                </button>
               </div>
             </div>
             <div></div>

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
+import { X } from "lucide-react";
 
 import {
   bookingsSchema,
@@ -161,15 +162,59 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
     "w-full rounded-2xl border border-neutral-200 bg-white px-4 py-3.5 text-sm outline-none transition-all duration-300 placeholder:text-neutral-400 focus:border-primary-green focus:ring-4 focus:ring-primary-green/10";
 
   return (
+    // <div
+    //   onClick={toggleBookingForm}
+    //   className="absolute top-0 left-0 inset-0 bg-black/40 backdrop-blur-sm z-40 flex items-start justify-center px-4 py-4"
+    // >
     <div
       onClick={toggleBookingForm}
-      className="absolute top-0 left-0 inset-0 bg-black/40 backdrop-blur-sm z-40 flex items-start justify-center px-4 py-4"
+      className="
+      fixed
+      inset-0
+      z-9999
+      flex
+      items-center
+      justify-center
+      bg-black/40
+      backdrop-blur-sm
+      p-4
+  "
     >
-      <form
+      {/* <form
         onSubmit={handleSubmit(onSubmit)}
         onClick={(e) => e.stopPropagation()}
         className=" w-full md:max-w-3xl lg:max-w-4xl rounded-3xl border border-neutral-200 bg-white p-6 md:p-12 mx-auto relative top-0 shadow-2xl"
+      > */}
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        onClick={(e) => e.stopPropagation()}
+        className="
+        relative
+        w-full
+        max-w-4xl
+        max-h-[90vh]
+        overflow-y-auto
+        rounded-3xl
+        bg-white
+        p-6
+        md:p-12
+        shadow-2xl
+        scrollbar-hide
+  "
       >
+        <button
+          onClick={toggleBookingForm}
+          className="
+                  absolute
+                  right-5 top-5
+                  rounded-full
+                  p-2
+                  transition
+                  hover:bg-gray-100
+                "
+        >
+          <X size={22} />
+        </button>
         {/* PERSONAL DETAILS */}
 
         <div className="space-y-4 py-8">
