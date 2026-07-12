@@ -122,50 +122,10 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
     }
   };
 
-  // const onSubmit = async (data: BookingFormData) => {
-  //   setIsSubmitting(true);
-
-  //   try {
-  //     const response = await fetch("/api/bookings", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(data),
-  //     });
-
-  //     const result = await response.json();
-
-  //     if (!response.ok) {
-  //       throw new Error(result.message || "Booking failed");
-  //     }
-
-  //     toast.success("Booking request sent successfully!");
-
-  //     reset();
-
-  //     setTimeout(() => {
-  //       onSuccess();
-  //     }, 1500);
-  //   } catch (error) {
-  //     console.error(error);
-
-  //     toast.error(
-  //       "Unable to send your booking request. Please try again."
-  //     );
-  //   } finally {
-  //     setIsSubmitting(false);
-  //   }
-  // };
-
   const inputClass =
     "w-full rounded-2xl border border-neutral-200 bg-white px-4 py-3.5 text-sm outline-none transition-all duration-300 placeholder:text-neutral-400 focus:border-primary-green focus:ring-4 focus:ring-primary-green/10";
 
   return (
-    // <div
-    //   onClick={toggleBookingForm}
-    //   className="absolute top-0 left-0 inset-0 bg-black/40 backdrop-blur-sm z-40 flex items-start justify-center px-4 py-4"
-    // >
     <div
       onClick={toggleBookingForm}
       className="
@@ -180,11 +140,6 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
       p-4
   "
     >
-      {/* <form
-        onSubmit={handleSubmit(onSubmit)}
-        onClick={(e) => e.stopPropagation()}
-        className=" w-full md:max-w-3xl lg:max-w-4xl rounded-3xl border border-neutral-200 bg-white p-6 md:p-12 mx-auto relative top-0 shadow-2xl"
-      > */}
       <form
         onSubmit={handleSubmit(onSubmit)}
         onClick={(e) => e.stopPropagation()}
