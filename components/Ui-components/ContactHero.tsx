@@ -135,7 +135,8 @@ export default function ContactHero() {
             style={anim(0.3)}
             className="text-hero-img lg:text-black mt-3 lg:mb-8 max-w-md text-base leading-relaxed"
           >
-            Have questions or ready to book your session? <br />
+            Have questions or ready to book your session?{" "}
+            <br className="hidden lg:block" />
             Reach out to us and we&apos;ll take care of the rest.
           </p>
 
