@@ -18,7 +18,6 @@ export default function HeroService() {
   return (
     <section
       className="
-     
         w-full mx-auto relative mt-17 overflow-hidden min-h-90 bg-hero-img font-geo
       "
     >
@@ -26,6 +25,14 @@ export default function HeroService() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
+            src="/hero1.png"
+            alt="Premium wellness products"
+            fill
+            priority
+            sizes="100vw"
+            className=" bg-hero-img object-cover object-[center_20%] hidden lg:block"
+          />
+          {/* <Image
             src="/hero1.png"
             alt="Premium Wellness"
             fill
@@ -35,13 +42,20 @@ export default function HeroService() {
             object-center
             md:object-[center_20%]
           "
+          /> */}
+          <Image
+            src="/mobileservicehero.png"
+            alt="Premium wellness products"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 0vw"
+            className="lg:hidden object-cover object-[center_40%]"
           />
         </div>
 
         {/* Gradient Overlay */}
         <WhiteOverlay />
         <Overlay />
-        {/* <LightWhiteOverlay /> */}
 
         <div
           className="absolute inset-0 hidden lg:block"

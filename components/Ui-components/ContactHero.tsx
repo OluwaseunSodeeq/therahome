@@ -71,8 +71,8 @@ export default function ContactHero() {
             alt="Premium wellness products"
             fill
             priority
-            sizes="100vw"
-            className="bg-hero-img object-cover object-[center_40%]  lg:hidden"
+            sizes="(max-width: 1024px) 100vw, 0vw"
+            className="lg:hidden object-cover object-[center_40%]"
           />
         </div>
         <Overlay />

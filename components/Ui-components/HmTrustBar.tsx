@@ -1,4 +1,4 @@
-import { BadgeCheck, Clock3, House } from "lucide-react";
+import { BadgeCheck, Clock3, House, Gem } from "lucide-react";
 
 const trustItems = [
   {
@@ -12,8 +12,8 @@ const trustItems = [
     desc: "Home, office or hotel, your comfort, our priority",
   },
   {
-    icon: "🌿",
-    // icon: <Leaf />,
+    // icon: "🌿",
+    icon: <Gem />,
     title: "Premium Experience",
     desc: "Luxury massage with professional care",
   },

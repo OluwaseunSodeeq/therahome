@@ -34,10 +34,17 @@ export default function HomeHero() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center"
+            className=" bg-hero-img object-cover object-[center_40%] hidden lg:block"
+          />
+          <Image
+            src="/homeheromobile.png"
+            alt="Premium wellness products"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 0vw"
+            className="lg:hidden object-cover object-[center_40%]"
           />
         </div>
-
         {/* Gradient overlay */}
         <WhiteOverlay />
         <Overlay />

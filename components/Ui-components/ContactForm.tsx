@@ -1,9 +1,10 @@
 "use client";
-
+import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import { User, Phone, Mail, Send, Lock } from "lucide-react";
 import HeadingLeave from "./HeadingLeave";
 import ServiceReveal from "../../app/Animations/ServiceReveal";
+import { toast } from "sonner";
 
 // FORM TYPE
 type FormData = {
@@ -70,19 +71,62 @@ export default function ContactForm() {
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    if (loading) return;
     if (!validate()) return;
 
-    setLoading(true);
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-    setTimeout(() => {
-      setLoading(false);
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("Missing EmailJS configuration");
+      toast.error("Unable to send your message. Please try again.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      // const toastId = toast.loading("Sending message...");
+
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          message: form.message,
+          time: new Date().toLocaleString(),
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+      );
+      toast.success(
+        "Message sent successfully! We'll get back to you shortly.",
+      );
       setSent(true);
-    }, 1800);
+    } catch (error) {
+      console.error(error);
+      toast.error("Unable to send your message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
+  // const handleSubmit = () => {
+  //   if (!validate()) return;
+
+  //   setLoading(true);
+
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //     setSent(true);
+  //   }, 1800);
+  // };
 
   const resetForm = () => {
     setSent(false);
+
+    setErrors({});
 
     setForm({
       name: "",
@@ -90,6 +134,8 @@ export default function ContactForm() {
       email: "",
       message: "",
     });
+
+    toast.success("Ready for another message.");
   };
 
   return (
@@ -214,6 +260,7 @@ export default function ContactForm() {
               />
 
               <input
+                disabled={loading}
                 type="text"
                 value={form.name}
                 placeholder="Full Name"
@@ -253,6 +300,7 @@ export default function ContactForm() {
               />
 
               <input
+                disabled={loading}
                 type="tel"
                 value={form.phone}
                 placeholder="Phone Number"
@@ -288,6 +336,7 @@ export default function ContactForm() {
               />
 
               <input
+                disabled={loading}
                 type="email"
                 value={form.email}
                 placeholder="Email Address"
@@ -312,6 +361,7 @@ export default function ContactForm() {
 
             <div>
               <textarea
+                disabled={loading}
                 value={form.message}
                 placeholder="How can we help you?"
                 onChange={(e) => setField("message", e.target.value)}
@@ -350,7 +400,29 @@ export default function ContactForm() {
             "
             >
               {loading ? (
-                "Sending..."
+                <>
+                  <svg
+                    className="h-5 w-5 animate-spin"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                      className="opacity-25"
+                    />
+                    <path
+                      d="M22 12a10 10 0 00-10-10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                      className="opacity-75"
+                    />
+                  </svg>
+                  Sending...
+                </>
               ) : (
                 <>
                   <Send size={16} />

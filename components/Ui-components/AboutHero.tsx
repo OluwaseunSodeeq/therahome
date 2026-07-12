@@ -2,7 +2,7 @@
 
 import { CSSProperties, useEffect, useState } from "react";
 import Image from "next/image";
-import { ShieldCheck, Leaf, LucideIcon, User } from "lucide-react";
+import { ShieldCheck, Gem, LucideIcon, User } from "lucide-react";
 import { Overlay, WhiteOverlay } from "./Overlays";
 
 export interface HeroBullet {
@@ -16,7 +16,7 @@ export const HERO_BULLETS: HeroBullet[] = [
     text: "Professional Therapists",
   },
   {
-    Icon: Leaf,
+    Icon: Gem,
     text: "Premium & Natural Products",
   },
   {
@@ -57,8 +57,8 @@ export default function AboutHero() {
             alt="Premium wellness products"
             fill
             priority
-            sizes="100vw"
-            className="bg-hero-img object-cover object-[center_40%]  lg:hidden"
+            sizes="(max-width: 1024px) 100vw, 0vw"
+            className="lg:hidden object-cover object-[center_40%]"
           />
         </div>
         <WhiteOverlay />

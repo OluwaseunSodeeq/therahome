@@ -12,9 +12,8 @@ import {
   MapPin,
   MessageCircle,
   Phone,
-  // Smartphone,
 } from "lucide-react";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 export interface HeroBullet {
   Icon: LucideIcon;
   text: string;
@@ -42,10 +41,15 @@ const SOCIALS = [
     label: "Chat",
     link: whatsappLink,
   },
+  {
+    Icon: FaFacebook,
+    label: "FB",
+    link: "https://web.facebook.com/profile.php?id=61579577205712",
+  },
 ];
 
 export const contactInfo = [
-  { Icon: MapPin, text: "Lagos, Nigeria" },
+  { Icon: MapPin, text: " Berger Lagos, Nigeria" },
   { Icon: Phone, text: "+234 706 434 7587" },
   { Icon: FaWhatsapp, text: "+234 706 434 7587" },
   { Icon: Mail, text: "therahomeng@gmail.com" },
@@ -53,7 +57,7 @@ export const contactInfo = [
 ];
 
 export default function Footer() {
-  const [email, setEmail] = useState<string>("");
+  // const [email, setEmail] = useState<string>("");
   const [loaded, setLoaded] = useState<boolean>(false);
 
   useEffect(() => {
@@ -78,7 +82,7 @@ export default function Footer() {
           <div>
             <Logo />
 
-            <div className="flex gap-4">
+            {/* <div className="flex gap-4">
               {SOCIALS.map((icon, index) => {
                 const { Icon, link } = icon;
 
@@ -105,7 +109,7 @@ export default function Footer() {
                   </Link>
                 );
               })}
-            </div>
+            </div> */}
           </div>
 
           {/* QUICK LINKS */}
@@ -191,8 +195,35 @@ export default function Footer() {
             <p className="text-sm text-secondary-green leading-7 mb-5">
               Subscribe for wellness tips and offers.
             </p>
+            <div className="flex gap-4">
+              {SOCIALS.map((icon, index) => {
+                const { Icon, link } = icon;
 
-            <div className="flex overflow-hidden rounded-lg border border-white/20">
+                return (
+                  <Link
+                    key={index}
+                    href={link}
+                    className="
+                    w-9 h-9
+                    rounded-full
+                    border border-white/20
+                    flex items-center justify-center
+                    text-sm
+                    transition-all duration-200
+                    text-primary-green
+                    hover:bg-primary-green
+                    hover:text-white
+                    hover:border-white
+                  "
+                  >
+                    <span className="">
+                      <Icon size={18} />
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
+            {/* <div className="flex overflow-hidden rounded-lg border border-white/20">
               <input
                 type="email"
                 placeholder="Your email address..."
@@ -219,7 +250,7 @@ export default function Footer() {
               >
                 →
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
 
