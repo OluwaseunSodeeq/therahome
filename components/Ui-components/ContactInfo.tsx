@@ -73,13 +73,13 @@ const iconMap: Record<IconType, React.ElementType> = {
 export default function ContactInfo() {
   const { handleCall } = useFunctionalitiesContext();
   return (
-    <div className="bg-hero-bg pt-6 md:pt-8 ">
+    <div className="min-w-0 bg-hero-bg pt-6 md:pt-8 overflow-hidden">
       <ServiceReveal from="right">
         {/* heading */}
 
         <div className="text-center mb-4">
           <h3
-          className="
+            className="
           text-2xl
           font-bold
           text-black

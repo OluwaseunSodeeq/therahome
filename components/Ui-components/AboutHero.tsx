@@ -50,7 +50,7 @@ export default function AboutHero() {
             fill
             priority
             sizes="100vw"
-            className="hero-img object-cover object-[center_40%]"
+            className="hero-img object-cover object-[center_40%] hidden lg:block"
           />
           <Image
             src="/mobileabouthero.png"

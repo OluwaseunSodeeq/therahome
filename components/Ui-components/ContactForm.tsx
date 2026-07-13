@@ -112,16 +112,6 @@ export default function ContactForm() {
       setLoading(false);
     }
   };
-  // const handleSubmit = () => {
-  //   if (!validate()) return;
-
-  //   setLoading(true);
-
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //     setSent(true);
-  //   }, 1800);
-  // };
 
   const resetForm = () => {
     setSent(false);
@@ -146,6 +136,7 @@ export default function ContactForm() {
       py-6 md:py-8
       px-4 md:px-6
       shadow-sm2
+      overflow-hidden
       "
     >
       <ServiceReveal from="right">
@@ -164,11 +155,11 @@ export default function ContactForm() {
 
           <div
             className="
-          flex
-          items-center
-          justify-center
-          gap-2
-          mt-2
+            flex
+            items-center
+            justify-center
+            gap-2
+            mt-2
           "
           >
             <div className="w-6 h-px bg-parchment" />
@@ -209,7 +200,6 @@ export default function ContactForm() {
               className="
             text-2xl
             font-bold
-            serif
             "
             >
               Message Sent!
@@ -306,11 +296,11 @@ export default function ContactForm() {
                 placeholder="Phone Number"
                 onChange={(e) => setField("phone", e.target.value)}
                 className={`
-              w-full
-              pl-11
-              p-3
-              rounded-r8
-              border
+                w-full
+                pl-11
+                p-3
+                rounded-r8
+                border
 
               ${errors.phone ? "border-red-500" : "border-secondary-green"}
               `}
@@ -342,11 +332,11 @@ export default function ContactForm() {
                 placeholder="Email Address"
                 onChange={(e) => setField("email", e.target.value)}
                 className={`
-              w-full
-              pl-11
-              p-3
-              rounded-r8
-              border
+                w-full
+                pl-11
+                p-3
+                rounded-r8
+                border
 
               ${errors.email ? "border-red-500" : "border-secondary-green"}
               `}

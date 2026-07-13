@@ -62,8 +62,6 @@ export default function ContactHero() {
             sizes="100vw"
             className="bg-hero-img object-cover object-[center_40%] hidden lg:block"
           />
-          {/* Gradient overlay */}
-          <WhiteOverlay />
 
           {/* mobile */}
           <Image
@@ -75,6 +73,8 @@ export default function ContactHero() {
             className="lg:hidden object-cover object-[center_40%]"
           />
         </div>
+        {/* Gradient overlay */}
+        <WhiteOverlay />
         <Overlay />
 
         {/* Content */}
@@ -161,7 +161,7 @@ export default function ContactHero() {
           {/* Response Time */}
           <div
             style={anim(0.5)}
-            className="flex items-center gap-2 mt-7 lg:mt-0"
+            className="flex items-center gap-2 mt-4 lg:mt-0"
           >
             <span className="text-primary-green">
               <Clock size={18} />
@@ -173,7 +173,7 @@ export default function ContactHero() {
           </div>
 
           {/* Trust */}
-          <div style={anim(0.58)} className="mt-7 flex items-center gap-1">
+          <div style={anim(0.58)} className="mt-4 flex items-center gap-1">
             <span className="text-primary-green">
               <ShieldCheck size={18} />
             </span>

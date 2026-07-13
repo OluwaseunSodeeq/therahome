@@ -73,7 +73,7 @@ const iconMap: Record<IconType, React.ElementType> = {
 
 export default function WhyLoveUs() {
   return (
-    <div className="bg-hero-bg pt-6 md:pt-8 ">
+    <div className="min-w-0 bg-hero-bg pt-6 md:pt-8 overflow-hidden">
       {/* heading */}
       <ServiceReveal from="left">
         <div className="text-center mb-4">
