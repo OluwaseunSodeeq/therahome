@@ -1,3 +1,6 @@
+// SABILTICS
+// import Script from "next/script";
+
 import "./globals.css";
 import type { Metadata } from "next";
 import RootComponent from "../components/Ui-components/RootComponent";
@@ -18,6 +21,14 @@ type RootLayoutProps = {
 export default function Layout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
+      {/* <Script
+        async
+        src="https://sabilytics.vercel.app/script.js"
+        data-site="j6wqlxrcwkda"
+        data-domain="therahome.vercel.app"
+        strategy="afterInteractive"
+      />
+      ; */}
       <body suppressHydrationWarning className="h-auto bg-main-bg relative">
         <Toaster richColors position="top-right" />
         <CartContextProvider>

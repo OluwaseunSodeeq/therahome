@@ -1,6 +1,5 @@
 "use client";
-import { navLinks } from "../../app/data";
-import { services } from "../../app/data";
+import { comboServices, navLinks } from "../../app/data";
 import { CSSProperties, useEffect, useState } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
@@ -22,7 +21,7 @@ export interface HeroBullet {
   text: string;
   link: string;
 }
-const message = "Hello, I would like to know more about your services.";
+const message = "Hello, I would like to know more about your singleservices.";
 // Phone number used for WhatsApp link (digits only, with country code)
 const phone = "+2347064347587";
 const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(
@@ -123,7 +122,7 @@ export default function Footer() {
             </h3>
 
             <div className="space-y-3">
-              {services.map((service) => (
+              {comboServices.map((service) => (
                 <button
                   key={service.name}
                   onClick={() => bookThisMassage(service.name)}

@@ -3,19 +3,16 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Service } from "@/types/defaultType";
-import ServiceReveal from "../../app/Animations/ServiceReveal";
 import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 import { toast } from "sonner";
 
+// import ServiceReveal from "../../app/Animations/ServiceReveal";
+
 type ServiceCardDesktopProps = {
   service: Service;
-  delay?: number;
 };
 
-export function ServiceCardDesktop({
-  service,
-  delay = 0,
-}: ServiceCardDesktopProps) {
+export function ServiceCardDesktop({ service }: ServiceCardDesktopProps) {
   const [hovered, setHovered] = useState<boolean>(false);
   const { toggleBookingForm, setSelectedService } = useFunctionalitiesContext();
 
@@ -26,7 +23,7 @@ export function ServiceCardDesktop({
   }
 
   return (
-    <ServiceReveal delay={delay}>
+    <div>
       <article
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -73,7 +70,7 @@ export function ServiceCardDesktop({
           />
 
           {/* ICON */}
-          <div
+          {/* <div
             className="
               absolute
               bottom-3
@@ -90,6 +87,29 @@ export function ServiceCardDesktop({
             "
           >
             {service.icon}
+          </div> */}
+          <div
+            className="
+                      absolute
+                      bottom-3
+                      left-3
+                      w-10
+                      h-10
+                      rounded-full
+                      bg-white
+                      flex
+                      items-center
+                      justify-center
+                    "
+          >
+            <Image
+              src="/current-logo.svg"
+              alt="TheraHome"
+              width={80}
+              height={80}
+              className="rounded-full"
+            />
+            {/* {service.icon} */}
           </div>
         </div>
 
@@ -146,20 +166,16 @@ export function ServiceCardDesktop({
           </div>
         </div>
       </article>
-    </ServiceReveal>
+    </div>
   );
 }
 
 // ===========================================
 type ServiceRowMobileProps = {
   service: Service;
-  delay?: number;
 };
 
-export function ServiceRowMobile({
-  service,
-  delay = 0,
-}: ServiceRowMobileProps) {
+export function ServiceRowMobile({ service }: ServiceRowMobileProps) {
   const [hovered, setHovered] = useState<boolean>(false);
   const { toggleBookingForm, setSelectedService } = useFunctionalitiesContext();
 
@@ -168,7 +184,7 @@ export function ServiceRowMobile({
     setSelectedService(service);
   }
   return (
-    <ServiceReveal delay={delay}>
+    <div>
       <article
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -213,7 +229,7 @@ export function ServiceRowMobile({
        16vw"
           />
 
-          <div
+          {/* <div
             className="
               absolute
               bottom-2
@@ -229,6 +245,29 @@ export function ServiceRowMobile({
             "
           >
             {service.icon}
+          </div> */}
+          <div
+            className="
+                      absolute
+                      bottom-3
+                      left-3
+                      w-10
+                      h-10
+                      rounded-full
+                      bg-white
+                      flex
+                      items-center
+                      justify-center
+                    "
+          >
+            <Image
+              src="/current-logo.svg"
+              alt="TheraHome"
+              width={80}
+              height={80}
+              className="rounded-full"
+            />
+            {/* {service.icon} */}
           </div>
         </div>
 
@@ -276,6 +315,6 @@ export function ServiceRowMobile({
           </div>
         </div>
       </article>
-    </ServiceReveal>
+    </div>
   );
 }

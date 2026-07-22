@@ -93,12 +93,13 @@ export default function HmTestimonials() {
                 justify-center
                 rounded-full
                 border
+                text-primary-green
                 border-primary-green
                 bg-white
                 transition-all
                 duration-300
                 hover:bg-primary-border-primary-green
-                hover:text-white
+                hover:text-secondary-green
               "
             >
               ‹
@@ -114,12 +115,13 @@ export default function HmTestimonials() {
                 justify-center
                 rounded-full
                 border
+                text-primary-green
                 border-primary-green
                 bg-white
                 transition-all
                 duration-300
-                hover:bg-primary-green
-                hover:text-white
+                hover:bg-primary-border-primary-green
+                hover:text-secondary-green
               "
             >
               ›

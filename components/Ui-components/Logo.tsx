@@ -4,15 +4,15 @@ import Link from "next/link";
 export default function Logo() {
   return (
     <Link href="/" className="flex items-center gap-1">
-      <Image
-        src="/current-logo.svg"
-        alt="TheraHome"
-        width={80}
-        height={80}
-        priority
-        // className="shrink-0"
-        className="w-16 md:w-20 h-auto shrink-0"
-      />
+      <div className="relative w-16 h-16 md:w-20 md:h-20 shrink-0">
+        <Image
+          src="/current-logo.svg"
+          alt="TheraHome"
+          fill
+          priority
+          className="object-contain"
+        />
+      </div>
 
       <div className="font-geo leading-tight">
         <p className="text-primary-green font-extrabold text-lg md:text-xl">

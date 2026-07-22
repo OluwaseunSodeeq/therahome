@@ -24,7 +24,7 @@ export default function page() {
       >
         <ContactInfo />
         <WhyLoveUs />
-        <div className="md:col-span-2 lg:col-span-1">
+        <div className=" min-w-0 md:col-span-2 lg:col-span-1">
           <ContactForm />
         </div>
       </div>

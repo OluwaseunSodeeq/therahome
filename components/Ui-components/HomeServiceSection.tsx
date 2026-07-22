@@ -1,19 +1,16 @@
 "use client";
+import { useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+
 import Image from "next/image";
-import Link from "next/link";
 import Reveal from "../../app/Animations/Reveal";
 // import { serviceCards } from "../../app/data";
-import { services } from "../../app/data";
+import { comboServices } from "../../app/data";
 import { Service } from "@/types/defaultType";
 import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 import { toast } from "sonner";
-
-// type Service = {
-//   name: string;
-//   desc: string;
-//   img: string;
-//   icon: string;
-// };
+// import { useState } from "react";
 
 type ServiceCardProps = {
   service: Service;
@@ -27,6 +24,7 @@ function ServiceCard({ service }: ServiceCardProps) {
     setSelectedService(service);
     toast.success(`${service} selected!`);
   }
+
   return (
     <div
       className="
@@ -63,16 +61,23 @@ function ServiceCard({ service }: ServiceCardProps) {
             absolute
             bottom-3
             left-3
-            w-9
-            h-9
+            w-10
+            h-10
             rounded-full
-            bg-green-900
+            bg-white
             flex
             items-center
             justify-center
           "
         >
-          {service.icon}
+          <Image
+            src="/current-logo.svg"
+            alt="TheraHome"
+            width={80}
+            height={80}
+            className="rounded-full"
+          />
+          {/* {service.icon} */}
         </div>
       </div>
 
@@ -94,7 +99,7 @@ function ServiceCard({ service }: ServiceCardProps) {
             gap-1
             text-xs
             font-semibold
-            text-green-900
+            text-primary-green
             hover:gap-2
             transition-all
             cursor-pointer
@@ -109,6 +114,29 @@ function ServiceCard({ service }: ServiceCardProps) {
 }
 
 export default function HomeServiceSection() {
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "start",
+      slidesToScroll: 1,
+    },
+    [
+      Autoplay({
+        delay: 3500,
+        stopOnInteraction: false,
+        stopOnMouseEnter: true,
+      }),
+    ],
+  );
+
+  const prev = useCallback(() => {
+    emblaApi?.scrollPrev();
+  }, [emblaApi]);
+
+  const next = useCallback(() => {
+    emblaApi?.scrollNext();
+  }, [emblaApi]);
+
   return (
     <section className="bg-white pt-20 lg:pt-32 pb-24 px-6 font-geo relative z-10">
       <div className="max-w-7xl mx-auto">
@@ -117,12 +145,12 @@ export default function HomeServiceSection() {
           <div className="text-center lg:mb-14">
             <div
               className="
-                mb-3.5
-                flex
-                items-center
-                justify-center
-                gap-2
-              "
+                 mb-3.5
+                 flex
+                 items-center
+                 justify-center
+                 gap-2
+               "
             >
               <div className="h-px w-7 bg-[#c5b99a]" />
 
@@ -133,78 +161,183 @@ export default function HomeServiceSection() {
 
             <p
               className="
-                text-xs
-                font-bold
-                tracking-[0.15em]
-                uppercase
-                text-text-black
-                lg:mb-3
-                mt-5 lg:mt-0
-              "
+                 text-xs
+                 font-bold
+                 tracking-[0.15em]
+                 uppercase
+                 text-text-black
+                 lg:mb-3
+                 mt-5 lg:mt-0
+               "
             >
               OUR SIGNATURE SERVICES
             </p>
 
             <h2
               className="
-                text-4xl
-                md:text-5xl
-                font-bold
-                text-neutral-900
-                mt-5 lg:mt-0
-                leading-relaxed
+                 text-4xl
+                 md:text-5xl
+                 font-bold
+                 text-neutral-900
+                 mt-5 lg:mt-0
+                 leading-relaxed
 
-              "
+               "
             >
               Wellness, Tailored for You
             </h2>
           </div>
         </Reveal>
 
-        {/* GRID */}
-        <div
-          className="
-            grid
-            grid-cols-1
-            sm:grid-cols-2
-            lg:grid-cols-3
-            xl:grid-cols-5
-            gap-5
-            lg:px-5
-            mt-5 lg:mt-0
-
-          "
-        >
-          {services.map((service, index) => (
-            <Reveal key={index} delay={index * 0.07}>
-              <ServiceCard service={service} />
-            </Reveal>
-          ))}
+        {/* SLIDER */}
+        <div className="overflow-hidden mt-8" ref={emblaRef}>
+          <div className="flex">
+            {comboServices.map((service, index) => (
+              <div
+                key={index}
+                className="
+                  flex-[0_0_100%]
+                  md:flex-[0_0_50%]
+                  xl:flex-[0_0_25%]
+                  px-3
+                "
+              >
+                <ServiceCard service={service} />
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* BUTTON */}
-        <Reveal delay={0.3}>
-          <div className="text-center mt-12">
-            <Link
-              href="/services"
-              className="
-                inline-block
-                rounded-lg
-                bg-primary-green
-                hover:bg-secondary-green
-                text-white
-                font-geo
-                px-8
-                py-4
-                font-semibold
-                transition-all
-              "
-            >
-              View All Services
-            </Link>
-          </div>
-        </Reveal>
+        {/* CONTROLS */}
+        <div className="flex justify-center gap-4 mt-10">
+          <button
+            onClick={prev}
+            className="w-12 h-12 rounded-full border border-neutral-300 hover:bg-black hover:text-white transition"
+          >
+            ←
+          </button>
+
+          <button
+            onClick={next}
+            className="w-12 h-12 rounded-full border border-neutral-300 hover:bg-black hover:text-white transition"
+          >
+            →
+          </button>
+        </div>
       </div>
     </section>
   );
 }
+// export default function HomeServiceSection() {
+//  const [active, setActive] = useState<number>(0);
+//   const singleServicecount = comboServices.length;
+
+//   const prev = () => {
+//     setActive((prev) => (prev - 1 + singleServicecount) % singleServicecount);
+//   };
+
+//   const next = () => {
+//     setActive((prev) => (prev + 1) % singleServicecount);
+//   };
+//   return (
+//     <section className="bg-white pt-20 lg:pt-32 pb-24 px-6 font-geo relative z-10">
+//       <div className="max-w-7xl mx-auto">
+//         {/* HEADER */}
+//         <Reveal>
+//           <div className="text-center lg:mb-14">
+//             <div
+//               className="
+//                 mb-3.5
+//                 flex
+//                 items-center
+//                 justify-center
+//                 gap-2
+//               "
+//             >
+//               <div className="h-px w-7 bg-[#c5b99a]" />
+
+//               <span className="text-[15px] text-primary-light">🌿</span>
+
+//               <div className="h-px w-7 bg-[#c5b99a]" />
+//             </div>
+
+//             <p
+//               className="
+//                 text-xs
+//                 font-bold
+//                 tracking-[0.15em]
+//                 uppercase
+//                 text-text-black
+//                 lg:mb-3
+//                 mt-5 lg:mt-0
+//               "
+//             >
+//               OUR SIGNATURE SERVICES
+//             </p>
+
+//             <h2
+//               className="
+//                 text-4xl
+//                 md:text-5xl
+//                 font-bold
+//                 text-neutral-900
+//                 mt-5 lg:mt-0
+//                 leading-relaxed
+
+//               "
+//             >
+//               Wellness, Tailored for You
+//             </h2>
+//           </div>
+//         </Reveal>
+
+//         {/* GRID */}
+//         <div
+//           className="
+//             grid
+//             grid-cols-1
+//             sm:grid-cols-2
+//             lg:grid-cols-3
+//             xl:grid-cols-5
+//             gap-5
+//             lg:px-5
+//             mt-5 lg:mt-0
+
+//           "
+//         >
+//           {comboServices.map((service, index) => (
+//             <Reveal key={index} delay={index * 0.07}>
+//               <ServiceCard service={service} />
+//             </Reveal>
+//           ))}
+//         </div>
+
+//         {/* BUTTON */}
+//         <Reveal delay={0.3}>
+//           <div className="text-center mt-12">
+//           </div>
+//         </Reveal>
+//       </div>
+//     </section>
+//   );
+// }
+// {*
+
+//   <Link
+//               href="/services"
+//               className="
+//                 inline-block
+//                 rounded-lg
+//                 bg-primary-green
+//                 hover:bg-secondary-green
+//                 text-white
+//                 font-geo
+//                 px-8
+//                 py-4
+//                 font-semibold
+//                 transition-all
+//               "
+//             >
+//               View All Services
+//             </Link>
+//   *}

@@ -29,7 +29,6 @@ export default function AboutHero() {
 
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 80);
-
     return () => clearTimeout(timer);
   }, []);
 
@@ -43,7 +42,7 @@ export default function AboutHero() {
     <section className=" relative mt-17 overflow-hidden min-h-122 font-geo">
       <div className=" relative max-w-360 mx-auto z-20">
         {/* Background image */}
-        <div className="relative min-h-122 max-h-125 w-full">
+        <div className="relative min-h-122 max-h-125 w-full ">
           <Image
             src="/abouthero.png"
             alt="About HeroSection"

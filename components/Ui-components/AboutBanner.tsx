@@ -91,6 +91,7 @@ export default function ShopBanner() {
                     transition-all duration-300
                     hover:-translate-y-0.5
                     hover:bg-[#f5f3ee]
+                    cursor-pointer
                   "
                 >
                   Book Your Session

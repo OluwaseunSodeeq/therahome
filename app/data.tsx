@@ -261,67 +261,210 @@ export const bannerFeatures: string[] = [
 ];
 
 // SERVICES PAGE
-export const services: readonly Service[] = [
+export const singleServices: readonly Service[] = [
   {
     id: 1,
-    name: "Deep Tissue Massage",
-    desc: "Relieve muscle tension and chronic stress with targeted pressure therapy.",
+    name: "Full Body Relaxation Massage",
+    desc: "Gentle rhythmic strokes for stress relief.",
     img: "/service-img.png",
-    icon: "💆",
+    icon: "/icons/full-body.svg",
     duration: "60 mins",
     price: "₦35,000",
   },
 
   {
     id: 2,
-    name: "Swedish Massage",
-    desc: "A relaxing full-body massage designed to improve circulation and calm the mind.",
+    name: "Deep Tissue Massage",
+    desc: "Targets chronic tension and muscle knots.",
     img: "/service-img.png",
-    icon: "🌿",
+    icon: "/icons/deep-tissue.svg",
+    duration: "60 mins",
+    price: "₦40,000",
+  },
+
+  {
+    id: 3,
+    name: "Herbal Lymphatic Detox",
+    desc: "Supports circulation and reduces bloating.",
+    img: "/service-img.png",
+    icon: "/icons/herbal.svg",
+    duration: "60 mins",
+    price: "₦45,000",
+  },
+
+  {
+    id: 4,
+    name: "Muscle Recovery Therapy",
+    desc: "Focused relief for body pain and stiffness.",
+    img: "/service-img.png",
+    icon: "/icons/muscle-recovery.svg",
+    duration: "60 mins",
+    price: "₦45,000",
+  },
+
+  {
+    id: 5,
+    name: "Hot Stone Therapy",
+    desc: "Deep relaxation using heated stones.",
+    img: "/service-img.png",
+    icon: "/icons/hot-stone.svg",
+    duration: "60 mins",
+    price: "₦50,000",
+  },
+
+  {
+    id: 6,
+    name: "Thai Stretch Therapy",
+    desc: "Assisted stretching for flexibility and mobility.",
+    img: "/service-img.png",
+    icon: "/icons/thai-stretch.svg",
+    duration: "60 mins",
+    price: "₦50,000",
+  },
+
+  {
+    id: 7,
+    name: "Back Relief Therapy",
+    desc: "Neck, shoulder and lower back focus.",
+    img: "/service-img.png",
+    icon: "/icons/back-relief.svg",
     duration: "60 mins",
     price: "₦30,000",
   },
 
   {
-    id: 3,
-    name: "Hot Stone Therapy",
-    desc: "Warm stones combined with massage techniques for deep relaxation.",
+    id: 8,
+    name: "Foot Reflexology",
+    desc: "Relieves fatigue (30 minutes).",
     img: "/service-img.png",
-    icon: "🔥",
-    duration: "75 mins",
-    price: "₦40,000",
+    icon: "/icons/reflexology.svg",
+    duration: "30 mins",
+    price: "₦20,000",
   },
+];
 
+export const comboServices: readonly Service[] = [
   {
-    id: 4,
-    name: "Aromatherapy",
-    desc: "Essential oils blended with massage for stress relief and relaxation.",
+    id: 1,
+    name: "Relax & Restore",
+    desc: "Relaxation Massage + Hot Stone",
     img: "/service-img.png",
-    icon: "🌸",
-    duration: "60 mins",
-    price: "₦32,000",
-  },
-
-  {
-    id: 5,
-    name: "Couples Massage",
-    desc: "Enjoy a luxury wellness experience together with your partner.",
-    img: "/service-img.png",
-    icon: "❤️",
+    icon: "/icons/hot-stone.svg",
     duration: "90 mins",
     price: "₦65,000",
   },
 
-  // {
-  //   id: 6,
-  //   name: "Reflexology",
-  //   desc: "Pressure-point foot therapy that promotes total body wellness.",
-  //   img: "/service-img.png",
-  //   icon: "🦶",
-  //   duration: "45 mins",
-  //   price: "₦25,000",
-  // },
+  {
+    id: 2,
+    name: "Detox & Drain",
+    desc: "Lymphatic Therapy + Foot & Leg Therapy",
+    img: "/service-img.png",
+    icon: "/icons/herbal.svg",
+    duration: "90 mins",
+    price: "₦70,000",
+  },
+
+  {
+    id: 3,
+    name: "Pain Relief Intensive",
+    desc: "Deep Tissue Massage + Muscle Recovery Therapy",
+    img: "/service-img.png",
+    icon: "/icons/deep-tissue.svg",
+    duration: "90 mins",
+    price: "₦75,000",
+  },
+
+  {
+    id: 4,
+    name: "Stretch & Release",
+    desc: "Thai Stretch Therapy + Relaxation Massage",
+    img: "/service-img.png",
+    icon: "/icons/thai-stretch.svg",
+    duration: "90 mins",
+    price: "₦70,000",
+  },
+
+  {
+    id: 5,
+    name: "Full Body Reset",
+    desc: "Relaxation Massage + Deep Tissue Massage + Hot Stone Therapy",
+    img: "/service-img.png",
+    icon: "/icons/hot-stone.svg",
+    duration: "120 mins",
+    price: "₦90,000",
+  },
+
+  {
+    id: 6,
+    name: "Advanced Recovery",
+    desc: "Lymphatic Therapy + Deep Tissue Massage + Thai Stretch Therapy",
+    img: "/service-img.png",
+    icon: "/icons/lotus.svg",
+    duration: "120 mins",
+    price: "₦100,000",
+  },
 ];
+// export const singleServices: readonly Service[] = [
+//   {
+//     id: 1,
+//     name: "Deep Tissue Massage",
+//     desc: "Targets chronic tension and muscles knots.",
+//     img: "/service-img.png",
+//     icon: "💆",
+//     duration: "60 mins",
+//     price: "₦40,000",
+//   },
+
+//   {
+//     id: 2,
+//     name: "Swedish Massage",
+//     desc: "A relaxing full-body massage designed to improve circulation and calm the mind.",
+//     img: "/service-img.png",
+//     icon: "🌿",
+//     duration: "60 mins",
+//     price: "₦30,000",
+//   },
+
+//   {
+//     id: 3,
+//     name: "Hot Stone Therapy",
+//     desc: "Warm stones combined with massage techniques for deep relaxation.",
+//     img: "/service-img.png",
+//     icon: "🔥",
+//     duration: "75 mins",
+//     price: "₦40,000",
+//   },
+
+//   {
+//     id: 4,
+//     name: "Aromatherapy",
+//     desc: "Essential oils blended with massage for stress relief and relaxation.",
+//     img: "/service-img.png",
+//     icon: "🌸",
+//     duration: "60 mins",
+//     price: "₦32,000",
+//   },
+
+//   {
+//     id: 5,
+//     name: "Couples Massage",
+//     desc: "Enjoy a luxury wellness experience together with your partner.",
+//     img: "/service-img.png",
+//     icon: "❤️",
+//     duration: "90 mins",
+//     price: "₦65,000",
+//   },
+
+//   // {
+//   //   id: 6,
+//   //   name: "Reflexology",
+//   //   desc: "Pressure-point foot therapy that promotes total body wellness.",
+//   //   img: "/service-img.png",
+//   //   icon: "🦶",
+//   //   duration: "45 mins",
+//   //   price: "₦25,000",
+//   // },
+// ];
 
 export const shopProducts: ProductType[] = [
   {

@@ -1,13 +1,66 @@
+"use client";
+
+import Carousel from "@/components/carousel/Carousel";
+import CarouselSlide from "@/components/carousel/CarouselSlide";
+
 import ServiceReveal from "../../app/Animations/ServiceReveal";
-import { services } from "../../app/data";
-import HeadingLeave from "./HeadingLeave";
+import { comboServices, singleServices } from "../../app/data";
 import { ServiceCardDesktop, ServiceRowMobile } from "./ServiceCard";
 
 export default function Services() {
   return (
     <section className="bg-hero-bg px-6 md:px-12 py-16 md:py-20">
-      <div className="mx-auto max-w-7xl">
-        {/* HEADER */}
+      <div className="pb-10 md:pb-10">
+        <div className="mx-auto max-w-7xl">
+          <ServiceReveal>
+            <Carousel
+              eyebrow="Our Signature Services"
+              title="Wellness, Tailored for You"
+            >
+              {singleServices.map((service, index) => (
+                <CarouselSlide key={index}>
+                  <div className="hidden md:block">
+                    <ServiceCardDesktop service={service} />
+                  </div>
+
+                  <div className="block md:hidden">
+                    <ServiceRowMobile service={service} />
+                  </div>
+                </CarouselSlide>
+              ))}
+            </Carousel>
+          </ServiceReveal>
+        </div>
+      </div>
+      <hr className="text-primary-green bg-primary-green" />
+      <div className="pt-10 md:pt-10">
+        <div className="mx-auto max-w-7xl">
+          <ServiceReveal>
+            <Carousel
+              eyebrow="OUR SIGNATURE COMBOS"
+              title="Wellness, Perfectly Paired"
+            >
+              {comboServices.map((service, index) => (
+                <CarouselSlide key={index}>
+                  <div className="hidden md:block">
+                    <ServiceCardDesktop service={service} />
+                  </div>
+
+                  <div className="block md:hidden">
+                    <ServiceRowMobile service={service} />
+                  </div>
+                </CarouselSlide>
+              ))}
+            </Carousel>
+          </ServiceReveal>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+{
+  /* HEADER
         <ServiceReveal>
           <div className="mb-11 text-center">
             <h2
@@ -27,7 +80,6 @@ export default function Services() {
           </div>
         </ServiceReveal>
 
-        {/* DESKTOP GRID */}
         <div
           className="
             gap-4
@@ -39,7 +91,7 @@ export default function Services() {
             xl:grid-cols-5
           "
         >
-          {services.map((service, index) => (
+          {singleServices.map((service, index) => (
             <ServiceCardDesktop
               key={service.id}
               service={service}
@@ -48,40 +100,15 @@ export default function Services() {
           ))}
         </div>
 
-        {/* MOBILE LIST */}
+        // MOBILE LIST 
         <div className="flex flex-col gap-4 md:hidden">
-          {services.map((service, index) => (
+          {singleServices.map((service, index) => (
             <ServiceRowMobile
               key={service.id}
               service={service}
               delay={index * 0.06}
             />
           ))}
-        </div>
-
-        {/* MOBILE BUTTON */}
-        <div className="mt-6 md:hidden">
-          <a
-            href="#"
-            className="
-              block
-              rounded-xl
-              bg-primary-green
-              px-5
-              py-4
-              text-center
-              text-sm
-              font-semibold
-              text-white
-              transition-colors
-              duration-300
-              hover:bg-green-950
-            "
-          >
-            View All Services
-          </a>
-        </div>
-      </div>
-    </section>
-  );
+        </div> 
+        */
 }
