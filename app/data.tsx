@@ -120,20 +120,20 @@ export const bookingPrices: BookingPrice[] = [
 export const transportZones: TransportZone[] = [
   {
     zone: "Zone 1 (Close)",
-    area: "Ikeja, Magodo",
-    fee: "₦5,000",
+    area: "Ogba, Ikeja axis",
+    fee: "₦5k - ₦10k",
   },
 
   {
     zone: "Zone 2 (Mid)",
-    area: "Yaba, Surulere, Gbagada",
-    fee: "₦8,000",
+    area: "Surulere and other Mainlands",
+    fee: "₦8k - ₦20k",
   },
 
   {
     zone: "Zone 3 (Far / Island)",
-    area: "Lekki, Victoria Island, Ikoyi",
-    fee: "₦12K – ₦15K",
+    area: "Ikoyi and other Lagos islands",
+    fee: "₦20K+",
   },
 ];
 

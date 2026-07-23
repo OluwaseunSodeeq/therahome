@@ -45,11 +45,11 @@ export default function AboutHero() {
         <div className="relative min-h-122 max-h-125 w-full ">
           <Image
             src="/abouthero.png"
-            alt="About HeroSection"
+            alt="Premium wellness products"
             fill
             priority
-            sizes="100vw"
-            className="hero-img object-cover object-[center_40%] hidden lg:block"
+            sizes="(max-width: 1023px) 0px, 100vw"
+            className="hidden lg:block object-cover object-[center_40%] bg-hero-img"
           />
           <Image
             src="/mobileabouthero.png"

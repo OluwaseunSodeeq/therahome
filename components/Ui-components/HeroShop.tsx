@@ -45,8 +45,8 @@ export default function HeroShop() {
             alt="Premium wellness products"
             fill
             priority
-            sizes="100vw"
-            className="hero-img object-cover object-[center_35%]"
+            sizes="(max-width: 1023px) 0px, 100vw"
+            className="hidden lg:block object-cover object-[center_40%] bg-hero-img"
           />
           <Image
             src="/mobileshophero.png"

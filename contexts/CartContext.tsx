@@ -13,23 +13,40 @@ interface CartContextProviderProps {
 export function CartContextProvider({ children }: CartContextProviderProps) {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  const [cart, setCart] = useState<CartItem[]>(() => {
-    if (typeof window === "undefined") {
-      return [];
-    }
-
-    try {
-      const savedCart = localStorage.getItem(CART_STORAGE_KEY);
-
-      return savedCart ? JSON.parse(savedCart) : [];
-    } catch {
-      return [];
-    }
-  });
+  const [cart, setCart] = useState<CartItem[]>([]);
+  const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
+    try {
+      const saved = localStorage.getItem(CART_STORAGE_KEY);
+
+      if (saved) {
+        setCart(JSON.parse(saved));
+      }
+    } finally {
+      setHydrated(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!hydrated) return;
+
     localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
-  }, [cart]);
+  }, [cart, hydrated]);
+
+  //  => {
+  //   if (typeof window === "undefined") {
+  //     return [];
+  //   }
+
+  //   try {
+  //     const savedCart = localStorage.getItem(CART_STORAGE_KEY);
+
+  //     return savedCart ? JSON.parse(savedCart) : [];
+  //   } catch {
+  //     return [];
+  //   }
+  // });
 
   const addToCart = (product: Omit<CartItem, "quantity">) => {
     setCart((prevCart) => {
@@ -79,13 +96,6 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
 
   const subtotal = useMemo(() => {
     return cart.reduce((total, item) => {
-      console.log({
-        name: item.name,
-        price: item.price,
-        priceType: typeof item.price,
-        quantity: item.quantity,
-      });
-
       return total + item.price * item.quantity;
     }, 0);
   }, [cart]);

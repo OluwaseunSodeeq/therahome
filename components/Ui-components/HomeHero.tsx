@@ -33,8 +33,8 @@ export default function HomeHero() {
             alt="Premium wellness products"
             fill
             priority
-            sizes="100vw"
-            className=" bg-hero-img object-cover object-[center_40%] hidden lg:block"
+            sizes="(max-width: 1023px) 0px, 100vw"
+            className="hidden lg:block object-cover object-[center_40%] bg-hero-img"
           />
           <Image
             src="/homeheromobile.png"
@@ -157,4 +157,24 @@ export default function HomeHero() {
       </div>
     </section>
   );
+}
+
+{
+  /* <div className="relative h-[90vh] min-h-[540px] max-h-[560px]">
+  <picture>
+    <source
+      media="(min-width: 1024px)"
+      srcSet="/homehero1.png"
+    />
+
+    <Image
+      src="/homeheromobile.png"
+      alt="Premium wellness products"
+      fill
+      priority
+      sizes="100vw"
+      className="object-cover object-[center_40%]"
+    />
+  </picture>
+</div> */
 }

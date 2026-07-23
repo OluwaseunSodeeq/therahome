@@ -59,8 +59,8 @@ export default function ContactHero() {
             alt="Premium wellness products"
             fill
             priority
-            sizes="100vw"
-            className="bg-hero-img object-cover object-[center_40%] hidden lg:block"
+            sizes="(max-width: 1023px) 0px, 100vw"
+            className="hidden lg:block object-cover object-[center_40%] bg-hero-img"
           />
 
           {/* mobile */}

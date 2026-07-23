@@ -1,16 +1,13 @@
 "use client";
-import { useCallback } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
 
 import Image from "next/image";
-import Reveal from "../../app/Animations/Reveal";
-// import { serviceCards } from "../../app/data";
 import { comboServices } from "../../app/data";
 import { Service } from "@/types/defaultType";
 import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 import { toast } from "sonner";
-// import { useState } from "react";
+import Carousel from "../carousel";
+import CarouselSlide from "../carousel/CarouselSlide";
+import ServiceReveal from "@/app/Animations/ServiceReveal";
 
 type ServiceCardProps = {
   service: Service;
@@ -114,120 +111,29 @@ function ServiceCard({ service }: ServiceCardProps) {
 }
 
 export default function HomeServiceSection() {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      loop: true,
-      align: "start",
-      slidesToScroll: 1,
-    },
-    [
-      Autoplay({
-        delay: 3500,
-        stopOnInteraction: false,
-        stopOnMouseEnter: true,
-      }),
-    ],
-  );
-
-  const prev = useCallback(() => {
-    emblaApi?.scrollPrev();
-  }, [emblaApi]);
-
-  const next = useCallback(() => {
-    emblaApi?.scrollNext();
-  }, [emblaApi]);
-
   return (
-    <section className="bg-white pt-20 lg:pt-32 pb-24 px-6 font-geo relative z-10">
-      <div className="max-w-7xl mx-auto">
-        {/* HEADER */}
-        <Reveal>
-          <div className="text-center lg:mb-14">
-            <div
-              className="
-                 mb-3.5
-                 flex
-                 items-center
-                 justify-center
-                 gap-2
-               "
+    <section>
+      <div className="py-16 md:pb-15 md:pt-28">
+        <ServiceReveal>
+          <div className="mx-auto max-w-7xl">
+            <Carousel
+              eyebrow="OUR SIGNATURE COMBOS"
+              title="Wellness, Perfectly Paired"
             >
-              <div className="h-px w-7 bg-[#c5b99a]" />
-
-              <span className="text-[15px] text-primary-light">🌿</span>
-
-              <div className="h-px w-7 bg-[#c5b99a]" />
-            </div>
-
-            <p
-              className="
-                 text-xs
-                 font-bold
-                 tracking-[0.15em]
-                 uppercase
-                 text-text-black
-                 lg:mb-3
-                 mt-5 lg:mt-0
-               "
-            >
-              OUR SIGNATURE SERVICES
-            </p>
-
-            <h2
-              className="
-                 text-4xl
-                 md:text-5xl
-                 font-bold
-                 text-neutral-900
-                 mt-5 lg:mt-0
-                 leading-relaxed
-
-               "
-            >
-              Wellness, Tailored for You
-            </h2>
+              {comboServices.map((service) => (
+                <CarouselSlide key={service.name}>
+                  <ServiceCard service={service} />
+                </CarouselSlide>
+              ))}
+            </Carousel>
           </div>
-        </Reveal>
-
-        {/* SLIDER */}
-        <div className="overflow-hidden mt-8" ref={emblaRef}>
-          <div className="flex">
-            {comboServices.map((service, index) => (
-              <div
-                key={index}
-                className="
-                  flex-[0_0_100%]
-                  md:flex-[0_0_50%]
-                  xl:flex-[0_0_25%]
-                  px-3
-                "
-              >
-                <ServiceCard service={service} />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* CONTROLS */}
-        <div className="flex justify-center gap-4 mt-10">
-          <button
-            onClick={prev}
-            className="w-12 h-12 rounded-full border border-neutral-300 hover:bg-black hover:text-white transition"
-          >
-            ←
-          </button>
-
-          <button
-            onClick={next}
-            className="w-12 h-12 rounded-full border border-neutral-300 hover:bg-black hover:text-white transition"
-          >
-            →
-          </button>
-        </div>
+        </ServiceReveal>
       </div>
     </section>
   );
 }
+
+//===================================
 // export default function HomeServiceSection() {
 //  const [active, setActive] = useState<number>(0);
 //   const singleServicecount = comboServices.length;

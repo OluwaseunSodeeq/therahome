@@ -8,6 +8,7 @@ import Logo from "./Logo";
 import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 import { useCart } from "@/hooks/useCart";
 import CartDrawer from "../cart/CartDrawer";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 
 export default function Nav() {
   const { menuOpen, toggleMenu } = useMenuContext();
@@ -33,6 +34,52 @@ export default function Nav() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // ANIMATION
+  const menuVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      height: 0,
+      y: -10,
+    },
+    visible: {
+      opacity: 1,
+      height: "auto",
+      y: 0,
+      transition: {
+        duration: 0.3,
+        ease: "easeOut",
+        when: "beforeChildren",
+        staggerChildren: 0.08,
+      },
+    },
+    exit: {
+      opacity: 0,
+      height: 0,
+      y: -10,
+      transition: {
+        duration: 0.25,
+        ease: "easeIn",
+        when: "afterChildren",
+        staggerChildren: 0.05,
+        staggerDirection: -1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: {
+      opacity: 0,
+      y: 10,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.25,
+      },
+    },
+  };
 
   return (
     <>
@@ -132,18 +179,81 @@ export default function Nav() {
         </div>
 
         {/* MOBILE MENU */}
-        {menuOpen && (
-          <div className="lg:hidden bg-white border-t border-white">
-            <div className="px-6 py-4 flex flex-col gap-4">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
+        <AnimatePresence initial={false}>
+          {menuOpen && (
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={menuVariants}
+              className="lg:hidden overflow-hidden bg-white border-t border-stone-100"
+            >
+              <div className="px-6 py-4 flex flex-col gap-4">
+                {navLinks.map((link) => {
+                  const isActive = pathname === link.href;
 
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={toggleMenu}
-                    className={`py-2
+                  return (
+                    <motion.div key={link.href} variants={itemVariants}>
+                      <Link
+                        href={link.href}
+                        onClick={toggleMenu}
+                        className={`block py-2 pl-4 text-sm transition-colors duration-200 hover:text-primary-green ${
+                          isActive
+                            ? "font-bold border-l-4 border-primary-green text-primary-green bg-stone-50"
+                            : "text-neutral-600 font-semibold"
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+
+                <motion.div variants={itemVariants}>
+                  <button
+                    onClick={toggleBookingForm}
+                    className="
+              w-40
+              rounded-lg
+              py-2.5
+              px-0
+              text-sm
+              font-bold
+              text-primary-green
+              transition-colors
+              duration-200
+              hover:bg-secondary-green
+              hover:text-white
+            "
+                  >
+                    Book A Session
+                  </button>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
+      <CartDrawer />
+    </>
+  );
+}
+
+// ==================================================
+{
+  /* <ServiceReveal>
+          {menuOpen && (
+            <div className="lg:hidden bg-white border-t border-white">
+              <div className="px-6 py-4 flex flex-col gap-4">
+                {navLinks.map((link) => {
+                  const isActive = pathname === link.href;
+
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={toggleMenu}
+                      className={`py-2
           pl-4 text-sm transition-colors duration-200 hover:text-primary-green
           ${
             isActive
@@ -151,15 +261,15 @@ export default function Nav() {
               : "text-neutral-600 semibold"
           }
         `}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
-            </div>
-            <div
-              onClick={toggleBookingForm}
-              className="
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
+              </div>
+              <div
+                onClick={toggleBookingForm}
+                className="
               block lg:hidden
               items-center gap-2
               hover:bg-secondary-green
@@ -175,13 +285,10 @@ export default function Nav() {
               w-40
               cursor-pointer
             "
-            >
-              Book A Session
+              >
+                Book A Session
+              </div>
             </div>
-          </div>
-        )}
-      </nav>
-      <CartDrawer />
-    </>
-  );
+          )}
+        </ServiceReveal> */
 }
