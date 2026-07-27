@@ -6,6 +6,7 @@ import CarouselSlide from "@/components/carousel/CarouselSlide";
 import ServiceReveal from "../../app/Animations/ServiceReveal";
 import { comboServices, singleServices } from "../../app/data";
 import { ServiceCardDesktop, ServiceRowMobile } from "./ServiceCard";
+import { PlanButton } from "./Buttons";
 
 export default function Services() {
   return (
@@ -54,6 +55,10 @@ export default function Services() {
             </Carousel>
           </ServiceReveal>
         </div>
+      </div>
+      {/* <CallButton>Sucscribe to Our Vip Plans</CallButton> */}
+      <div className="w-fll lg:max-w-56 mx-auto lg:mt-7">
+        <PlanButton>Sucscribe to Our VIP Plans</PlanButton>
       </div>
     </section>
   );

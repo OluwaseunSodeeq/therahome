@@ -106,3 +106,29 @@ export function CallButton({ children }: ButtonProps) {
     </button>
   );
 }
+export function PlanButton({
+  children = "Subscribe to Our VIP Plan",
+}: ButtonProps) {
+  const { toggleBookingPlans } = useFunctionalitiesContext();
+
+  return (
+    <button
+      onClick={toggleBookingPlans}
+      className="
+               bg-primary-green
+                text-white
+                rounded-lg
+                px-7 py-4
+                text-sm font-semibold
+                flex items-center gap-2
+                shadow-lg
+                shadow-primary-green/20
+                transition-all duration-200
+                hover:bg-secondary-green
+                hover:-translate-y-1
+              "
+    >
+      {children}
+    </button>
+  );
+}

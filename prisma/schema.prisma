@@ -31,6 +31,18 @@ model Booking {
 
   @@map("bookings")
 }
+model BookingPlan {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String
+  plan      String
+  location  String
+  address   String
+  note      String
+  createdAt DateTime @default(now())
+
+  @@map("bookingPlans")
+}
 
 model Order {
   id        String   @id @default(cuid())
