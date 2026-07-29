@@ -122,7 +122,7 @@ export default function CheckoutForm({ onSuccess }: CheckoutFormProps) {
 
               <input
                 {...register("name")}
-                placeholder="John Doe"
+                placeholder="Ntingso Ademola"
                 className={inputClass}
               />
 
@@ -138,7 +138,7 @@ export default function CheckoutForm({ onSuccess }: CheckoutFormProps) {
 
               <input
                 {...register("phone")}
-                placeholder="08012345678"
+                placeholder="07064347587"
                 className={inputClass}
               />
 

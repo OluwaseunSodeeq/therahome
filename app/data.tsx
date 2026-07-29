@@ -62,7 +62,7 @@ export const serviceCards = [
     id: 4,
     img: "/service-img.png",
     icon: "🦶",
-    name: "Reflexology",
+    name: "Foot Reflexology",
     desc: "Stimulate pressure points to improve circulation and overall wellness.",
   },
   {
@@ -72,12 +72,6 @@ export const serviceCards = [
     name: "Full Body Relaxation",
     desc: "A complete relaxation experience for body, mind and soul.",
   },
-  // {
-  //   id:1,img: "/service-img.png",
-  //   icon: "🌱",
-  //   name: "Herbal Therapy (with Poultice)",
-  //   desc: "Natural herbs to detoxify, ease pain and restore energy flow.",
-  // },
 ];
 
 export const steps: Step[] = [
@@ -169,35 +163,6 @@ export const whyChooseUsItems: WhyChooseUsItem[] = [
   },
 ];
 
-// export const products: Product[] = [
-//   {
-//     id: 1,
-//     name: "Essential Massage Oil",
-//     price: "₦15,000",
-//     img: "/product1.png",
-//   },
-
-//   {
-//     id: 2,
-//     name: "Aromatherapy Candle",
-//     price: "₦12,000",
-//     img: "/product2.png",
-//   },
-
-//   {
-//     id: 3,
-//     name: "Relaxation Kit",
-//     price: "₦25,000",
-//     img: "/product4.png",
-//   },
-
-//   {
-//     id: 4,
-//     name: "Herbal Therapy Set",
-//     price: "₦18,000",
-//     img: "/product5.png",
-//   },
-// ];
 export const testimonials: Testimonial[] = [
   {
     id: 1,
@@ -280,7 +245,6 @@ export const singleServices: readonly Service[] = [
     duration: "60 mins",
     price: "₦30,000",
   },
-
   {
     id: 2,
     name: "Deep Tissue Massage",
@@ -331,16 +295,6 @@ export const singleServices: readonly Service[] = [
   },
 
   {
-    id: 2,
-    name: "Deep Tissue Massage",
-    desc: "Targets chronic tension and muscle knots.",
-    img: "/services/deepTissues.png",
-    icon: "/icons/deep-tissue.svg",
-    duration: "60 mins",
-    price: "₦40,000",
-  },
-
-  {
     id: 8,
     name: "Foot Reflexology",
     desc: "Relieves fatigue",
@@ -366,7 +320,7 @@ export const comboServices: readonly Service[] = [
     id: 2,
     name: "Detox & Drain",
     desc: "Lymphatic Therapy + Foot & Leg Therapy",
-    img: "/service-img.png",
+    img: "/services/detox_and_drain.png",
     icon: "/icons/herbal.svg",
     duration: "90 mins",
     price: "₦70,000",
@@ -386,7 +340,7 @@ export const comboServices: readonly Service[] = [
     id: 4,
     name: "Stretch & Release",
     desc: "Thai Stretch Therapy + Relaxation Massage",
-    img: "/service-img.png",
+    img: "/services/stretch_release.png",
     icon: "/icons/thai-stretch.svg",
     duration: "90 mins",
     price: "₦70,000",
@@ -396,7 +350,7 @@ export const comboServices: readonly Service[] = [
     id: 5,
     name: "Full Body Reset",
     desc: "Relaxation Massage + Deep Tissue Massage + Hot Stone Therapy",
-    img: "/service-img.png",
+    img: "/services/fullbody.png",
     icon: "/icons/hot-stone.svg",
     duration: "120 mins",
     price: "₦90,000",
@@ -406,73 +360,12 @@ export const comboServices: readonly Service[] = [
     id: 6,
     name: "Advanced Recovery",
     desc: "Lymphatic Therapy + Deep Tissue Massage + Thai Stretch Therapy",
-    img: "/service-img.png",
+    img: "/services/advanced.png",
     icon: "/icons/lotus.svg",
     duration: "120 mins",
     price: "₦100,000",
   },
 ];
-// export const singleServices: readonly Service[] = [
-//   {
-//     id: 1,
-//     name: "Deep Tissue Massage",
-//     desc: "Targets chronic tension and muscles knots.",
-//     img: "/service-img.png",
-//     icon: "💆",
-//     duration: "60 mins",
-//     price: "₦40,000",
-//   },
-
-//   {
-//     id: 2,
-//     name: "Swedish Massage",
-//     desc: "A relaxing full-body massage designed to improve circulation and calm the mind.",
-//     img: "/service-img.png",
-//     icon: "🌿",
-//     duration: "60 mins",
-//     price: "₦30,000",
-//   },
-
-//   {
-//     id: 3,
-//     name: "Hot Stone Therapy",
-//     desc: "Warm stones combined with massage techniques for deep relaxation.",
-//     img: "/service-img.png",
-//     icon: "🔥",
-//     duration: "75 mins",
-//     price: "₦40,000",
-//   },
-
-//   {
-//     id: 4,
-//     name: "Aromatherapy",
-//     desc: "Essential oils blended with massage for stress relief and relaxation.",
-//     img: "/service-img.png",
-//     icon: "🌸",
-//     duration: "60 mins",
-//     price: "₦32,000",
-//   },
-
-//   {
-//     id: 5,
-//     name: "Couples Massage",
-//     desc: "Enjoy a luxury wellness experience together with your partner.",
-//     img: "/service-img.png",
-//     icon: "❤️",
-//     duration: "90 mins",
-//     price: "₦65,000",
-//   },
-
-//   // {
-//   //   id: 6,
-//   //   name: "Reflexology",
-//   //   desc: "Pressure-point foot therapy that promotes total body wellness.",
-//   //   img: "/service-img.png",
-//   //   icon: "🦶",
-//   //   duration: "45 mins",
-//   //   price: "₦25,000",
-//   // },
-// ];
 
 export const shopProducts: ProductType[] = [
   {

@@ -92,7 +92,7 @@ export function ServiceCardDesktop({ service }: ServiceCardDesktopProps) {
             className="
                       absolute
                       bottom-3
-                      left-3
+                      right-3
                       w-10
                       h-10
                       rounded-full
@@ -183,6 +183,7 @@ export function ServiceRowMobile({ service }: ServiceRowMobileProps) {
     toggleBookingForm();
     setSelectedService(service);
   }
+
   return (
     <div>
       <article
@@ -229,28 +230,11 @@ export function ServiceRowMobile({ service }: ServiceRowMobileProps) {
        16vw"
           />
 
-          {/* <div
-            className="
-              absolute
-              bottom-2
-              right-2
-              flex
-              h-7
-              w-7
-              items-center
-              justify-center
-              rounded-full
-              bg-primary-green
-              text-sm
-            "
-          >
-            {service.icon}
-          </div> */}
           <div
             className="
                       absolute
                       bottom-3
-                      left-3
+                      right-3
                       w-10
                       h-10
                       rounded-full

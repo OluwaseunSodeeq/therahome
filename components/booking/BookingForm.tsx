@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-// import { useForm, useWatch } from "react-hook-form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
@@ -12,6 +11,7 @@ import {
   BookingFormData,
 } from "@/lib/validations/bookingSchema";
 import { useFunctionalitiesContext } from "@/contexts/Functionalities";
+import Options from "./Options";
 
 type BookingFormProps = {
   onSuccess: () => void;
@@ -38,12 +38,20 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
   }, [selectedService, setValue]);
 
   const services = [
-    "Swedish Massage",
+    "Full Body Relaxation Massage",
+    "Back Relief Therapy",
     "Deep Tissue Massage",
-    "Hot Stone Massage",
-    "Aromatherapy Massage",
-    "Sports Massage",
-    "Reflexology",
+    "Herbal Lymphatic Detox",
+    "Hot Stone Therapy",
+    "Muscle Recovery Therapy",
+    "Thai Stretch Therapy",
+    "Foot Reflexology",
+    "Relax & Restore",
+    "Detox & Drain",
+    "Pain Relief Intensive",
+    "Stretch & Release",
+    "Full Body Reset",
+    "Advanced Recovery",
     "Couples Massage",
     "Prenatal Massage",
   ];
@@ -188,12 +196,12 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
 
             <div>
               <label className="mb-2 block text-sm font-medium text-neutral-700">
-                Full Name
+                Your Name
               </label>
 
               <input
                 type="text"
-                placeholder="John Doe"
+                placeholder="Ntingso Ademola"
                 {...register("name")}
                 className={inputClass}
               />
@@ -235,7 +243,7 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
 
               <input
                 type="tel"
-                placeholder="+234 800 000 0000"
+                placeholder="07064347587"
                 {...register("phone")}
                 className={inputClass}
               />
@@ -263,100 +271,22 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
 
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
             {/* SERVICE AND LOCATION */}
+            <Options
+              label="Massage Service"
+              options={services}
+              placeholder="Select a service"
+              registration={register("service")}
+              error={errors.service}
+            />
 
-            <div>
-              <label className="mb-2 block text-sm font-medium text-neutral-700">
-                Massage Service
-              </label>
-
-              <select
-                {...register("service")}
-                className={`${inputClass} cursor-pointer`}
-              >
-                <option value="">Select a service</option>
-
-                {services.map((service) => (
-                  <option key={service} value={service}>
-                    {service}
-                  </option>
-                ))}
-              </select>
-
-              {errors.service && (
-                <p className="mt-2 text-sm text-red-500">
-                  {errors.service.message}
-                </p>
-              )}
-            </div>
-            <div>
-              <label className="mb-2 block text-sm font-medium text-neutral-700">
-                Your Location
-              </label>
-
-              <select
-                {...register("location")}
-                className={`${inputClass} cursor-pointer`}
-              >
-                <option value="">Select a location</option>
-
-                {locations.map((location) => (
-                  <option key={location} value={location}>
-                    {location}
-                  </option>
-                ))}
-              </select>
-
-              {errors.location && (
-                <p className="mt-2 text-sm text-red-500">
-                  {errors.location.message}
-                </p>
-              )}
-            </div>
             {/* LOCATION */}
-
-            {/* <div>
-              <label className="mb-3 block text-sm font-medium text-neutral-700">
-                Service Location
-              </label>
-
-              <div className="grid grid-cols-2 rounded-2xl bg-neutral-100 p-1">
-                <button
-                  type="button"
-                  onClick={() => setValue("location", "Home")}
-                  className={`rounded-xl py-3 text-sm font-semibold transition-all duration-300
-
-                ${
-                  "Home" === "Home"
-                    ? "bg-primary-green text-white shadow-lg"
-                    : "text-neutral-600 hover:bg-white"
-                }`}
-                >
-                  🏡 Home Service
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() => setValue("location", "Spa")}
-                  className={`rounded-xl py-3 text-sm font-semibold transition-all duration-300
-
-                ${
-                  "Spa" === "Spa"
-                    ? "bg-primary-green text-white shadow-lg"
-                    : "text-neutral-600 hover:bg-white"
-                }`}
-                >
-                  🌿 Spa Visit
-                </button>
-              </div>
-
-              <input type="hidden" {...register("location")} />
-
-              {errors.location && (
-                <p className="mt-2 text-sm text-red-500">
-                  {errors.location.message}
-                </p>
-              )}
-            </div> */}
+            <Options
+              label="Your Location"
+              options={locations}
+              placeholder="Select a location"
+              registration={register("location")}
+              error={errors.location}
+            />
 
             {/* ADDRESS */}
 
@@ -431,7 +361,7 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
 
               <select
                 {...register("time")}
-                className={`${inputClass} cursor-pointer`}
+                className={`${inputClass} cursor-pointer pr-2.5`}
               >
                 <option value="">Select a preferred time</option>
 
@@ -499,7 +429,7 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
             <li className="flex gap-3">
               <span>✔</span>
               <span>
-                We`&apos;`ll review your request and confirm availability.
+                We&apos;ll review your request and confirm availability.
               </span>
             </li>
 
@@ -513,8 +443,8 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
             <li className="flex gap-3">
               <span>✔</span>
               <span>
-                Your booking isn`&apos;`t confirmed until you receive
-                confirmation from our team.
+                Your booking isn&apos;t confirmed until you receive confirmation
+                from our team.
               </span>
             </li>
           </ul>
@@ -591,104 +521,29 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
   );
 }
 
-{
-  /* // "use client";
-// import { useForm } from "react-hook-form";
-// import { zodResolver } from "@hookform/resolvers/zod";
+/*
+            <div>
+              <label className="mb-2 block text-sm font-medium text-neutral-700">
+                Massage Service
+              </label>
 
-// import { 
-//   bookingsSchema,
-//   BookingFormData,
-// } from "@/lib/validations/bookingSchema";
-// import { toast } from "sonner";
+              <select
+                {...register("service")}
+                className={`${inputClass} cursor-pointer`}
+              >
+                <option value="">Select a service</option>
 
-// export default function BookingForm({ onSuccess }: { onSuccess: () => void }) {
-//   const {
-//     register,
-//     handleSubmit,
-//     formState: { errors },
-//   } = useForm<BookingFormData>({
-//     resolver: zodResolver(bookingsSchema),
-//   });
+                {services.map((service) => (
+                  <option key={service} value={service}>
+                    {service}
+                  </option>
+                ))}
+              </select>
 
-//   const onSubmit = async (data: BookingFormData) => {
-//     try {
-//       console.log("Submitting:", data);
-
-//       const response = await fetch("/api/bookings", {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(data),
-//       });
-
-//       const result = await response.json();
-
-//       if (!response.ok) {
-//         console.log("SERVER ERROR:", result);
-//         throw new Error("Booking failed");
-//       }
-//       toast.success("Booking created successfully!");
-//       console.log("Success:", result);
-//       onSuccess();
-//     } catch (error) {
-//       console.error(error);
-//       toast.error("Error creating booking. Please try again.");
-//     }
-//   };
-
-//   return (
-//     <form
-//       onSubmit={handleSubmit(onSubmit)}
-//       className="space-y-5 rounded-2xl border border-[#e8e4da] bg-white p-6"
-//     >
-//       
-//       <div>
-//         <label className="mb-2 block text-sm font-medium">YourFull Name</label>
-
-//         <input
-//           type="text"
-//           placeholder="John Doe"
-//           {...register("name")}
-//           className="w-full rounded-xl border border-[#ddd] px-4 py-3 outline-none focus:border-primary-green"
-//         />
-
-//         {errors.name && (
-//           <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
-//         )}
-//       </div>
-
-//  
-//       <div>
-//         <label className="mb-2 block text-sm font-medium">Email</label>
-
-//         <input
-//           type="email"
-//           placeholder="john@example.com"
-//           {...register("email")}
-//           className="w-full rounded-xl border border-[#ddd] px-4 py-3 outline-none focus:border-primary-green"
-//         />
-
-//         {errors.email && (
-//           <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
-//         )}
-//       </div>
-//       <input {...register("phone")} />
-//       <input {...register("service")} />
-//       <input {...register("location")} />
-//       <input {...register("address")} />
-//       <input {...register("date")} />
-//       <input {...register("time")} />
-//       <textarea {...register("note")} />
-//       <button
-//         type="submit"
-//         className="rounded-xl bg-primary-green px-6 py-3 text-white transition hover:opacity-90"
-//       >
-//         Book Session
-//       </button>
-//     </form>
-//   );
-// }
-//       {/* BUTTON */
-}
+              {errors.service && (
+                <p className="mt-2 text-sm text-red-500">
+                  {errors.service.message}
+                </p>
+              )}
+            </div>
+*/

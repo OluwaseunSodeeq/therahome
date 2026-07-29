@@ -1,39 +1,37 @@
-import { prisma } from "@/lib/prisma";
-import { sendBookingNotification } from "@/lib/sendBookingNotification";
 import { NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+import { sendPlanNotification } from "@/lib/sendBookingNotification";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const booking = await prisma.booking.create({
+
+    const bookingPlan = await prisma.bookingPlan.create({
       data: {
         name: body.name,
-        email: body.email,
         phone: body.phone,
-        service: body.service,
+        plan: body.plan,
         location: body.location,
         address: body.address,
-        date: body.date,
-        time: body.time,
         note: body.note || "",
       },
     });
 
-    console.log("Created booking:", booking);
     try {
-      await sendBookingNotification(booking);
+      await sendPlanNotification(bookingPlan);
     } catch (error) {
       console.error("Error sending Telegram notification:", error);
     }
-
     return NextResponse.json(
       {
         success: true,
-        booking,
+        bookingPlan,
       },
       { status: 201 },
     );
   } catch (error) {
+    console.error("BOOKING PLAN ERROR:", error);
+
     return NextResponse.json(
       {
         success: false,

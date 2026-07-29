@@ -11,6 +11,7 @@ import {
   BookingPlanData,
 } from "@/lib/validations/bookingPlanSchema";
 import { useFunctionalitiesContext } from "@/contexts/Functionalities";
+import Options from "./Options";
 
 type BookingPlanProps = {
   onSuccess: () => void;
@@ -175,7 +176,7 @@ export default function BookingPlan({ onSuccess }: BookingPlanProps) {
 
               <input
                 type="text"
-                placeholder="John Doe"
+                placeholder="Ntingso Ademola"
                 {...register("name")}
                 className={inputClass}
               />
@@ -189,14 +190,14 @@ export default function BookingPlan({ onSuccess }: BookingPlanProps) {
 
             {/* PHONE */}
 
-            <div className="md:col-span-2">
+            <div className="">
               <label className="mb-2 block text-sm font-medium text-neutral-700">
                 Phone Number
               </label>
 
               <input
                 type="tel"
-                placeholder="+234 800 000 0000"
+                placeholder="07064347587"
                 {...register("phone")}
                 className={inputClass}
               />
@@ -221,7 +222,7 @@ export default function BookingPlan({ onSuccess }: BookingPlanProps) {
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
             {/* SERVICE AND LOCATION */}
 
-            <div>
+            {/* <div>
               <label className="mb-2 block text-sm font-medium text-neutral-700">
                 Your Plan
               </label>
@@ -244,8 +245,102 @@ export default function BookingPlan({ onSuccess }: BookingPlanProps) {
                   {errors.plan.message}
                 </p>
               )}
-            </div>
-            <div>
+            </div> */}
+            <Options
+              label="Your Plan"
+              options={plans}
+              placeholder=" Select your preferred plan"
+              registration={register("plan")}
+              error={errors.plan}
+            />
+
+            {/* <div>
+              <label
+                htmlFor="plan"
+                className="mb-2 block text-sm font-medium text-neutral-700"
+              >
+                Your Plan
+              </label>
+
+              <div className="relative">
+                <select
+                  id="plan"
+                  {...register("plan")}
+                  className="
+        w-full
+        appearance-none
+        rounded-2xl
+        border
+        border-neutral-200
+        bg-white
+        px-4
+        py-3.5
+        pr-12
+        text-sm
+        text-neutral-800
+        outline-none
+        transition-all
+        duration-300
+        cursor-pointer
+        hover:border-primary-green/50
+        focus:border-primary-green
+        focus:ring-4
+        focus:ring-primary-green/10
+      "
+                  defaultValue=""
+                >
+                  <option value="" disabled>
+                    Select your preferred plan
+                  </option>
+
+                  {plans.map((plan) => (
+                    <option key={plan} value={plan}>
+                      {plan}
+                    </option>
+                  ))}
+                </select>
+
+                <div
+                  className="
+        pointer-events-none
+        absolute
+        right-4
+        top-1/2
+        -translate-y-1/2
+        text-neutral-500
+      "
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </div>
+              </div>
+
+              {errors.plan && (
+                <p className="mt-2 text-sm text-red-500">
+                  {errors.plan.message}
+                </p>
+              )}
+            </div> */}
+
+            <Options
+              label="Your Location"
+              options={locations}
+              placeholder="Select a location"
+              registration={register("location")}
+              error={errors.location}
+            />
+
+            {/* <div>
               <label className="mb-2 block text-sm font-medium text-neutral-700">
                 Your Location
               </label>
@@ -268,7 +363,7 @@ export default function BookingPlan({ onSuccess }: BookingPlanProps) {
                   {errors.location.message}
                 </p>
               )}
-            </div>
+            </div> */}
 
             {"Home" === "Home" && (
               <div className="md:col-span-2 animate-in fade-in slide-in-from-top-2 duration-300">
@@ -299,7 +394,7 @@ export default function BookingPlan({ onSuccess }: BookingPlanProps) {
         </div>
         {/* APPOINTMENT */}
 
-        <div className="space-y-5 border-t border-neutral-200 pt-8">
+        <div className="hidden space-y-5 border-t border-neutral-200 pt-8">
           <div>
             <h3 className="text-lg font-semibold text-neutral-900">
               Appointment Schedule
@@ -316,7 +411,7 @@ export default function BookingPlan({ onSuccess }: BookingPlanProps) {
         {/* NOTES */}
 
         <div className="space-y-5 border-t border-neutral-200 pt-8">
-          <div>
+          <div className="hidden">
             <h3 className="text-lg font-semibold text-neutral-900">
               Additional Information
             </h3>
@@ -327,7 +422,7 @@ export default function BookingPlan({ onSuccess }: BookingPlanProps) {
             </p>
           </div>
 
-          <div>
+          <div className="hidden">
             <label className="mb-2 block text-sm font-medium text-neutral-700">
               Notes (Optional)
             </label>
@@ -340,7 +435,9 @@ export default function BookingPlan({ onSuccess }: BookingPlanProps) {
             />
 
             {errors.note && (
-              <p className="mt-2 text-sm text-red-500">{errors.note.message}</p>
+              <p className=" mt-2 text-sm text-red-500">
+                {errors.note.message}
+              </p>
             )}
 
             <p className="mt-3 text-xs leading-5 text-neutral-500">
