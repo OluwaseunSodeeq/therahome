@@ -20,15 +20,41 @@ type BookingFormProps = {
 export default function BookingForm({ onSuccess }: BookingFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toggleBookingForm, selectedService } = useFunctionalitiesContext();
+  const timeSlots = [
+    "09:00 AM",
+    "10:00 AM",
+    "11:00 AM",
+    "12:00 PM",
+    "01:00 PM",
+    "02:00 PM",
+    "03:00 PM",
+    "04:00 PM",
+    "05:00 PM",
+  ];
 
   const {
     register,
     handleSubmit,
+    watch,
     setValue,
     reset,
     formState: { errors },
   } = useForm<BookingFormData>({
     resolver: zodResolver(bookingsSchema),
+  });
+  const selectedDate = watch("date");
+  const today = new Date().toISOString().split("T")[0];
+
+  const availableTimeSlots = timeSlots.filter((time) => {
+    if (selectedDate !== today) return true;
+
+    const now = new Date();
+    const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+    const [hours, minutes] = time.split(":").map(Number);
+    const slotMinutes = hours * 60 + minutes;
+
+    return slotMinutes > currentMinutes;
   });
 
   useEffect(() => {
@@ -65,18 +91,6 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
     "Lekki",
     "Victoria Island",
     "Ikoyi",
-  ];
-
-  const timeSlots = [
-    "09:00 AM",
-    "10:00 AM",
-    "11:00 AM",
-    "12:00 PM",
-    "01:00 PM",
-    "02:00 PM",
-    "03:00 PM",
-    "04:00 PM",
-    "05:00 PM",
   ];
 
   const onSubmit = async (data: BookingFormData) => {
@@ -222,7 +236,7 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
 
               <input
                 type="email"
-                placeholder="john@example.com"
+                placeholder="ademola@gmail.com"
                 {...register("email")}
                 className={inputClass}
               />
@@ -365,7 +379,7 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
               >
                 <option value="">Select a preferred time</option>
 
-                {timeSlots.map((time) => (
+                {availableTimeSlots.map((time) => (
                   <option key={time} value={time}>
                     {time}
                   </option>
@@ -520,30 +534,3 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
     </div>
   );
 }
-
-/*
-            <div>
-              <label className="mb-2 block text-sm font-medium text-neutral-700">
-                Massage Service
-              </label>
-
-              <select
-                {...register("service")}
-                className={`${inputClass} cursor-pointer`}
-              >
-                <option value="">Select a service</option>
-
-                {services.map((service) => (
-                  <option key={service} value={service}>
-                    {service}
-                  </option>
-                ))}
-              </select>
-
-              {errors.service && (
-                <p className="mt-2 text-sm text-red-500">
-                  {errors.service.message}
-                </p>
-              )}
-            </div>
-*/

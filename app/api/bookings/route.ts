@@ -1,25 +1,28 @@
 import { prisma } from "@/lib/prisma";
-import { sendBookingNotification } from "@/lib/sendBookingNotification";
 import { NextResponse } from "next/server";
+import { sendBookingNotification } from "@/lib/sendBookingNotification";
+import { bookingsSchema } from "@/lib/validations/bookingSchema";
+import { ZodError } from "zod";
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
+    // const body = await req.json();
+    const body = bookingsSchema.parse(await req.json());
     const booking = await prisma.booking.create({
       data: {
         name: body.name,
         email: body.email,
-        phone: body.phone,
-        service: body.service,
-        location: body.location,
-        address: body.address,
+        phone: body.phone ?? "",
+        service: body.service ?? "",
+        location: body.location ?? "",
+        address: body.address ?? "",
         date: body.date,
         time: body.time,
-        note: body.note || "",
+        note: body.note ?? "",
       },
     });
 
-    console.log("Created booking:", booking);
+    // console.log("Created booking:", booking);
     try {
       await sendBookingNotification(booking);
     } catch (error) {
@@ -34,6 +37,16 @@ export async function POST(req: Request) {
       { status: 201 },
     );
   } catch (error) {
+    if (error instanceof ZodError) {
+      return NextResponse.json(
+        {
+          success: false,
+          errors: error.flatten().fieldErrors,
+        },
+        { status: 400 },
+      );
+    }
+
     return NextResponse.json(
       {
         success: false,

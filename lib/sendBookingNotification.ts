@@ -1,7 +1,25 @@
 import { sendTelegramMessage } from "./telegram";
-import { BookingFormData } from "./validations/bookingSchema";
-import { BookingPlanData } from "./validations/bookingPlanSchema";
 
+type PlanNotificationData = {
+  name: string;
+  phone: string;
+  plan: string;
+  location: string;
+  address: string;
+  note: string | null;
+};
+
+type BookingNotificationData = {
+  name: string;
+  phone: string;
+  email: string;
+  service: string;
+  location: string;
+  address: string;
+  date: string | null;
+  time: string | null;
+  note: string | null;
+};
 function formatWhatsAppNumber(phone: string): string {
   const cleaned = phone.replace(/\D/g, "");
 
@@ -21,7 +39,7 @@ function formatWhatsAppNumber(phone: string): string {
   return formatted;
 }
 
-export async function sendPlanNotification(data: BookingPlanData) {
+export async function sendPlanNotification(data: PlanNotificationData) {
   const whatsappLink = `https://wa.me/${formatWhatsAppNumber(data.phone ?? "")}`;
 
   const message = `
@@ -58,7 +76,7 @@ ${whatsappLink}
   await sendTelegramMessage(message);
 }
 
-export async function sendBookingNotification(data: BookingFormData) {
+export async function sendBookingNotification(data: BookingNotificationData) {
   const whatsappLink = `https://wa.me/${formatWhatsAppNumber(data.phone ?? "")}`;
 
   const message = `

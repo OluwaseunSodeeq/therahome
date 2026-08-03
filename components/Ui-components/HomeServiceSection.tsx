@@ -57,7 +57,7 @@ function ServiceCard({ service }: ServiceCardProps) {
           className="
             absolute
             bottom-3
-            left-3
+            right-5
             w-10
             h-10
             rounded-full
