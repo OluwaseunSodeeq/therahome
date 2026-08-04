@@ -24,7 +24,7 @@
     "react-dom": "^19.2.6",
     "react-hook": "^0.0.1",
     "react-hook-form": "^7.76.1",
-    "react-icons": "^5.6.0",
+    "react-icons": "^5.7.0",
     "react-intersection-observer": "^10.0.3",
     "sonner": "^2.0.7",
     "zod": "^4.4.3"
@@ -40,7 +40,7 @@
     "tailwindcss": "^4.3.0",
     "typescript": "^5"
   },
-  "description": "A spa that comes to you!",
+  "description": "A spa that comes to you!!!",
   "main": "index.js",
   "directories": {
     "lib": "lib"

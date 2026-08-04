@@ -31,15 +31,9 @@ export const contactInfo = [
 ];
 
 export default function Footer() {
-  // const [email, setEmail] = useState<string>("");
   const [loaded, setLoaded] = useState<boolean>(false);
-  const {
-    toggleBookingForm,
-    setSelectedService,
-    phone,
-    message,
-    whatsappLink,
-  } = useFunctionalitiesContext();
+  const { toggleBookingForm, setSelectedService, whatsappLink } =
+    useFunctionalitiesContext();
   const SOCIALS = [
     {
       Icon: FaInstagram,
@@ -62,6 +56,7 @@ export default function Footer() {
       link: "https://web.facebook.com/profile.php?id=61579577205712",
     },
   ];
+
   function bookThisMassage(service: string) {
     toggleBookingForm();
     setSelectedService(service);

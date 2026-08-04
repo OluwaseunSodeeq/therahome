@@ -37,6 +37,8 @@ export const bookingsSchema = z
   });
 export type BookingFormData = z.infer<typeof bookingsSchema>;
 
+// updated!
+
 // export const bookingsSchema = z
 //   .object({
 //     name: z.string().min(2, "Full name is required"),
@@ -118,3 +120,4 @@ export type BookingFormData = z.infer<typeof bookingsSchema>;
 //   });
 
 // export type BookingFormData = z.infer<typeof bookingsSchema>;
+// updated!
