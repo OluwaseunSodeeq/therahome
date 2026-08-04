@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Service } from "@/types/defaultType";
 import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 import { toast } from "sonner";
+import { formatPrice } from "@/lib/formatPrice";
 
 // import ServiceReveal from "../../app/Animations/ServiceReveal";
 
@@ -161,7 +162,7 @@ export function ServiceCardDesktop({ service }: ServiceCardDesktopProps) {
                 text-primary-green
               "
             >
-              {service.price}
+              {formatPrice(service.price)}
             </span>
           </div>
         </div>
@@ -294,7 +295,7 @@ export function ServiceRowMobile({ service }: ServiceRowMobileProps) {
                 text-primary-green
               "
             >
-              {service.price}
+              {formatPrice(service.price)}
             </span>
           </div>
         </div>

@@ -3,11 +3,17 @@ import { NextResponse } from "next/server";
 import { sendBookingNotification } from "@/lib/sendBookingNotification";
 import { bookingsSchema } from "@/lib/validations/bookingSchema";
 import { ZodError } from "zod";
+import { allServices } from "@/app/data";
 
 export async function POST(req: Request) {
   try {
-    // const body = await req.json();
     const body = bookingsSchema.parse(await req.json());
+    const selectedService = allServices.find(
+      (service) => service.name === body.service,
+    );
+
+    const price = selectedService?.price ?? 0;
+
     const booking = await prisma.booking.create({
       data: {
         name: body.name,
@@ -19,12 +25,15 @@ export async function POST(req: Request) {
         date: body.date,
         time: body.time,
         note: body.note ?? "",
+        price,
       },
     });
 
-    // console.log("Created booking:", booking);
     try {
-      await sendBookingNotification(booking);
+      await sendBookingNotification({
+        ...booking,
+        price,
+      });
     } catch (error) {
       console.error("Error sending Telegram notification:", error);
     }

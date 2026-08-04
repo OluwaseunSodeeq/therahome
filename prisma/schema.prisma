@@ -21,16 +21,22 @@ model Booking {
   name      String
   email     String
   phone     String
+
   service   String
+  price     Int?
+
   location  String
   address   String
   date      String
   time      String
+
   note      String?
+
   createdAt DateTime @default(now())
 
   @@map("bookings")
 }
+
 model BookingPlan {
   id        String   @id @default(cuid())
   name      String

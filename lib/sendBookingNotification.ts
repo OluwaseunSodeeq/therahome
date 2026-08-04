@@ -14,6 +14,7 @@ type BookingNotificationData = {
   phone: string;
   email: string;
   service: string;
+  price: number | null;
   location: string;
   address: string;
   date: string | null;
@@ -56,6 +57,7 @@ ${data.phone}
 💆 <b>Plan</b>
 ${data.plan}
 
+
 📍 <b>Location</b>
 ${data.location}
 
@@ -78,7 +80,11 @@ ${whatsappLink}
 
 export async function sendBookingNotification(data: BookingNotificationData) {
   const whatsappLink = `https://wa.me/${formatWhatsAppNumber(data.phone ?? "")}`;
-
+  const formattedPrice = new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: "NGN",
+    maximumFractionDigits: 0,
+  }).format(data.price || 0);
   const message = `
 🔔 <b>NEW MASSAGE BOOKING</b>
 
@@ -94,7 +100,7 @@ ${data.phone}
 ${data.email}
 
 💆 <b>Service</b>
-${data.service}
+${data.service} = ${formattedPrice}
 
 📍 <b>Location</b>
 ${data.location}

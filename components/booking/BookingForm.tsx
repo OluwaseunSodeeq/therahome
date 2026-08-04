@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { X } from "lucide-react";
@@ -12,6 +12,7 @@ import {
 } from "@/lib/validations/bookingSchema";
 import { useFunctionalitiesContext } from "@/contexts/Functionalities";
 import Options from "./Options";
+import { allServices } from "@/app/data";
 
 type BookingFormProps = {
   onSuccess: () => void;
@@ -35,14 +36,17 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
   const {
     register,
     handleSubmit,
-    watch,
     setValue,
+    control,
     reset,
     formState: { errors },
   } = useForm<BookingFormData>({
     resolver: zodResolver(bookingsSchema),
   });
-  const selectedDate = watch("date");
+  const selectedDate = useWatch({
+    control,
+    name: "date",
+  });
   const today = new Date().toISOString().split("T")[0];
 
   const availableTimeSlots = timeSlots.filter((time) => {
@@ -60,27 +64,30 @@ export default function BookingForm({ onSuccess }: BookingFormProps) {
   useEffect(() => {
     if (selectedService) {
       setValue("service", selectedService);
+      console.log("Selected service set in form:", selectedService);
     }
   }, [selectedService, setValue]);
 
-  const services = [
-    "Full Body Relaxation Massage",
-    "Back Relief Therapy",
-    "Deep Tissue Massage",
-    "Herbal Lymphatic Detox",
-    "Hot Stone Therapy",
-    "Muscle Recovery Therapy",
-    "Thai Stretch Therapy",
-    "Foot Reflexology",
-    "Relax & Restore",
-    "Detox & Drain",
-    "Pain Relief Intensive",
-    "Stretch & Release",
-    "Full Body Reset",
-    "Advanced Recovery",
-    "Couples Massage",
-    "Prenatal Massage",
-  ];
+  const services = allServices.map((service) => service.name);
+
+  // const services = [
+  //   "Full Body Relaxation Massage",
+  //   "Back Relief Therapy",
+  //   "Deep Tissue Massage",
+  //   "Herbal Lymphatic Detox",
+  //   "Hot Stone Therapy",
+  //   "Muscle Recovery Therapy",
+  //   "Thai Stretch Therapy",
+  //   "Foot Reflexology",
+  //   "Relax & Restore",
+  //   "Detox & Drain",
+  //   "Pain Relief Intensive",
+  //   "Stretch & Release",
+  //   "Full Body Reset",
+  //   "Advanced Recovery",
+  //   "Couples Massage",
+  //   "Prenatal Massage",
+  // ];
 
   const locations = [
     "Ikeja",

@@ -19,7 +19,6 @@ export default function page() {
           md:grid-cols-2
           lg:grid-cols-[1fr_1fr_minmax(320px,450px)]
           lg:px-12
-          2xl:px-0
 "
       >
         <ContactInfo />

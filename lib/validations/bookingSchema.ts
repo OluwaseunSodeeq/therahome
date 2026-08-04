@@ -10,6 +10,8 @@ export const bookingsSchema = z
 
     service: z.string().optional(),
 
+    price: z.number().optional(),
+
     location: z.string().optional(),
 
     address: z.string().optional(),

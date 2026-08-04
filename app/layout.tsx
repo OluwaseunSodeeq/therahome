@@ -20,7 +20,7 @@ type RootLayoutProps = {
 
 export default function Layout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       {/* <Script
         async
         src="https://sabilytics.vercel.app/script.js"

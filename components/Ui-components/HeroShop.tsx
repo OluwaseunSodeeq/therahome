@@ -9,10 +9,6 @@ import { Product } from "@/types/product";
 import { formatPrice } from "@/lib/formatPrice";
 import { Overlay, WhiteOverlay } from "./Overlays";
 
-// interface HeroShopProps {
-//   scrollToProducts: () => void;
-// }
-
 export default function HeroShop() {
   const [loaded, setLoaded] = useState(false);
 
@@ -53,8 +49,8 @@ export default function HeroShop() {
             alt="Premium wellness products"
             fill
             priority
-            sizes="100vw"
-            className="bg-hero-img object-cover object-[center_40%]  lg:hidden"
+            sizes="(max-width: 1024px) 100vw, 0vw"
+            className="lg:hidden object-cover object-[center_40%]"
           />
         </div>
         <WhiteOverlay />
@@ -206,7 +202,11 @@ export function ShopProductCard({ product, delay = 0 }: ProductCardProps) {
             src={product.image}
             alt={product.name}
             fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            sizes="
+    (max-width:768px) 100vw,
+    (max-width:1200px) 50vw,
+    33vw
+  "
             className="p-card-img"
           />
         </div>

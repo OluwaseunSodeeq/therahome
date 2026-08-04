@@ -26,6 +26,9 @@ export default function ShopBanner() {
       className="
         relative
         overflow-hidden
+        px-6
+        xl:px-12
+        py-8
        
       "
     >

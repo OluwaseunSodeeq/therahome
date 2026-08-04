@@ -166,28 +166,26 @@ export const whyChooseUsItems: WhyChooseUsItem[] = [
 export const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Oluwatoyin Sarah",
+    name: "Malik Muhammed",
     text: "Absolutely amazing experience. I felt completely relaxed.",
     stars: 5,
   },
-
-  {
-    id: 2,
-    name: "David Smith",
-    text: "Professional therapists and exceptional service.",
-    stars: 5,
-  },
-
   {
     id: 3,
     name: "Amaka Grace",
     text: "The convenience of home wellness is unmatched.",
     stars: 5,
   },
+  {
+    id: 2,
+    name: "Okoro Martins",
+    text: "Professional therapists and exceptional service.",
+    stars: 5,
+  },
 
   {
     id: 4,
-    name: "Ntingso Macaulay",
+    name: "Fisayo Joseph",
     text: "Highly recommend TheraHome to anyone.",
     stars: 5,
   },
@@ -234,7 +232,7 @@ export const singleServices: readonly Service[] = [
     img: "/services/fullbody.png",
     icon: "/icons/full-body.svg",
     duration: "60 mins",
-    price: "₦35,000",
+    price: 35000,
   },
   {
     id: 7,
@@ -243,7 +241,7 @@ export const singleServices: readonly Service[] = [
     img: "/services/back_relif.png",
     icon: "/icons/back-relief.svg",
     duration: "60 mins",
-    price: "₦30,000",
+    price: 30000,
   },
   {
     id: 2,
@@ -252,7 +250,7 @@ export const singleServices: readonly Service[] = [
     img: "/services/deepTissues.png",
     icon: "/icons/deep-tissue.svg",
     duration: "60 mins",
-    price: "₦40,000",
+    price: 40000,
   },
 
   {
@@ -262,7 +260,7 @@ export const singleServices: readonly Service[] = [
     img: "/services/herbal_detox.png",
     icon: "/icons/herbal.svg",
     duration: "60 mins",
-    price: "₦45,000",
+    price: 45000,
   },
   {
     id: 5,
@@ -271,7 +269,7 @@ export const singleServices: readonly Service[] = [
     img: "/services/hot_stones.png",
     icon: "/icons/hot-stone.svg",
     duration: "60 mins",
-    price: "₦50,000",
+    price: 50000,
   },
 
   {
@@ -281,7 +279,7 @@ export const singleServices: readonly Service[] = [
     img: "/services/muscle_recovery.png",
     icon: "/icons/muscle-recovery.svg",
     duration: "60 mins",
-    price: "₦45,000",
+    price: 45000,
   },
 
   {
@@ -291,7 +289,7 @@ export const singleServices: readonly Service[] = [
     img: "/services/thai_stretch.png",
     icon: "/icons/thai-stretch.svg",
     duration: "60 mins",
-    price: "₦50,000",
+    price: 50000,
   },
 
   {
@@ -301,7 +299,7 @@ export const singleServices: readonly Service[] = [
     img: "/services/foot_reflex.png",
     icon: "/icons/reflexology.svg",
     duration: "30 mins",
-    price: "₦20,000",
+    price: 20000,
   },
 ];
 
@@ -313,7 +311,7 @@ export const comboServices: readonly Service[] = [
     img: "/services/hot_stones.png",
     icon: "/icons/hot-stone.svg",
     duration: "90 mins",
-    price: "₦65,000",
+    price: 65000,
   },
 
   {
@@ -323,7 +321,7 @@ export const comboServices: readonly Service[] = [
     img: "/services/detox_and_drain.png",
     icon: "/icons/herbal.svg",
     duration: "90 mins",
-    price: "₦70,000",
+    price: 70000,
   },
 
   {
@@ -333,7 +331,7 @@ export const comboServices: readonly Service[] = [
     img: "/service-img.png",
     icon: "/icons/deep-tissue.svg",
     duration: "90 mins",
-    price: "₦75,000",
+    price: 75000,
   },
 
   {
@@ -343,7 +341,7 @@ export const comboServices: readonly Service[] = [
     img: "/services/stretch_release.png",
     icon: "/icons/thai-stretch.svg",
     duration: "90 mins",
-    price: "₦70,000",
+    price: 70000,
   },
 
   {
@@ -353,7 +351,7 @@ export const comboServices: readonly Service[] = [
     img: "/services/fullbody.png",
     icon: "/icons/hot-stone.svg",
     duration: "120 mins",
-    price: "₦90,000",
+    price: 90000,
   },
 
   {
@@ -363,9 +361,11 @@ export const comboServices: readonly Service[] = [
     img: "/services/advanced.png",
     icon: "/icons/lotus.svg",
     duration: "120 mins",
-    price: "₦100,000",
+    price: 100000,
   },
 ];
+
+export const allServices = [...singleServices, ...comboServices] as const;
 
 export const shopProducts: ProductType[] = [
   {
@@ -373,7 +373,7 @@ export const shopProducts: ProductType[] = [
     name: "Ease Spray",
     desc: "A fine, fast-absorbing mist designed to relieve body pain. Perfect for immediate, hands-free relief from daily fatigue and physical stress.",
     price: 15000,
-    image: "/product1.png",
+    image: "/products/easy_spray.png",
   },
   {
     id: "2",
@@ -394,7 +394,7 @@ export const shopProducts: ProductType[] = [
     name: "Soft Relief Massage Oil",
     desc: "A lightweight body oil formulated for general body aches. Delivers smooth glide and delicate warmth to ease minor physical strain while leaving skin glowing.",
     price: 12000,
-    image: "/product5.png",
+    image: "/product1.png",
   },
 ];
 

@@ -45,7 +45,7 @@ export interface Service {
   img: string;
   icon: string;
   duration: string;
-  price: string;
+  price: number;
 }
 
 export interface ShopProduct {

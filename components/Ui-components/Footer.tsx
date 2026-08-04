@@ -21,34 +21,6 @@ export interface HeroBullet {
   text: string;
   link: string;
 }
-const message = "Hello, I would like to know more about your singleservices.";
-// Phone number used for WhatsApp link (digits only, with country code)
-const phone = "+2347064347587";
-const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(
-  message,
-)}`;
-const SOCIALS = [
-  {
-    Icon: FaInstagram,
-    label: "Instagram",
-    link: "https://www.instagram.com/thera_home1/",
-  },
-  {
-    Icon: Globe,
-    label: "Website",
-    link: "/home",
-  },
-  {
-    Icon: MessageCircle,
-    label: "Chat",
-    link: whatsappLink,
-  },
-  {
-    Icon: FaFacebook,
-    label: "FB",
-    link: "https://web.facebook.com/profile.php?id=61579577205712",
-  },
-];
 
 export const contactInfo = [
   { Icon: MapPin, text: " Berger Lagos, Nigeria" },
@@ -61,8 +33,35 @@ export const contactInfo = [
 export default function Footer() {
   // const [email, setEmail] = useState<string>("");
   const [loaded, setLoaded] = useState<boolean>(false);
-  const { toggleBookingForm, setSelectedService } = useFunctionalitiesContext();
-
+  const {
+    toggleBookingForm,
+    setSelectedService,
+    phone,
+    message,
+    whatsappLink,
+  } = useFunctionalitiesContext();
+  const SOCIALS = [
+    {
+      Icon: FaInstagram,
+      label: "Instagram",
+      link: "https://www.instagram.com/thera_home1/",
+    },
+    {
+      Icon: Globe,
+      label: "Website",
+      link: "/home",
+    },
+    {
+      Icon: MessageCircle,
+      label: "Chat",
+      link: whatsappLink,
+    },
+    {
+      Icon: FaFacebook,
+      label: "FB",
+      link: "https://web.facebook.com/profile.php?id=61579577205712",
+    },
+  ];
   function bookThisMassage(service: string) {
     toggleBookingForm();
     setSelectedService(service);

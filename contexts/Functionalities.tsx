@@ -76,8 +76,6 @@ type FunctionalitiesContextType = {
   toggleBookingPlans: () => void;
   selectedService: string;
   selectedPlan: string;
-  // setSelectedPlan: (service: string) => void;
-  // setSelectedService: (service: string) => void;
   setSelectedPlan: React.Dispatch<React.SetStateAction<string>>;
   setSelectedService: React.Dispatch<React.SetStateAction<string>>;
 };

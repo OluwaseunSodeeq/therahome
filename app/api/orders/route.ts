@@ -109,8 +109,8 @@ export async function POST(req: Request) {
       {
         success: true,
         orderId: createdOrder.id,
-        message:
-          "Your order has been received successfully. We'll contact you shortly.",
+        message: `Your order has been received successfully.
+          We'll contact you shortly.`,
       },
       {
         status: 201,
