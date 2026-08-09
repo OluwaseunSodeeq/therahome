@@ -64,18 +64,18 @@ export default function FeaturedProducts() {
             />
           ))}
         </div>
-
-        <DirectionReveal delay={0.1}>
-          <div
-            className="
+        <div className="hidden">
+          <DirectionReveal delay={0.1}>
+            <div
+              className="
               view-all-mobile
               mt-5
               hidden
               max-[900px]:block
             "
-          >
-            <button
-              className="
+            >
+              <button
+                className="
                 text-primary-green
                 flex
                 items-center
@@ -91,11 +91,12 @@ export default function FeaturedProducts() {
                 cursor-pointer
                 hover:opacity-70
               "
-            >
-              View All Products →
-            </button>
-          </div>
-        </DirectionReveal>
+              >
+                View All Products →
+              </button>
+            </div>
+          </DirectionReveal>
+        </div>
       </div>
     </section>
   );

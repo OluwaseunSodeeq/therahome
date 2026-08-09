@@ -56,7 +56,7 @@ export default function Services() {
           </ServiceReveal>
         </div>
       </div>
-      <div className="mx-auto mt-5 w-fit lg:max-w-56 lg:mt-7 ">
+      <div className="mx-auto w-fit lg:max-w-56 mt-7 ">
         <PlanButton>Sucscribe to Our VIP Plans</PlanButton>
       </div>
     </section>
