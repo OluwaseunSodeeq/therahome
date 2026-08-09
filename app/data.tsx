@@ -1,6 +1,5 @@
 import {
   BookingPrice,
-  // Product,
   Service,
   Step,
   Testimonial,
@@ -373,28 +372,29 @@ export const shopProducts: ProductType[] = [
     name: "Ease Spray",
     desc: "A fine, fast-absorbing mist designed to relieve body pain. Perfect for immediate, hands-free relief from daily fatigue and physical stress.",
     price: 15000,
-    image: "/products/easy_spray.png",
+    image: "/products/ease_spray_oil.png",
   },
+
   {
     id: "2",
-    name: "Ease Botanical Liniment",
-    desc: "A rich, artisanal balm that melts into the skin. Infused with soothing botanicals to gently knead away deep tension and localized discomfort. Effective for joint pains.",
-    price: 10000,
-    image: "/product2.png",
-  },
-  {
-    id: "3",
     name: "Serene Massage Oil",
     desc: "A silky, nocturnal elixir crafted to quiet the mind. Envelops the body in a calming aromatic veil to prepare you for deep relaxation and sleep.",
     price: 15000,
-    image: "/product5.png",
+    image: "/products/serene_oil.png",
+  },
+  {
+    id: "3",
+    name: "Ease Botanical Liniment",
+    desc: "A rich, artisanal balm that melts into the skin. Infused with soothing botanicals to gently knead away deep tension and localized discomfort. Effective for joint pains.",
+    price: 10000,
+    image: "/products/ease_limi.png",
   },
   {
     id: "4",
     name: "Soft Relief Massage Oil",
     desc: "A lightweight body oil formulated for general body aches. Delivers smooth glide and delicate warmth to ease minor physical strain while leaving skin glowing.",
     price: 12000,
-    image: "/product1.png",
+    image: "/products/soft_relief_oil.png",
   },
 ];
 

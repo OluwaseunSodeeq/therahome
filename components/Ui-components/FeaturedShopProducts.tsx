@@ -33,9 +33,7 @@ export default function FeaturedProducts() {
               "
             >
               <div className="h-px w-7 bg-[#c5b99a]" />
-
               <span className="text-[15px] text-primary-light">🌿</span>
-
               <div className="h-px w-7 bg-[#c5b99a]" />
             </div>
 
