@@ -57,7 +57,7 @@ export default function Services() {
         </div>
       </div>
       {/* <CallButton>Sucscribe to Our Vip Plans</CallButton> */}
-      <div className="w-fll lg:max-w-56 mx-auto lg:mt-7">
+      <div className="w-full lg:max-w-56 mx-auto lg:mt-7">
         <PlanButton>Sucscribe to Our VIP Plans</PlanButton>
       </div>
     </section>
