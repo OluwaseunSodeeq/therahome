@@ -1,0 +1,17 @@
+name: Supabase Health Check
+
+on:
+  schedule:
+    - cron: "0 3 */2 * *"
+
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Supabase database
+        run: |
+          curl --fail --silent --show-error \
+              https://therahome.vercel.app/api/health
